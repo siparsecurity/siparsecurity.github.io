@@ -7,18 +7,18 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --black: #0c0c0c;
-      --white: #f5f5f0;
-      --green: #00e676;
-      --green-soft: rgba(0,230,118,0.08);
-      --green-border: rgba(0,230,118,0.2);
-      --amber: #ffb300;
-      --red: #ff4444;
-      --surface: #141414;
-      --surface2: #1a1a1a;
-      --border: #222222;
-      --text: #666666;
-      --text2: #999999;
+      --black: #0a0a0a;
+      --white: #e8e8e4;
+      --accent: #4a9eff;
+      --accent-soft: rgba(74,158,255,0.07);
+      --accent-border: rgba(74,158,255,0.18);
+      --amber: #c8952a;
+      --red: #c0392b;
+      --surface: #111111;
+      --surface2: #161616;
+      --border: #1e1e1e;
+      --text: #555555;
+      --text2: #777777;
       --mono: 'IBM Plex Mono', monospace;
       --sans: 'IBM Plex Sans', sans-serif;
     }
@@ -41,8 +41,8 @@
       z-index: 99;
       height: 56px;
       border-bottom: 1px solid var(--border);
-      background: rgba(12,12,12,0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -51,15 +51,15 @@
 
     .nav-logo {
       font-family: var(--mono);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 500;
       color: var(--white);
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
     .nav-logo em {
-      color: var(--green);
+      color: var(--accent);
       font-style: normal;
     }
 
@@ -70,7 +70,7 @@
 
     .nav-center a {
       font-family: var(--mono);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--text);
       text-decoration: none;
       letter-spacing: 0.08em;
@@ -86,21 +86,21 @@
     }
 
     .pulse {
-      width: 6px; height: 6px;
-      background: var(--green);
+      width: 5px; height: 5px;
+      background: var(--accent);
       border-radius: 50%;
-      animation: pulse 2s ease infinite;
+      animation: pulse 2.5s ease infinite;
     }
 
     @keyframes pulse {
       0%,100% { opacity: 1; }
-      50% { opacity: 0.3; }
+      50% { opacity: 0.2; }
     }
 
     .nav-status {
       font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--green);
+      font-size: 0.63rem;
+      color: var(--accent);
       letter-spacing: 0.1em;
     }
 
@@ -128,7 +128,7 @@
 
     .label {
       font-family: var(--mono);
-      font-size: 0.65rem;
+      font-size: 0.63rem;
       color: var(--text);
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -143,17 +143,17 @@
       margin-bottom: 2rem;
     }
 
-    .hero-h1 .g { color: var(--green); }
+    .hero-h1 .g { color: var(--accent); }
     .hero-h1 .dim {
       color: transparent;
-      -webkit-text-stroke: 1px var(--border);
+      -webkit-text-stroke: 1px #252525;
     }
 
     .hero-p {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text2);
       max-width: 380px;
-      line-height: 1.8;
+      line-height: 1.85;
       margin-bottom: 2.5rem;
       font-weight: 300;
     }
@@ -164,7 +164,7 @@
 
     .btn {
       font-family: var(--mono);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       letter-spacing: 0.06em;
       padding: 0.65rem 1.4rem;
       text-decoration: none;
@@ -175,16 +175,16 @@
       border: 1px solid transparent;
     }
 
-    .btn-green {
-      background: var(--green);
+    .btn-primary {
+      background: var(--white);
       color: #000;
       font-weight: 500;
     }
 
-    .btn-green:hover {
+    .btn-primary:hover {
       background: transparent;
-      color: var(--green);
-      border-color: var(--green);
+      color: var(--white);
+      border-color: var(--white);
     }
 
     .btn-ghost {
@@ -195,7 +195,7 @@
 
     .btn-ghost:hover {
       color: var(--white);
-      border-color: var(--text);
+      border-color: #333;
     }
 
     /* HERO RIGHT — TERMINAL */
@@ -215,42 +215,42 @@
     }
 
     .dots { display: flex; gap: 6px; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dr { background: #ff5f57; }
-    .dy { background: #febc2e; }
-    .dg { background: #28c840; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; }
+    .dr { background: #3a3a3a; }
+    .dy { background: #3a3a3a; }
+    .dg { background: #3a3a3a; }
 
     .term-title {
       font-family: var(--mono);
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       color: var(--text);
       margin-left: auto;
     }
 
     .term-body {
       flex: 1;
-      padding: 2rem 2rem;
+      padding: 2rem;
       font-family: var(--mono);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       line-height: 2;
       overflow: hidden;
     }
 
     .tl { display: block; }
-    .tp { color: var(--green); }
-    .tc { color: var(--white); }
-    .td { color: #3a3a3a; padding-left: 0; }
-    .tn { color: var(--green); opacity: 0.7; }
+    .tp { color: #5a8fbf; }
+    .tc { color: #c8c8c4; }
+    .td { color: #2a2a2a; }
+    .tn { color: var(--accent); opacity: 0.8; }
     .tw { color: var(--amber); }
     .te { color: var(--red); }
-    .ti { color: #555; }
+    .ti { color: #444; }
 
     .cur {
       display: inline-block;
       width: 7px; height: 0.9em;
-      background: var(--green);
+      background: var(--text2);
       vertical-align: text-bottom;
-      animation: blink 1s step-end infinite;
+      animation: blink 1.2s step-end infinite;
     }
 
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
@@ -271,7 +271,7 @@
     .stat:last-child { border-right: none; }
 
     .stat-val {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       font-weight: 600;
       color: var(--white);
       line-height: 1;
@@ -279,11 +279,11 @@
       margin-bottom: 0.4rem;
     }
 
-    .stat-val span { color: var(--green); }
+    .stat-val span { color: var(--accent); }
 
     .stat-key {
       font-family: var(--mono);
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       color: var(--text);
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -293,10 +293,10 @@
       position: absolute;
       top: 1rem; right: 1rem;
       font-family: var(--mono);
-      font-size: 0.58rem;
-      color: var(--green);
-      border: 1px solid var(--green-border);
-      background: var(--green-soft);
+      font-size: 0.56rem;
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+      background: var(--accent-soft);
       padding: 0.15rem 0.45rem;
       letter-spacing: 0.08em;
     }
@@ -319,13 +319,13 @@
 
     .section-num {
       font-family: var(--mono);
-      font-size: 0.65rem;
+      font-size: 0.63rem;
       color: var(--text);
       letter-spacing: 0.15em;
     }
 
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: var(--white);
       letter-spacing: -0.01em;
@@ -337,7 +337,7 @@
     .vrow {
       background: var(--black);
       display: grid;
-      grid-template-columns: 120px 1fr auto;
+      grid-template-columns: 130px 1fr auto;
       gap: 0 3rem;
       padding: 2rem;
       align-items: start;
@@ -346,20 +346,20 @@
     }
 
     .vrow:hover { background: var(--surface); }
-    .vrow.v-done { border-left-color: var(--green); }
+    .vrow.v-done { border-left-color: var(--accent); }
     .vrow.v-active { border-left-color: var(--amber); background: var(--surface); }
-    .vrow.v-soon { border-left-color: var(--border); }
+    .vrow.v-planned { border-left-color: #2a2a2a; }
 
     .vrow-ver {
       font-family: var(--mono);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: var(--text);
       padding-top: 0.2rem;
       letter-spacing: 0.08em;
     }
 
     .vrow-name {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--white);
       margin-bottom: 0.4rem;
@@ -368,9 +368,9 @@
 
     .vrow-desc {
       font-family: var(--mono);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 0.75rem;
     }
 
@@ -378,28 +378,28 @@
 
     .tag {
       font-family: var(--mono);
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       padding: 0.2rem 0.55rem;
       border: 1px solid var(--border);
       color: var(--text);
       letter-spacing: 0.04em;
     }
 
-    .tag.green { border-color: var(--green-border); color: var(--green); background: var(--green-soft); }
-    .tag.amber { border-color: rgba(255,179,0,0.25); color: var(--amber); background: rgba(255,179,0,0.06); }
+    .tag.blue { border-color: var(--accent-border); color: var(--accent); background: var(--accent-soft); }
+    .tag.amber { border-color: rgba(200,149,42,0.25); color: var(--amber); background: rgba(200,149,42,0.06); }
 
     .vrow-badge {
       font-family: var(--mono);
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       padding: 0.25rem 0.7rem;
       letter-spacing: 0.08em;
       white-space: nowrap;
       align-self: start;
     }
 
-    .badge-done { border: 1px solid var(--green-border); color: var(--green); background: var(--green-soft); }
-    .badge-active { border: 1px solid rgba(255,179,0,0.3); color: var(--amber); background: rgba(255,179,0,0.06); }
-    .badge-soon { border: 1px solid var(--border); color: var(--text); }
+    .badge-done { border: 1px solid var(--accent-border); color: var(--accent); background: var(--accent-soft); }
+    .badge-active { border: 1px solid rgba(200,149,42,0.3); color: var(--amber); background: rgba(200,149,42,0.06); }
+    .badge-planned { border: 1px solid #222; color: var(--text); }
 
     /* FEATURES */
     .features-grid {
@@ -419,14 +419,14 @@
 
     .fcard-n {
       font-family: var(--mono);
-      font-size: 0.6rem;
-      color: #2a2a2a;
+      font-size: 0.58rem;
+      color: #222;
       margin-bottom: 1.25rem;
       letter-spacing: 0.1em;
     }
 
     .fcard-title {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: var(--white);
       margin-bottom: 0.5rem;
@@ -434,7 +434,7 @@
 
     .fcard-desc {
       font-family: var(--mono);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--text);
       line-height: 1.75;
     }
@@ -442,7 +442,7 @@
     .fcard-badge {
       margin-top: 1rem;
       font-family: var(--mono);
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       padding: 0.18rem 0.5rem;
       display: inline-block;
       letter-spacing: 0.08em;
@@ -466,7 +466,7 @@
 
     .founder-label {
       font-family: var(--mono);
-      font-size: 0.65rem;
+      font-size: 0.63rem;
       color: var(--text);
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -474,7 +474,7 @@
     }
 
     .founder-name {
-      font-size: 2rem;
+      font-size: 1.9rem;
       font-weight: 600;
       color: var(--white);
       letter-spacing: -0.02em;
@@ -482,9 +482,9 @@
     }
 
     .founder-bio {
-      font-size: 0.875rem;
+      font-size: 0.86rem;
       color: var(--text2);
-      line-height: 1.85;
+      line-height: 1.9;
       font-weight: 300;
     }
 
@@ -503,18 +503,18 @@
     }
 
     .fstat-val {
-      font-size: 1.75rem;
+      font-size: 1.7rem;
       font-weight: 600;
       color: var(--white);
       letter-spacing: -0.02em;
       margin-bottom: 0.3rem;
     }
 
-    .fstat-val span { color: var(--green); }
+    .fstat-val span { color: var(--accent); }
 
     .fstat-key {
       font-family: var(--mono);
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       color: var(--text);
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -536,7 +536,7 @@
 
     .fcol-label {
       font-family: var(--mono);
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       color: var(--text);
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -544,27 +544,27 @@
     }
 
     .footer-logo {
-      font-size: 1.75rem;
+      font-size: 1.6rem;
       font-weight: 600;
       color: var(--white);
       letter-spacing: -0.02em;
       margin-bottom: 0.75rem;
     }
 
-    .footer-logo em { color: var(--green); font-style: normal; }
+    .footer-logo em { color: var(--accent); font-style: normal; }
 
     .footer-tagline {
       font-family: var(--mono);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--text);
-      line-height: 1.8;
+      line-height: 1.85;
       max-width: 280px;
     }
 
     .footer-copy {
       font-family: var(--mono);
-      font-size: 0.62rem;
-      color: #333;
+      font-size: 0.6rem;
+      color: #2a2a2a;
       margin-top: 2rem;
     }
 
@@ -572,7 +572,7 @@
 
     .flinks a {
       font-family: var(--mono);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--text);
       text-decoration: none;
       display: flex;
@@ -581,13 +581,13 @@
       transition: color 0.15s;
     }
 
-    .flinks a:hover { color: var(--green); }
-    .flinks a::before { content: '→'; font-size: 0.6rem; color: var(--green); }
+    .flinks a:hover { color: var(--white); }
+    .flinks a::before { content: '→'; font-size: 0.58rem; color: var(--text); }
 
     /* REVEAL */
     .r {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(10px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
     .r.show { opacity: 1; transform: none; }
@@ -639,7 +639,7 @@
           network — every device, every event, every threat.
         </p>
         <div class="btn-row">
-          <a href="https://github.com/siparsecurity/network-monitor-v2" target="_blank" class="btn btn-green">⭐ View on GitHub</a>
+          <a href="https://github.com/siparsecurity/network-monitor-v2" target="_blank" class="btn btn-primary">⭐ View on GitHub</a>
           <a href="https://github.com/siparsecurity/network-monitor-v2/releases" target="_blank" class="btn btn-ghost">↓ All Releases</a>
         </div>
       </div>
@@ -669,7 +669,7 @@
           <span class="tl"><span class="te">[ALERT]</span><span class="tc"> ARP_SPOOF → 192.168.1.1 · risk: 20</span></span>
           <span class="tl"><span class="tw">[OFFLINE]</span><span class="tc"> 192.168.1.110 · 3 missed scans</span></span>
           <span class="tl td"> </span>
-          <span class="tl"><span class="tn">[SOC]</span><span class="tc"> Dashboard → </span><span style="color:#00b0ff">http://localhost:5000</span></span>
+          <span class="tl"><span class="tn">[SOC]</span><span class="tc"> Dashboard → </span><span style="color:#4a9eff">http://localhost:5000</span></span>
           <span class="tl td"> </span>
           <span class="tl"><span class="tp">root@kali</span><span class="ti"> ~ </span><span class="cur"></span></span>
         </div>
@@ -706,68 +706,56 @@
     </div>
     <div class="versions">
 
+      <!-- V1.0 RELEASED -->
       <div class="vrow v-done">
-        <div class="vrow-ver">v0.1 — 2026</div>
+        <div class="vrow-ver">v1.0 — 2026</div>
         <div>
           <div class="vrow-name">Version 1.0 — Foundation</div>
           <div class="vrow-desc">First working release. ARP scan engine, event architecture, and SOC dashboard.</div>
           <div class="tags">
-            <span class="tag green">ARP Scan Engine</span>
-            <span class="tag green">Event Server</span>
-            <span class="tag green">SOC Dashboard</span>
-            <span class="tag green">Auto Interface Detection</span>
+            <span class="tag blue">ARP Scan Engine</span>
+            <span class="tag blue">Event Server</span>
+            <span class="tag blue">SOC Dashboard</span>
+            <span class="tag blue">Auto Interface Detection</span>
           </div>
         </div>
         <div class="vrow-badge badge-done">RELEASED</div>
       </div>
 
-      <div class="vrow v-active">
-        <div class="vrow-ver">v0.2 — 2026</div>
+      <!-- V2.0 RELEASED -->
+      <div class="vrow v-done">
+        <div class="vrow-ver">v2.0 — 2026</div>
         <div>
           <div class="vrow-name">Version 2.0 — Device Intelligence</div>
           <div class="vrow-desc">Major upgrade. Device schema, persistent state, offline detection, hardened ARP spoof engine, full dark SOC UI.</div>
           <div class="tags">
-            <span class="tag amber">Device Schema</span>
-            <span class="tag amber">Offline Detection</span>
-            <span class="tag amber">ARP Spoof Cooldown</span>
-            <span class="tag amber">MAC Randomization Handling</span>
-            <span class="tag amber">Online/Offline Badges</span>
-            <span class="tag amber">/stats API</span>
-            <span class="tag amber">5 Stat Cards</span>
-            <span class="tag amber">Filtered Alerts</span>
+            <span class="tag blue">Device Schema</span>
+            <span class="tag blue">Offline Detection</span>
+            <span class="tag blue">ARP Spoof Cooldown</span>
+            <span class="tag blue">MAC Randomization Handling</span>
+            <span class="tag blue">Online/Offline Badges</span>
+            <span class="tag blue">/stats API</span>
+            <span class="tag blue">5 Stat Cards</span>
+            <span class="tag blue">Filtered Alerts</span>
           </div>
         </div>
         <div class="vrow-badge badge-done">RELEASED</div>
       </div>
 
-      <div class="vrow v-soon">
-        <div class="vrow-ver">v0.3 — Soon</div>
+      <!-- V3.0 IN ACTIVE DEVELOPMENT -->
+      <div class="vrow v-active">
+        <div class="vrow-ver">v3.0 — Active</div>
         <div>
-          <div class="vrow-name">Version 3.0 — Alerts</div>
-          <div class="vrow-desc">Email and SMS alerts, device tagging, CSV export, port scan detection.</div>
+          <div class="vrow-name">Version 3.0 — Alerts &amp; Integrations</div>
+          <div class="vrow-desc">Email and SMS alerts, device tagging, CSV export, port scan detection. Currently in active development.</div>
           <div class="tags">
-            <span class="tag">Email/SMS Alerts</span>
-            <span class="tag">Device Tagging</span>
-            <span class="tag">CSV Export</span>
-            <span class="tag">Port Scan Detection</span>
+            <span class="tag amber">Email/SMS Alerts</span>
+            <span class="tag amber">Device Tagging</span>
+            <span class="tag amber">CSV Export</span>
+            <span class="tag amber">Port Scan Detection</span>
           </div>
         </div>
-        <div class="vrow-badge badge-soon">PLANNED</div>
-      </div>
-
-      <div class="vrow v-soon">
-        <div class="vrow-ver">v1.0 — 2026</div>
-        <div>
-          <div class="vrow-name">Version 1.0 — Public Release</div>
-          <div class="vrow-desc">Full stable release with installer, documentation, and cross-platform support.</div>
-          <div class="tags">
-            <span class="tag">Installer</span>
-            <span class="tag">Full Docs</span>
-            <span class="tag">Cross-Platform</span>
-            <span class="tag">Auto-Start</span>
-          </div>
-        </div>
-        <div class="vrow-badge badge-soon">2026</div>
+        <div class="vrow-badge badge-active">IN DEVELOPMENT</div>
       </div>
 
     </div>
