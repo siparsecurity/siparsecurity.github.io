@@ -1,483 +1,900 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIPAR SECURITY</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sipar Security</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0c0c0c;
+      --white: #f5f5f0;
+      --green: #00e676;
+      --green-soft: rgba(0,230,118,0.08);
+      --green-border: rgba(0,230,118,0.2);
+      --amber: #ffb300;
+      --red: #ff4444;
+      --surface: #141414;
+      --surface2: #1a1a1a;
+      --border: #222222;
+      --text: #666666;
+      --text2: #999999;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'IBM Plex Sans', sans-serif;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-}
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-body{
-background:#050816;
-color:white;
-overflow-x:hidden;
-}
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 99;
+      height: 56px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(12,12,12,0.95);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+    }
 
-body::before{
-content:'';
-position:fixed;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 20%,rgba(0,255,255,.08),transparent 35%),
-radial-gradient(circle at 80% 30%,rgba(0,100,255,.08),transparent 35%),
-radial-gradient(circle at 50% 80%,rgba(0,255,150,.05),transparent 40%);
-z-index:-1;
-}
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-}
+    .nav-logo em {
+      color: var(--green);
+      font-style: normal;
+    }
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 0;
-}
+    .nav-center {
+      display: flex;
+      gap: 2.5rem;
+    }
 
-.logo{
-font-size:1.5rem;
-font-weight:800;
-letter-spacing:2px;
-}
+    .nav-center a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
 
-.nav-links{
-display:flex;
-gap:25px;
-}
+    .nav-center a:hover { color: var(--white); }
 
-.nav-links a{
-color:#a5b4fc;
-text-decoration:none;
-transition:.3s;
-}
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-.nav-links a:hover{
-color:white;
-}
+    .pulse {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
 
-.hero{
-padding:120px 0;
-text-align:center;
-}
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
 
-.badge{
-display:inline-block;
-padding:10px 20px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.1);
-border-radius:100px;
-margin-bottom:30px;
-color:#67e8f9;
-backdrop-filter:blur(10px);
-}
+    .nav-status {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--green);
+      letter-spacing: 0.1em;
+    }
 
-.hero h1{
-font-size:5rem;
-font-weight:800;
-line-height:1;
-margin-bottom:20px;
-}
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 56px 0 0;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
 
-.hero p{
-max-width:800px;
-margin:auto;
-font-size:1.2rem;
-color:#94a3b8;
-line-height:1.8;
-}
+    .hero-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
 
-.buttons{
-margin-top:40px;
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
+    .hero-left {
+      padding: 5rem 4rem;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-.btn{
-padding:16px 30px;
-border-radius:12px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
+    .label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
 
-.primary{
-background:linear-gradient(135deg,#06b6d4,#2563eb);
-color:white;
-}
+    .hero-h1 {
+      font-size: clamp(3.5rem, 6vw, 6.5rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+    }
 
-.primary:hover{
-transform:translateY(-3px);
-}
+    .hero-h1 .g { color: var(--green); }
+    .hero-h1 .dim {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border);
+    }
 
-.secondary{
-border:1px solid rgba(255,255,255,.1);
-color:white;
-background:rgba(255,255,255,.03);
-}
+    .hero-p {
+      font-size: 0.9rem;
+      color: var(--text2);
+      max-width: 380px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
 
-.secondary:hover{
-background:rgba(255,255,255,.08);
-}
+    .hero-p strong { color: var(--white); font-weight: 500; }
 
-.section{
-padding:100px 0;
-}
+    .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
-.section-title{
-font-size:3rem;
-text-align:center;
-margin-bottom:20px;
-}
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      padding: 0.65rem 1.4rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid transparent;
+    }
 
-.section-subtitle{
-text-align:center;
-max-width:800px;
-margin:auto;
-color:#94a3b8;
-line-height:1.8;
-margin-bottom:60px;
-}
+    .btn-green {
+      background: var(--green);
+      color: #000;
+      font-weight: 500;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
+    .btn-green:hover {
+      background: transparent;
+      color: var(--green);
+      border-color: var(--green);
+    }
 
-.card{
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-border-radius:20px;
-padding:30px;
-backdrop-filter:blur(20px);
-transition:.3s;
-}
+    .btn-ghost {
+      background: transparent;
+      color: var(--text2);
+      border-color: var(--border);
+    }
 
-.card:hover{
-transform:translateY(-5px);
-border-color:#06b6d4;
-}
+    .btn-ghost:hover {
+      color: var(--white);
+      border-color: var(--text);
+    }
 
-.card h3{
-margin-bottom:15px;
-font-size:1.2rem;
-}
+    /* HERO RIGHT — TERMINAL */
+    .hero-right {
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+    }
 
-.card p{
-color:#94a3b8;
-line-height:1.7;
-}
+    .term-bar {
+      padding: 0.85rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--surface2);
+    }
 
-.timeline{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-margin-top:50px;
-}
+    .dots { display: flex; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dr { background: #ff5f57; }
+    .dy { background: #febc2e; }
+    .dg { background: #28c840; }
 
-.version{
-background:rgba(255,255,255,.04);
-padding:35px;
-border-radius:20px;
-border:1px solid rgba(255,255,255,.08);
-}
+    .term-title {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text);
+      margin-left: auto;
+    }
 
-.version h3{
-font-size:2rem;
-margin-bottom:15px;
-}
+    .term-body {
+      flex: 1;
+      padding: 2rem 2rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      line-height: 2;
+      overflow: hidden;
+    }
 
-.version ul{
-margin-top:15px;
-padding-left:20px;
-line-height:2;
-color:#cbd5e1;
-}
+    .tl { display: block; }
+    .tp { color: var(--green); }
+    .tc { color: var(--white); }
+    .td { color: #3a3a3a; padding-left: 0; }
+    .tn { color: var(--green); opacity: 0.7; }
+    .tw { color: var(--amber); }
+    .te { color: var(--red); }
+    .ti { color: #555; }
 
-.founder{
-text-align:center;
-}
+    .cur {
+      display: inline-block;
+      width: 7px; height: 0.9em;
+      background: var(--green);
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
 
-.founder h2{
-font-size:3rem;
-margin-bottom:15px;
-}
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-.founder p{
-max-width:700px;
-margin:auto;
-color:#94a3b8;
-line-height:1.8;
-}
+    /* STATS ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--border);
+    }
 
-.socials{
-display:flex;
-justify-content:center;
-gap:20px;
-margin-top:40px;
-flex-wrap:wrap;
-}
+    .stat {
+      padding: 2rem;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
 
-.socials a{
-padding:14px 24px;
-border-radius:12px;
-text-decoration:none;
-color:white;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-}
+    .stat:last-child { border-right: none; }
 
-footer{
-padding:50px 0;
-text-align:center;
-color:#64748b;
-border-top:1px solid rgba(255,255,255,.08);
-margin-top:100px;
-}
+    .stat-val {
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
 
-@media(max-width:768px){
+    .stat-val span { color: var(--green); }
 
-.hero h1{
-font-size:3rem;
-}
+    .stat-key {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--text);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-.timeline{
-grid-template-columns:1fr;
-}
+    .stat-tag {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--green);
+      border: 1px solid var(--green-border);
+      background: var(--green-soft);
+      padding: 0.15rem 0.45rem;
+      letter-spacing: 0.08em;
+    }
 
-.nav-links{
-display:none;
-}
+    /* SECTION */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 4rem;
+    }
 
-.section-title{
-font-size:2rem;
-}
-}
-</style>
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text);
+      letter-spacing: 0.15em;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    /* VERSIONS */
+    .versions { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+
+    .vrow {
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 0 3rem;
+      padding: 2rem;
+      align-items: start;
+      transition: background 0.2s;
+      border-left: 2px solid transparent;
+    }
+
+    .vrow:hover { background: var(--surface); }
+    .vrow.v-done { border-left-color: var(--green); }
+    .vrow.v-active { border-left-color: var(--amber); background: var(--surface); }
+    .vrow.v-soon { border-left-color: var(--border); }
+
+    .vrow-ver {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text);
+      padding-top: 0.2rem;
+      letter-spacing: 0.08em;
+    }
+
+    .vrow-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .vrow-desc {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    .tag.green { border-color: var(--green-border); color: var(--green); background: var(--green-soft); }
+    .tag.amber { border-color: rgba(255,179,0,0.25); color: var(--amber); background: rgba(255,179,0,0.06); }
+
+    .vrow-badge {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      padding: 0.25rem 0.7rem;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      align-self: start;
+    }
+
+    .badge-done { border: 1px solid var(--green-border); color: var(--green); background: var(--green-soft); }
+    .badge-active { border: 1px solid rgba(255,179,0,0.3); color: var(--amber); background: rgba(255,179,0,0.06); }
+    .badge-soon { border: 1px solid var(--border); color: var(--text); }
+
+    /* FEATURES */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .fcard {
+      background: var(--black);
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+
+    .fcard:hover { background: var(--surface); }
+
+    .fcard-n {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: #2a2a2a;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.1em;
+    }
+
+    .fcard-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .fcard-desc {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    .fcard-badge {
+      margin-top: 1rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      padding: 0.18rem 0.5rem;
+      display: inline-block;
+      letter-spacing: 0.08em;
+    }
+
+    /* FOUNDER */
+    .founder-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .founder-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .founder-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .founder-name {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .founder-bio {
+      font-size: 0.875rem;
+      color: var(--text2);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .founder-bio strong { color: var(--white); font-weight: 500; }
+
+    .founder-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .fstat {
+      background: var(--surface);
+      padding: 1.5rem;
+    }
+
+    .fstat-val {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+
+    .fstat-val span { color: var(--green); }
+
+    .fstat-key {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--text);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .fcol {
+      padding: 3rem 2.5rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .fcol:last-child { border-right: none; }
+
+    .fcol-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--text);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-logo {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-logo em { color: var(--green); font-style: normal; }
+
+    .footer-tagline {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text);
+      line-height: 1.8;
+      max-width: 280px;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: #333;
+      margin-top: 2rem;
+    }
+
+    .flinks { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+
+    .flinks a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.15s;
+    }
+
+    .flinks a:hover { color: var(--green); }
+    .flinks a::before { content: '→'; font-size: 0.6rem; color: var(--green); }
+
+    /* REVEAL */
+    .r {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .r.show { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .hero-main { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .stats-row { grid-template-columns: repeat(2,1fr); }
+      .section { padding: 3rem 1.5rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .founder-inner { grid-template-columns: 1fr; gap: 2rem; }
+      footer { grid-template-columns: 1fr; }
+      .fcol { border-right: none; border-bottom: 1px solid var(--border); }
+      .vrow { grid-template-columns: 1fr; gap: 0.5rem; }
+      .nav-center { display: none; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">SIPAR<em>.</em>SECURITY</div>
+    <div class="nav-center">
+      <a href="#versions">Versions</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#founder">Founder</a>
+      <a href="https://github.com/siparsecurity" target="_blank">GitHub</a>
+    </div>
+    <div class="nav-right">
+      <div class="pulse"></div>
+      <div class="nav-status">V2.0 LIVE</div>
+    </div>
+  </nav>
 
-<nav>
-<div class="logo">SIPAR SECURITY</div>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-main">
+      <div class="hero-left">
+        <div class="label">Open Source · Network Security · Pakistan 🇵🇰</div>
+        <h1 class="hero-h1">
+          SIPAR<br/>
+          <span class="g">NETWORK</span><br/>
+          <span class="dim">MONITOR</span>
+        </h1>
+        <p class="hero-p">
+          Real-time device intelligence for <strong>home users</strong>,
+          IT admins, and small businesses. Know exactly what is on your
+          network — every device, every event, every threat.
+        </p>
+        <div class="btn-row">
+          <a href="https://github.com/siparsecurity/network-monitor-v2" target="_blank" class="btn btn-green">⭐ View on GitHub</a>
+          <a href="https://github.com/siparsecurity/network-monitor-v2/releases" target="_blank" class="btn btn-ghost">↓ All Releases</a>
+        </div>
+      </div>
 
-<div class="nav-links">
-<a href="#about">About</a>
-<a href="#product">Product</a>
-<a href="#roadmap">Roadmap</a>
-<a href="#founder">Founder</a>
-</div>
-</nav>
+      <div class="hero-right">
+        <div class="term-bar">
+          <div class="dots">
+            <div class="dot dr"></div>
+            <div class="dot dy"></div>
+            <div class="dot dg"></div>
+          </div>
+          <div class="term-title">sipar — run_soc.py — bash</div>
+        </div>
+        <div class="term-body">
+          <span class="tl"><span class="tp">root@kali</span><span class="ti"> ~ </span><span class="tc">sudo python3 run_soc.py</span></span>
+          <span class="tl td"> </span>
+          <span class="tl"><span class="tn">[+]</span><span class="tc"> Starting Sipar Security SOC...</span></span>
+          <span class="tl"><span class="tn">[+]</span><span class="tc"> Event Server → 127.0.0.1:5050</span></span>
+          <span class="tl"><span class="tn">[+]</span><span class="tc"> IDS scanning 192.168.1.0/24</span></span>
+          <span class="tl"><span class="tn">[+]</span><span class="tc"> Scan interval: 7s · Timeout: 1s</span></span>
+          <span class="tl td"> </span>
+          <span class="tl"><span class="tn">[DEVICE]</span><span class="tc"> 192.168.1.1 → a4:c3:f0:12:88:de</span></span>
+          <span class="tl"><span class="tn">[DEVICE]</span><span class="tc"> 192.168.1.105 → 2e:bc:72:7c:5a:d1</span></span>
+          <span class="tl"><span class="tn">[DEVICE]</span><span class="tc"> 192.168.1.110 → fe:ce:a0:5a:fa:c9</span></span>
+          <span class="tl td"> </span>
+          <span class="tl"><span class="tw">[NEW]</span><span class="tc"> 192.168.1.201 → 4e:f1:00:37:7e:ec · risk: 5</span></span>
+          <span class="tl"><span class="te">[ALERT]</span><span class="tc"> ARP_SPOOF → 192.168.1.1 · risk: 20</span></span>
+          <span class="tl"><span class="tw">[OFFLINE]</span><span class="tc"> 192.168.1.110 · 3 missed scans</span></span>
+          <span class="tl td"> </span>
+          <span class="tl"><span class="tn">[SOC]</span><span class="tc"> Dashboard → </span><span style="color:#00b0ff">http://localhost:5000</span></span>
+          <span class="tl td"> </span>
+          <span class="tl"><span class="tp">root@kali</span><span class="ti"> ~ </span><span class="cur"></span></span>
+        </div>
+      </div>
+    </div>
 
-<section class="hero">
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-tag">LIVE</div>
+        <div class="stat-val">7<span>s</span></div>
+        <div class="stat-key">Scan Interval</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">v2<span>.0</span></div>
+        <div class="stat-key">Latest Version</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">100<span>%</span></div>
+        <div class="stat-key">Open Source</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">0<span>$</span></div>
+        <div class="stat-key">Cost to Use</div>
+      </div>
+    </div>
+  </div>
 
-<div class="badge">
-🚀 VERSION 1.0 RELEASED • VERSION 2.0 IN DEVELOPMENT
-</div>
+  <!-- VERSIONS -->
+  <div class="section r" id="versions">
+    <div class="section-head">
+      <div class="section-num">01</div>
+      <div class="section-title">Release History</div>
+    </div>
+    <div class="versions">
 
-<h1>
-SIPAR<br>
-SECURITY
-</h1>
+      <div class="vrow v-done">
+        <div class="vrow-ver">v0.1 — 2026</div>
+        <div>
+          <div class="vrow-name">Version 1.0 — Foundation</div>
+          <div class="vrow-desc">First working release. ARP scan engine, event architecture, and SOC dashboard.</div>
+          <div class="tags">
+            <span class="tag green">ARP Scan Engine</span>
+            <span class="tag green">Event Server</span>
+            <span class="tag green">SOC Dashboard</span>
+            <span class="tag green">Auto Interface Detection</span>
+          </div>
+        </div>
+        <div class="vrow-badge badge-done">RELEASED</div>
+      </div>
 
-<p>
-Building open-source cybersecurity tools focused on network visibility,
-threat detection and SOC-inspired monitoring for researchers,
-students, home labs and modern organizations.
-</p>
+      <div class="vrow v-active">
+        <div class="vrow-ver">v0.2 — 2026</div>
+        <div>
+          <div class="vrow-name">Version 2.0 — Device Intelligence</div>
+          <div class="vrow-desc">Major upgrade. Device schema, persistent state, offline detection, hardened ARP spoof engine, full dark SOC UI.</div>
+          <div class="tags">
+            <span class="tag amber">Device Schema</span>
+            <span class="tag amber">Offline Detection</span>
+            <span class="tag amber">ARP Spoof Cooldown</span>
+            <span class="tag amber">MAC Randomization Handling</span>
+            <span class="tag amber">Online/Offline Badges</span>
+            <span class="tag amber">/stats API</span>
+            <span class="tag amber">5 Stat Cards</span>
+            <span class="tag amber">Filtered Alerts</span>
+          </div>
+        </div>
+        <div class="vrow-badge badge-done">RELEASED</div>
+      </div>
 
-<div class="buttons">
+      <div class="vrow v-soon">
+        <div class="vrow-ver">v0.3 — Soon</div>
+        <div>
+          <div class="vrow-name">Version 3.0 — Alerts</div>
+          <div class="vrow-desc">Email and SMS alerts, device tagging, CSV export, port scan detection.</div>
+          <div class="tags">
+            <span class="tag">Email/SMS Alerts</span>
+            <span class="tag">Device Tagging</span>
+            <span class="tag">CSV Export</span>
+            <span class="tag">Port Scan Detection</span>
+          </div>
+        </div>
+        <div class="vrow-badge badge-soon">PLANNED</div>
+      </div>
 
-<a class="btn primary"
-href="https://github.com/siparsecurity/network-monitor/releases/tag/v0.1-layer1">
-Download v1.0
-</a>
+      <div class="vrow v-soon">
+        <div class="vrow-ver">v1.0 — 2026</div>
+        <div>
+          <div class="vrow-name">Version 1.0 — Public Release</div>
+          <div class="vrow-desc">Full stable release with installer, documentation, and cross-platform support.</div>
+          <div class="tags">
+            <span class="tag">Installer</span>
+            <span class="tag">Full Docs</span>
+            <span class="tag">Cross-Platform</span>
+            <span class="tag">Auto-Start</span>
+          </div>
+        </div>
+        <div class="vrow-badge badge-soon">2026</div>
+      </div>
 
-<a class="btn secondary"
-href="https://github.com/siparsecurity/network-monitor">
-View Source
-</a>
+    </div>
+  </div>
 
-</div>
+  <!-- CAPABILITIES -->
+  <div class="section r" id="capabilities">
+    <div class="section-head">
+      <div class="section-num">02</div>
+      <div class="section-title">Capabilities</div>
+    </div>
+    <div class="features-grid">
+      <div class="fcard">
+        <div class="fcard-n">001</div>
+        <div class="fcard-title">Device Discovery</div>
+        <div class="fcard-desc">ARP-based scanning captures every device on your network — MAC address, IP, first seen, last seen, and cumulative risk score.</div>
+        <span class="fcard-badge badge-done">LIVE</span>
+      </div>
+      <div class="fcard">
+        <div class="fcard-n">002</div>
+        <div class="fcard-title">Real-Time Tracking</div>
+        <div class="fcard-desc">Continuous 7-second scans. Online and offline status updates instantly. Every state change is logged with a timestamp.</div>
+        <span class="fcard-badge badge-done">LIVE</span>
+      </div>
+      <div class="fcard">
+        <div class="fcard-n">003</div>
+        <div class="fcard-title">Offline Detection</div>
+        <div class="fcard-desc">DEVICE_OFFLINE fires after 3 consecutive missed scans — avoiding false positives from slow ARP responses or brief disconnections.</div>
+        <span class="fcard-badge badge-done">v2.0</span>
+      </div>
+      <div class="fcard">
+        <div class="fcard-n">004</div>
+        <div class="fcard-title">ARP Spoof Detection</div>
+        <div class="fcard-desc">MAC history tracking with cooldown timer and 60-second randomization window. No false positives from modern phones.</div>
+        <span class="fcard-badge badge-done">v2.0</span>
+      </div>
+      <div class="fcard">
+        <div class="fcard-n">005</div>
+        <div class="fcard-title">SOC Dashboard</div>
+        <div class="fcard-desc">Full dark SOC interface. 5 stat cards, filtered alerts panel, online/offline badges, risk color coding. Refreshes every 5 seconds.</div>
+        <span class="fcard-badge badge-done">LIVE</span>
+      </div>
+      <div class="fcard">
+        <div class="fcard-n">006</div>
+        <div class="fcard-title">Persistent Logging</div>
+        <div class="fcard-desc">All events saved to disk as JSONL. Full device state reconstructed on every restart. Zero data loss between sessions.</div>
+        <span class="fcard-badge badge-done">v2.0</span>
+      </div>
+    </div>
+  </div>
 
-</section>
+  <!-- FOUNDER -->
+  <div class="founder-section r" id="founder">
+    <div class="founder-inner">
+      <div>
+        <div class="founder-label">Founder</div>
+        <div class="founder-name">Sayed Muhammad Subayyal</div>
+        <p class="founder-bio">
+          17-year-old ethical hacker and security researcher from
+          <strong>Peshawar, Pakistan</strong>. Founder of Sipar Security.
+          Currently studying at <strong>Islamia College Peshawar</strong>
+          while actively building open-source cybersecurity tools.<br/><br/>
+          Reported verified vulnerabilities to organizations including
+          <strong>NASA</strong> through responsible disclosure.
+          Published researcher — among the top 1% of authors
+          published under 18 globally. Teaching an ethical hacking
+          course on Kali Linux.
+        </p>
+      </div>
+      <div class="founder-stats">
+        <div class="fstat">
+          <div class="fstat-val">17<span>yrs</span></div>
+          <div class="fstat-key">Age</div>
+        </div>
+        <div class="fstat">
+          <div class="fstat-val">2<span>+</span></div>
+          <div class="fstat-key">Tools Released</div>
+        </div>
+        <div class="fstat">
+          <div class="fstat-val">1<span>%</span></div>
+          <div class="fstat-key">Research Author Under 18</div>
+        </div>
+        <div class="fstat">
+          <div class="fstat-val">PK<span> 🇵🇰</span></div>
+          <div class="fstat-key">Pakistan</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<section id="about" class="section">
+  <!-- FOOTER -->
+  <footer>
+    <div class="fcol">
+      <div class="fcol-label">Company</div>
+      <div class="footer-logo">SIPAR<em>.</em>SECURITY</div>
+      <div class="footer-tagline">Open-source network security tools built in Pakistan. Real visibility for everyone — no enterprise budget required.</div>
+      <div class="footer-copy">© 2026 Sipar Security · MIT License · Built in Pakistan 🇵🇰</div>
+    </div>
+    <div class="fcol">
+      <div class="fcol-label">Projects</div>
+      <ul class="flinks">
+        <li><a href="https://github.com/siparsecurity/network-monitor" target="_blank">Network Monitor v1.0</a></li>
+        <li><a href="https://github.com/siparsecurity/network-monitor-v2" target="_blank">Network Monitor v2.0</a></li>
+        <li><a href="https://github.com/siparsecurity/network-monitor-v2/releases" target="_blank">All Releases</a></li>
+        <li><a href="https://github.com/siparsecurity" target="_blank">GitHub Organization</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <div class="fcol-label">Contact</div>
+      <ul class="flinks">
+        <li><a href="mailto:siparsecurity@gmail.com">siparsecurity@gmail.com</a></li>
+        <li><a href="https://linkedin.com/company/siparsecurity" target="_blank">LinkedIn</a></li>
+        <li><a href="https://x.com/SiparSecurity" target="_blank">X / Twitter</a></li>
+        <li><a href="https://github.com/siparsecurity" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
 
-<h2 class="section-title">
-About Sipar Security
-</h2>
-
-<p class="section-subtitle">
-Sipar Security is an independent cybersecurity startup founded by
-Sayed Muhammad Subayyal. The company focuses on practical,
-open-source cybersecurity tooling, network monitoring and
-threat detection solutions.
-</p>
-
-</section>
-
-<section id="product" class="section">
-
-<h2 class="section-title">
-Sipar Network Monitor
-</h2>
-
-<p class="section-subtitle">
-A lightweight network visibility and security monitoring platform
-designed to provide real-time awareness of network activity and
-potential security threats.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<h3>Device Discovery</h3>
-<p>
-Automatically identify and track devices connected to the network.
-</p>
-</div>
-
-<div class="card">
-<h3>Threat Detection</h3>
-<p>
-Detect suspicious network behavior and security anomalies.
-</p>
-</div>
-
-<div class="card">
-<h3>SOC Dashboard</h3>
-<p>
-Monitor network activity through a clean and centralized dashboard.
-</p>
-</div>
-
-<div class="card">
-<h3>Risk Scoring</h3>
-<p>
-Track security events and assign risk levels to monitored devices.
-</p>
-</div>
-
-<div class="card">
-<h3>Event Logging</h3>
-<p>
-Store and analyze security events for investigation and auditing.
-</p>
-</div>
-
-<div class="card">
-<h3>ARP Spoof Detection</h3>
-<p>
-Identify ARP spoofing attempts and generate alerts.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="roadmap" class="section">
-
-<h2 class="section-title">
-Roadmap
-</h2>
-
-<div class="timeline">
-
-<div class="version">
-
-<h3>Version 1.0</h3>
-
-<p>
-Released on GitHub
-</p>
-
-<ul>
-<li>Device Discovery</li>
-<li>Network Monitoring</li>
-<li>Event Logging</li>
-<li>SOC Dashboard</li>
-<li>Risk Tracking</li>
-<li>ARP Detection</li>
-</ul>
-
-</div>
-
-<div class="version">
-
-<h3>Version 2.0</h3>
-
-<p>
-Currently in Development
-</p>
-
-<ul>
-<li>Enhanced Detection Engine</li>
-<li>Improved Dashboard</li>
-<li>Advanced Event Correlation</li>
-<li>Performance Improvements</li>
-<li>Additional Security Features</li>
-<li>Expanded Monitoring Capabilities</li>
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="founder" class="section founder">
-
-<h2>
-Sayed Muhammad Subayyal
-</h2>
-
-<p>
-Founder of Sipar Security. Building open-source cybersecurity
-tools, network monitoring platforms and threat detection
-solutions designed for practical use and continuous improvement.
-</p>
-
-<div class="socials">
-
-<a href="https://github.com/siparsecurity">
-GitHub
-</a>
-
-<a href="https://www.linkedin.com/company/126573957">
-LinkedIn
-</a>
-
-<a href="https://x.com/SiparSecurity">
-X (Twitter)
-</a>
-
-</div>
-
-</section>
-
-<footer>
-© 2026 SIPAR SECURITY • Built in Pakistan
-</footer>
-
-</div>
+  <script>
+    const els = document.querySelectorAll('.r');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('show'), i * 80);
+      });
+    }, { threshold: 0.06 });
+    els.forEach(e => obs.observe(e));
+  </script>
 
 </body>
 </html>
