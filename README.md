@@ -818,11 +818,7 @@
           <strong>Peshawar, Pakistan</strong>. Founder of Sipar Security.
           Currently studying at <strong>Islamia College Peshawar</strong>
           while actively building open-source cybersecurity tools.<br/><br/>
-          Reported verified vulnerabilities to organizations including
-          <strong>NASA</strong> through responsible disclosure.
-          Published researcher — among the top 1% of authors
-          published under 18 globally. Teaching an ethical hacking
-          course on Kali Linux.
+          Published researcher at 17.
         </p>
       </div>
       <div class="founder-stats">
