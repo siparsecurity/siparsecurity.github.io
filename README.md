@@ -817,8 +817,7 @@
           17-year-old ethical hacker and security researcher from
           <strong>Peshawar, Pakistan</strong>. Founder of Sipar Security.
           Currently studying at <strong>Islamia College Peshawar</strong>
-          while actively building open-source cybersecurity tools.<br/><br/>
-          Published researcher at 17.
+          while actively building open-source cybersecurity tools.Published a researcher at 17.
         </p>
       </div>
       <div class="founder-stats">
