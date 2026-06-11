@@ -4,605 +4,558 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sipar Security</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --black: #0a0a0a;
-      --white: #e8e8e4;
-      --accent: #4a9eff;
-      --accent-soft: rgba(74,158,255,0.07);
-      --accent-border: rgba(74,158,255,0.18);
-      --amber: #c8952a;
-      --red: #c0392b;
-      --surface: #111111;
-      --surface2: #161616;
-      --border: #1e1e1e;
-      --text: #555555;
-      --text2: #777777;
+      --bg: #ffffff;
+      --black: #0f0f0f;
+      --text: #444444;
+      --text-light: #888888;
+      --border: #e5e5e5;
+      --surface: #f8f8f8;
+      --accent: #0f0f0f;
+      --green: #16a34a;
+      --amber: #b45309;
       --mono: 'IBM Plex Mono', monospace;
-      --sans: 'IBM Plex Sans', sans-serif;
+      --sans: 'Inter', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--black);
-      color: var(--white);
+      background: var(--bg);
+      color: var(--black);
       font-family: var(--sans);
       line-height: 1.6;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: sticky;
+      top: 0;
       z-index: 99;
-      height: 56px;
+      background: #fff;
       border-bottom: 1px solid var(--border);
-      background: rgba(10,10,10,0.97);
-      backdrop-filter: blur(12px);
+      padding: 0 2rem;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2.5rem;
     }
 
     .nav-logo {
       font-family: var(--mono);
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       font-weight: 500;
-      color: var(--white);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .nav-logo em {
-      color: var(--accent);
-      font-style: normal;
-    }
-
-    .nav-center {
-      display: flex;
-      gap: 2.5rem;
-    }
-
-    .nav-center a {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--text);
+      color: var(--black);
+      letter-spacing: 0.05em;
       text-decoration: none;
-      letter-spacing: 0.08em;
-      transition: color 0.2s;
     }
 
-    .nav-center a:hover { color: var(--white); }
-
-    .nav-right {
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 2rem;
+      list-style: none;
     }
 
-    .pulse {
-      width: 5px; height: 5px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulse 2.5s ease infinite;
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s;
     }
 
-    @keyframes pulse {
-      0%,100% { opacity: 1; }
-      50% { opacity: 0.2; }
+    .nav-links a:hover { color: var(--black); }
+
+    .nav-cta {
+      font-size: 0.82rem;
+      font-weight: 500;
+      background: var(--black);
+      color: #fff;
+      padding: 0.5rem 1.1rem;
+      text-decoration: none;
+      transition: opacity 0.15s;
     }
 
-    .nav-status {
-      font-family: var(--mono);
-      font-size: 0.63rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-    }
+    .nav-cta:hover { opacity: 0.85; }
 
     /* HERO */
     .hero {
-      min-height: 100vh;
-      padding: 56px 0 0;
-      display: grid;
-      grid-template-rows: 1fr auto;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 6rem 2rem 5rem;
+      text-align: center;
     }
 
-    .hero-main {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-left {
-      padding: 5rem 4rem;
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .label {
+    .hero-tag {
+      display: inline-block;
       font-family: var(--mono);
-      font-size: 0.63rem;
-      color: var(--text);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: var(--green);
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 0.3rem 0.8rem;
       margin-bottom: 2rem;
+      letter-spacing: 0.05em;
     }
 
-    .hero-h1 {
-      font-size: clamp(3.5rem, 6vw, 6.5rem);
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
       font-weight: 600;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      margin-bottom: 2rem;
+      color: var(--black);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
     }
 
-    .hero-h1 .g { color: var(--accent); }
-    .hero-h1 .dim {
-      color: transparent;
-      -webkit-text-stroke: 1px #252525;
-    }
-
-    .hero-p {
-      font-size: 0.88rem;
-      color: var(--text2);
-      max-width: 380px;
-      line-height: 1.85;
-      margin-bottom: 2.5rem;
+    .hero p {
+      font-size: 1rem;
+      color: var(--text);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
       font-weight: 300;
     }
 
-    .hero-p strong { color: var(--white); font-weight: 500; }
-
-    .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
     .btn {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.06em;
+      font-size: 0.85rem;
+      font-weight: 500;
       padding: 0.65rem 1.4rem;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.15s;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      border: 1px solid transparent;
     }
 
-    .btn-primary {
-      background: var(--white);
-      color: #000;
-      font-weight: 500;
+    .btn-dark {
+      background: var(--black);
+      color: #fff;
     }
 
-    .btn-primary:hover {
+    .btn-dark:hover { opacity: 0.85; }
+
+    .btn-light {
       background: transparent;
-      color: var(--white);
-      border-color: var(--white);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text2);
-      border-color: var(--border);
-    }
-
-    .btn-ghost:hover {
-      color: var(--white);
-      border-color: #333;
-    }
-
-    /* HERO RIGHT — TERMINAL */
-    .hero-right {
-      background: var(--surface);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .term-bar {
-      padding: 0.85rem 1.5rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: var(--surface2);
-    }
-
-    .dots { display: flex; gap: 6px; }
-    .dot { width: 9px; height: 9px; border-radius: 50%; }
-    .dr { background: #3a3a3a; }
-    .dy { background: #3a3a3a; }
-    .dg { background: #3a3a3a; }
-
-    .term-title {
-      font-family: var(--mono);
-      font-size: 0.66rem;
       color: var(--text);
-      margin-left: auto;
+      border: 1px solid var(--border);
     }
 
-    .term-body {
-      flex: 1;
-      padding: 2rem;
-      font-family: var(--mono);
-      font-size: 0.76rem;
-      line-height: 2;
-      overflow: hidden;
+    .btn-light:hover {
+      border-color: #aaa;
+      color: var(--black);
     }
 
-    .tl { display: block; }
-    .tp { color: #5a8fbf; }
-    .tc { color: #c8c8c4; }
-    .td { color: #2a2a2a; }
-    .tn { color: var(--accent); opacity: 0.8; }
-    .tw { color: var(--amber); }
-    .te { color: var(--red); }
-    .ti { color: #444; }
-
-    .cur {
-      display: inline-block;
-      width: 7px; height: 0.9em;
-      background: var(--text2);
-      vertical-align: text-bottom;
-      animation: blink 1.2s step-end infinite;
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
     }
 
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-    /* STATS ROW */
-    .stats-row {
+    /* STATS */
+    .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       border-bottom: 1px solid var(--border);
     }
 
     .stat {
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       border-right: 1px solid var(--border);
-      position: relative;
+      text-align: center;
     }
 
     .stat:last-child { border-right: none; }
 
     .stat-val {
-      font-size: 2.6rem;
+      font-size: 2rem;
       font-weight: 600;
-      color: var(--white);
-      line-height: 1;
+      color: var(--black);
       letter-spacing: -0.02em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
-    .stat-val span { color: var(--accent); }
-
-    .stat-key {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      color: var(--text);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-weight: 400;
     }
 
-    .stat-tag {
-      position: absolute;
-      top: 1rem; right: 1rem;
-      font-family: var(--mono);
-      font-size: 0.56rem;
-      color: var(--accent);
-      border: 1px solid var(--accent-border);
-      background: var(--accent-soft);
-      padding: 0.15rem 0.45rem;
-      letter-spacing: 0.08em;
-    }
-
-    /* SECTION */
+    /* SECTIONS */
     .section {
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 5rem 4rem;
+      padding: 5rem 2rem;
     }
 
-    .section-head {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-num {
-      font-family: var(--mono);
-      font-size: 0.63rem;
-      color: var(--text);
-      letter-spacing: 0.15em;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: -0.01em;
-    }
-
-    /* VERSIONS */
-    .versions { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
-
-    .vrow {
-      background: var(--black);
-      display: grid;
-      grid-template-columns: 130px 1fr auto;
-      gap: 0 3rem;
-      padding: 2rem;
-      align-items: start;
-      transition: background 0.2s;
-      border-left: 2px solid transparent;
-    }
-
-    .vrow:hover { background: var(--surface); }
-    .vrow.v-done { border-left-color: var(--accent); }
-    .vrow.v-active { border-left-color: var(--amber); background: var(--surface); }
-    .vrow.v-planned { border-left-color: #2a2a2a; }
-
-    .vrow-ver {
+    .section-label {
       font-family: var(--mono);
       font-size: 0.68rem;
-      color: var(--text);
-      padding-top: 0.2rem;
-      letter-spacing: 0.08em;
-    }
-
-    .vrow-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 0.4rem;
-      letter-spacing: -0.01em;
-    }
-
-    .vrow-desc {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--text);
-      line-height: 1.75;
+      color: var(--text-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       margin-bottom: 0.75rem;
     }
 
-    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-
-    .tag {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      padding: 0.2rem 0.55rem;
-      border: 1px solid var(--border);
-      color: var(--text);
-      letter-spacing: 0.04em;
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
     }
 
-    .tag.blue { border-color: var(--accent-border); color: var(--accent); background: var(--accent-soft); }
-    .tag.amber { border-color: rgba(200,149,42,0.25); color: var(--amber); background: rgba(200,149,42,0.06); }
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--text);
+      max-width: 540px;
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
 
-    .vrow-badge {
+    /* VERSIONS TABLE */
+    .versions {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .version-row {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 0 2rem;
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+      transition: background 0.15s;
+    }
+
+    .version-row:last-child { border-bottom: none; }
+    .version-row:hover { background: var(--surface); }
+
+    .v-tag {
       font-family: var(--mono);
-      font-size: 0.6rem;
-      padding: 0.25rem 0.7rem;
-      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      padding-top: 0.15rem;
+    }
+
+    .v-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.3rem;
+    }
+
+    .v-desc {
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .v-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .vtag {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    .vtag-released { background: #f0fdf4; color: var(--green); border: 1px solid #bbf7d0; }
+    .vtag-dev { background: #fffbeb; color: var(--amber); border: 1px solid #fde68a; }
+    .vtag-plain { background: var(--surface); color: var(--text-light); border: 1px solid var(--border); }
+
+    .status-badge {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
       white-space: nowrap;
       align-self: start;
+      font-weight: 500;
     }
 
-    .badge-done { border: 1px solid var(--accent-border); color: var(--accent); background: var(--accent-soft); }
-    .badge-active { border: 1px solid rgba(200,149,42,0.3); color: var(--amber); background: rgba(200,149,42,0.06); }
-    .badge-planned { border: 1px solid #222; color: var(--text); }
+    .status-released { background: #f0fdf4; color: var(--green); border: 1px solid #bbf7d0; }
+    .status-dev { background: #fffbeb; color: var(--amber); border: 1px solid #fde68a; }
+    .status-planned { background: var(--surface); color: var(--text-light); border: 1px solid var(--border); }
 
     /* FEATURES */
-    .features-grid {
+    .features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
     }
 
-    .fcard {
-      background: var(--black);
-      padding: 2rem;
-      transition: background 0.2s;
+    .feature {
+      background: #fff;
+      padding: 1.75rem;
+      transition: background 0.15s;
     }
 
-    .fcard:hover { background: var(--surface); }
+    .feature:hover { background: var(--surface); }
 
-    .fcard-n {
+    .feature-num {
       font-family: var(--mono);
-      font-size: 0.58rem;
-      color: #222;
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.1em;
+      font-size: 0.62rem;
+      color: #ccc;
+      margin-bottom: 1rem;
     }
 
-    .fcard-title {
+    .feature-title {
       font-size: 0.88rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--black);
       margin-bottom: 0.5rem;
     }
 
-    .fcard-desc {
-      font-family: var(--mono);
-      font-size: 0.68rem;
+    .feature-desc {
+      font-size: 0.8rem;
       color: var(--text);
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
-    .fcard-badge {
+    .feature-ver {
       margin-top: 1rem;
       font-family: var(--mono);
-      font-size: 0.58rem;
-      padding: 0.18rem 0.5rem;
-      display: inline-block;
-      letter-spacing: 0.08em;
+      font-size: 0.62rem;
+      color: var(--text-light);
     }
 
     /* FOUNDER */
-    .founder-section {
+    .founder-wrap {
+      background: var(--surface);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
     .founder-inner {
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 4rem;
+      padding: 5rem 2rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
-      align-items: center;
+      align-items: start;
     }
 
     .founder-label {
       font-family: var(--mono);
-      font-size: 0.63rem;
-      color: var(--text);
-      letter-spacing: 0.15em;
+      font-size: 0.68rem;
+      color: var(--text-light);
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-
-    .founder-name {
-      font-size: 1.9rem;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: -0.02em;
       margin-bottom: 1rem;
     }
 
-    .founder-bio {
-      font-size: 0.86rem;
-      color: var(--text2);
-      line-height: 1.9;
-      font-weight: 300;
-    }
-
-    .founder-bio strong { color: var(--white); font-weight: 500; }
-
-    .founder-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .fstat {
-      background: var(--surface);
-      padding: 1.5rem;
-    }
-
-    .fstat-val {
-      font-size: 1.7rem;
+    .founder-name {
+      font-size: 1.4rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--black);
       letter-spacing: -0.02em;
       margin-bottom: 0.3rem;
     }
 
-    .fstat-val span { color: var(--accent); }
+    .founder-role {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
 
-    .fstat-key {
-      font-family: var(--mono);
-      font-size: 0.6rem;
+    .founder-bio {
+      font-size: 0.85rem;
       color: var(--text);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .founder-paper {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--black);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .paper-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--text-light);
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .paper-title {
+      font-size: 0.82rem;
+      color: var(--black);
+      line-height: 1.5;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .paper-journal {
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .interest {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      padding: 0.2rem 0.6rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 2px;
+    }
+
+    .founder-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      align-self: start;
+    }
+
+    .fstat {
+      background: #fff;
+      padding: 1.5rem;
+    }
+
+    .fstat-val {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .fstat-key {
+      font-size: 0.75rem;
+      color: var(--text-light);
     }
 
     /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
-    }
-
-    .fcol {
-      padding: 3rem 2.5rem;
-      border-right: 1px solid var(--border);
-    }
-
-    .fcol:last-child { border-right: none; }
-
-    .fcol-label {
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      color: var(--text);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
+      gap: 3rem;
     }
 
     .footer-logo {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: -0.02em;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--black);
       margin-bottom: 0.75rem;
     }
 
-    .footer-logo em { color: var(--accent); font-style: normal; }
-
     .footer-tagline {
-      font-family: var(--mono);
-      font-size: 0.68rem;
+      font-size: 0.82rem;
       color: var(--text);
-      line-height: 1.85;
-      max-width: 280px;
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 260px;
+      margin-bottom: 1.5rem;
     }
 
     .footer-copy {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      color: #2a2a2a;
-      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: var(--text-light);
     }
 
-    .flinks { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-col-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
 
-    .flinks a {
-      font-family: var(--mono);
-      font-size: 0.68rem;
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
       color: var(--text);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
       transition: color 0.15s;
     }
 
-    .flinks a:hover { color: var(--white); }
-    .flinks a::before { content: '→'; font-size: 0.58rem; color: var(--text); }
+    .footer-links a:hover { color: var(--black); }
 
     /* REVEAL */
     .r {
       opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
     .r.show { opacity: 1; transform: none; }
 
-    @media (max-width: 900px) {
-      .hero-main { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
-      .stats-row { grid-template-columns: repeat(2,1fr); }
-      .section { padding: 3rem 1.5rem; }
-      .features-grid { grid-template-columns: 1fr; }
-      .founder-inner { grid-template-columns: 1fr; gap: 2rem; }
-      footer { grid-template-columns: 1fr; }
-      .fcol { border-right: none; border-bottom: 1px solid var(--border); }
-      .vrow { grid-template-columns: 1fr; gap: 0.5rem; }
-      .nav-center { display: none; }
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .hero { padding: 4rem 1.25rem 3rem; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(3) { border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
+      .stat:nth-child(4) { border-right: none; border-top: 1px solid var(--border); }
+      .section { padding: 3rem 1.25rem; }
+      .version-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .v-tag { padding-top: 0; }
+      .features { grid-template-columns: 1fr; }
+      .founder-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.25rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn { justify-content: center; width: 100%; max-width: 280px; }
+      .features { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -610,231 +563,209 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">SIPAR<em>.</em>SECURITY</div>
-    <div class="nav-center">
-      <a href="#versions">Versions</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#founder">Founder</a>
-      <a href="https://github.com/siparsecurity" target="_blank">GitHub</a>
-    </div>
-    <div class="nav-right">
-      <div class="pulse"></div>
-      <div class="nav-status">V2.0 LIVE</div>
-    </div>
+    <a href="/" class="nav-logo">SIPAR SECURITY</a>
+    <ul class="nav-links">
+      <li><a href="#versions">Versions</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#founder">About</a></li>
+    </ul>
+    <a href="https://github.com/siparsecurity" target="_blank" class="nav-cta">GitHub →</a>
   </nav>
 
   <!-- HERO -->
-  <div class="hero">
-    <div class="hero-main">
-      <div class="hero-left">
-        <div class="label">Open Source · Network Security · Pakistan 🇵🇰</div>
-        <h1 class="hero-h1">
-          SIPAR<br/>
-          <span class="g">NETWORK</span><br/>
-          <span class="dim">MONITOR</span>
-        </h1>
-        <p class="hero-p">
-          Real-time device intelligence for <strong>home users</strong>,
-          IT admins, and small businesses. Know exactly what is on your
-          network — every device, every event, every threat.
-        </p>
-        <div class="btn-row">
-          <a href="https://github.com/siparsecurity/network-monitor-v2" target="_blank" class="btn btn-primary">⭐ View on GitHub</a>
-          <a href="https://github.com/siparsecurity/network-monitor-v2/releases" target="_blank" class="btn btn-ghost">↓ All Releases</a>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="term-bar">
-          <div class="dots">
-            <div class="dot dr"></div>
-            <div class="dot dy"></div>
-            <div class="dot dg"></div>
-          </div>
-          <div class="term-title">sipar — run_soc.py — bash</div>
-        </div>
-        <div class="term-body">
-          <span class="tl"><span class="tp">root@kali</span><span class="ti"> ~ </span><span class="tc">sudo python3 run_soc.py</span></span>
-          <span class="tl td"> </span>
-          <span class="tl"><span class="tn">[+]</span><span class="tc"> Starting Sipar Security SOC...</span></span>
-          <span class="tl"><span class="tn">[+]</span><span class="tc"> Event Server → 127.0.0.1:5050</span></span>
-          <span class="tl"><span class="tn">[+]</span><span class="tc"> IDS scanning 192.168.1.0/24</span></span>
-          <span class="tl"><span class="tn">[+]</span><span class="tc"> Scan interval: 7s · Timeout: 1s</span></span>
-          <span class="tl td"> </span>
-          <span class="tl"><span class="tn">[DEVICE]</span><span class="tc"> 192.168.1.1 → a4:c3:f0:12:88:de</span></span>
-          <span class="tl"><span class="tn">[DEVICE]</span><span class="tc"> 192.168.1.105 → 2e:bc:72:7c:5a:d1</span></span>
-          <span class="tl"><span class="tn">[DEVICE]</span><span class="tc"> 192.168.1.110 → fe:ce:a0:5a:fa:c9</span></span>
-          <span class="tl td"> </span>
-          <span class="tl"><span class="tw">[NEW]</span><span class="tc"> 192.168.1.201 → 4e:f1:00:37:7e:ec · risk: 5</span></span>
-          <span class="tl"><span class="te">[ALERT]</span><span class="tc"> ARP_SPOOF → 192.168.1.1 · risk: 20</span></span>
-          <span class="tl"><span class="tw">[OFFLINE]</span><span class="tc"> 192.168.1.110 · 3 missed scans</span></span>
-          <span class="tl td"> </span>
-          <span class="tl"><span class="tn">[SOC]</span><span class="tc"> Dashboard → </span><span style="color:#4a9eff">http://localhost:5000</span></span>
-          <span class="tl td"> </span>
-          <span class="tl"><span class="tp">root@kali</span><span class="ti"> ~ </span><span class="cur"></span></span>
-        </div>
-      </div>
+  <div class="hero r">
+    <div class="hero-tag">v2.0 Released · Open Source</div>
+    <h1>Network security tools built for everyone</h1>
+    <p>Sipar Security develops open-source network monitoring and intrusion detection tools for home users, IT administrators, and small businesses.</p>
+    <div class="hero-actions">
+      <a href="https://github.com/siparsecurity/network-monitor-v2" target="_blank" class="btn btn-dark">View on GitHub</a>
+      <a href="https://github.com/siparsecurity/network-monitor-v2/releases" target="_blank" class="btn btn-light">Download</a>
     </div>
+  </div>
 
-    <!-- STATS -->
-    <div class="stats-row">
-      <div class="stat">
-        <div class="stat-tag">LIVE</div>
-        <div class="stat-val">7<span>s</span></div>
-        <div class="stat-key">Scan Interval</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">v2<span>.0</span></div>
-        <div class="stat-key">Latest Version</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">100<span>%</span></div>
-        <div class="stat-key">Open Source</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">0<span>$</span></div>
-        <div class="stat-key">Cost to Use</div>
-      </div>
+  <hr class="divider"/>
+
+  <!-- STATS -->
+  <div class="stats r">
+    <div class="stat">
+      <div class="stat-val">v2.0</div>
+      <div class="stat-label">Latest Release</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">7s</div>
+      <div class="stat-label">Scan Interval</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">100%</div>
+      <div class="stat-label">Open Source</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">Free</div>
+      <div class="stat-label">Always</div>
     </div>
   </div>
 
   <!-- VERSIONS -->
   <div class="section r" id="versions">
-    <div class="section-head">
-      <div class="section-num">01</div>
-      <div class="section-title">Release History</div>
-    </div>
+    <div class="section-label">Projects</div>
+    <div class="section-title">Network Monitor</div>
+    <div class="section-desc">A Python-based network intrusion detection system with real-time device tracking, persistent logging, and a SOC-style web dashboard.</div>
+
     <div class="versions">
 
-      <!-- V1.0 RELEASED -->
-      <div class="vrow v-done">
-        <div class="vrow-ver">v1.0 — 2026</div>
+      <div class="version-row">
+        <div class="v-tag">v1.0 — 2026</div>
         <div>
-          <div class="vrow-name">Version 1.0 — Foundation</div>
-          <div class="vrow-desc">First working release. ARP scan engine, event architecture, and SOC dashboard.</div>
-          <div class="tags">
-            <span class="tag blue">ARP Scan Engine</span>
-            <span class="tag blue">Event Server</span>
-            <span class="tag blue">SOC Dashboard</span>
-            <span class="tag blue">Auto Interface Detection</span>
+          <div class="v-name">Version 1.0 — Foundation</div>
+          <div class="v-desc">First public release. ARP scan engine, event server, persistent logging, and SOC dashboard.</div>
+          <div class="v-tags">
+            <span class="vtag vtag-released">ARP Scanning</span>
+            <span class="vtag vtag-released">Event Server</span>
+            <span class="vtag vtag-released">SOC Dashboard</span>
+            <span class="vtag vtag-released">Auto Interface Detection</span>
+            <span class="vtag vtag-released">Persistent Logging</span>
           </div>
         </div>
-        <div class="vrow-badge badge-done">RELEASED</div>
+        <div class="status-badge status-released">Released</div>
       </div>
 
-      <!-- V2.0 RELEASED -->
-      <div class="vrow v-done">
-        <div class="vrow-ver">v2.0 — 2026</div>
+      <div class="version-row">
+        <div class="v-tag">v2.0 — 2026</div>
         <div>
-          <div class="vrow-name">Version 2.0 — Device Intelligence</div>
-          <div class="vrow-desc">Major upgrade. Device schema, persistent state, offline detection, hardened ARP spoof engine, full dark SOC UI.</div>
-          <div class="tags">
-            <span class="tag blue">Device Schema</span>
-            <span class="tag blue">Offline Detection</span>
-            <span class="tag blue">ARP Spoof Cooldown</span>
-            <span class="tag blue">MAC Randomization Handling</span>
-            <span class="tag blue">Online/Offline Badges</span>
-            <span class="tag blue">/stats API</span>
-            <span class="tag blue">5 Stat Cards</span>
-            <span class="tag blue">Filtered Alerts</span>
+          <div class="v-name">Version 2.0 — Device Intelligence</div>
+          <div class="v-desc">Device schema with first/last seen timestamps, offline detection after 3 missed scans, hardened ARP spoof engine, and upgraded SOC dashboard.</div>
+          <div class="v-tags">
+            <span class="vtag vtag-released">Device Schema</span>
+            <span class="vtag vtag-released">Offline Detection</span>
+            <span class="vtag vtag-released">ARP Spoof Cooldown</span>
+            <span class="vtag vtag-released">MAC Randomization Handling</span>
+            <span class="vtag vtag-released">Online/Offline Badges</span>
+            <span class="vtag vtag-released">/stats API</span>
           </div>
         </div>
-        <div class="vrow-badge badge-done">RELEASED</div>
+        <div class="status-badge status-released">Released</div>
       </div>
 
-      <!-- V3.0 IN ACTIVE DEVELOPMENT -->
-      <div class="vrow v-active">
-        <div class="vrow-ver">v3.0 — Active</div>
+      <div class="version-row">
+        <div class="v-tag">v3.0 — Active</div>
         <div>
-          <div class="vrow-name">Version 3.0 — Alerts &amp; Integrations</div>
-          <div class="vrow-desc">Email and SMS alerts, device tagging, CSV export, port scan detection. Currently in active development.</div>
-          <div class="tags">
-            <span class="tag amber">Email/SMS Alerts</span>
-            <span class="tag amber">Device Tagging</span>
-            <span class="tag amber">CSV Export</span>
-            <span class="tag amber">Port Scan Detection</span>
+          <div class="v-name">Version 3.0 — Attack Detection</div>
+          <div class="v-desc">Dedicated attack detection engine with confidence-scored ARP spoof detection, duplicate MAC detection, port scan detection, threat levels, and cross-platform support for Linux, Windows, and Android.</div>
+          <div class="v-tags">
+            <span class="vtag vtag-dev">ARP Spoof Confidence Scoring</span>
+            <span class="vtag vtag-dev">Duplicate MAC Detection</span>
+            <span class="vtag vtag-dev">Port Scan Detection</span>
+            <span class="vtag vtag-dev">Threat Levels</span>
+            <span class="vtag vtag-dev">Risk Decay</span>
+            <span class="vtag vtag-dev">Cross-Platform</span>
           </div>
         </div>
-        <div class="vrow-badge badge-active">IN DEVELOPMENT</div>
+        <div class="status-badge status-dev">In Development</div>
       </div>
 
     </div>
   </div>
 
+  <hr class="divider"/>
+
   <!-- CAPABILITIES -->
   <div class="section r" id="capabilities">
-    <div class="section-head">
-      <div class="section-num">02</div>
-      <div class="section-title">Capabilities</div>
-    </div>
-    <div class="features-grid">
-      <div class="fcard">
-        <div class="fcard-n">001</div>
-        <div class="fcard-title">Device Discovery</div>
-        <div class="fcard-desc">ARP-based scanning captures every device on your network — MAC address, IP, first seen, last seen, and cumulative risk score.</div>
-        <span class="fcard-badge badge-done">LIVE</span>
+    <div class="section-label">Capabilities</div>
+    <div class="section-title">What the tool does</div>
+    <div class="section-desc">Current capabilities available in Version 1.0 and Version 2.0.</div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-num">01</div>
+        <div class="feature-title">Device Discovery</div>
+        <div class="feature-desc">ARP-based scanning captures every device on your network — MAC address, IP, first seen, last seen, and cumulative risk score.</div>
+        <div class="feature-ver">Available in v1.0</div>
       </div>
-      <div class="fcard">
-        <div class="fcard-n">002</div>
-        <div class="fcard-title">Real-Time Tracking</div>
-        <div class="fcard-desc">Continuous 7-second scans. Online and offline status updates instantly. Every state change is logged with a timestamp.</div>
-        <span class="fcard-badge badge-done">LIVE</span>
+      <div class="feature">
+        <div class="feature-num">02</div>
+        <div class="feature-title">Real-Time Tracking</div>
+        <div class="feature-desc">Continuous 7-second scans with instant online and offline status updates. Every state change logged with a timestamp.</div>
+        <div class="feature-ver">Available in v1.0</div>
       </div>
-      <div class="fcard">
-        <div class="fcard-n">003</div>
-        <div class="fcard-title">Offline Detection</div>
-        <div class="fcard-desc">DEVICE_OFFLINE fires after 3 consecutive missed scans — avoiding false positives from slow ARP responses or brief disconnections.</div>
-        <span class="fcard-badge badge-done">v2.0</span>
+      <div class="feature">
+        <div class="feature-num">03</div>
+        <div class="feature-title">Offline Detection</div>
+        <div class="feature-desc">DEVICE_OFFLINE event fires after 3 consecutive missed scans, avoiding false positives from slow ARP responses.</div>
+        <div class="feature-ver">Available in v2.0</div>
       </div>
-      <div class="fcard">
-        <div class="fcard-n">004</div>
-        <div class="fcard-title">ARP Spoof Detection</div>
-        <div class="fcard-desc">MAC history tracking with cooldown timer and 60-second randomization window. No false positives from modern phones.</div>
-        <span class="fcard-badge badge-done">v2.0</span>
+      <div class="feature">
+        <div class="feature-num">04</div>
+        <div class="feature-title">ARP Spoof Detection</div>
+        <div class="feature-desc">MAC history tracking with cooldown timer and 60-second MAC randomization window to eliminate false positives.</div>
+        <div class="feature-ver">Available in v2.0</div>
       </div>
-      <div class="fcard">
-        <div class="fcard-n">005</div>
-        <div class="fcard-title">SOC Dashboard</div>
-        <div class="fcard-desc">Full dark SOC interface. 5 stat cards, filtered alerts panel, online/offline badges, risk color coding. Refreshes every 5 seconds.</div>
-        <span class="fcard-badge badge-done">LIVE</span>
+      <div class="feature">
+        <div class="feature-num">05</div>
+        <div class="feature-title">SOC Dashboard</div>
+        <div class="feature-desc">Browser-based SOC interface with stat cards, filtered alerts panel, online/offline badges, and risk color coding.</div>
+        <div class="feature-ver">Available in v1.0</div>
       </div>
-      <div class="fcard">
-        <div class="fcard-n">006</div>
-        <div class="fcard-title">Persistent Logging</div>
-        <div class="fcard-desc">All events saved to disk as JSONL. Full device state reconstructed on every restart. Zero data loss between sessions.</div>
-        <span class="fcard-badge badge-done">v2.0</span>
+      <div class="feature">
+        <div class="feature-num">06</div>
+        <div class="feature-title">Persistent Logging</div>
+        <div class="feature-desc">All events saved to disk as JSONL. Full device state reconstructed from disk on every restart with no data loss.</div>
+        <div class="feature-ver">Available in v2.0</div>
       </div>
     </div>
   </div>
 
   <!-- FOUNDER -->
-  <div class="founder-section r" id="founder">
+  <div class="founder-wrap r" id="founder">
     <div class="founder-inner">
       <div>
         <div class="founder-label">Founder</div>
         <div class="founder-name">Sayed Muhammad Subayyal</div>
+        <div class="founder-role">Cybersecurity Researcher · Penetration Tester · Founder, Sipar Security</div>
         <p class="founder-bio">
-          17-year-old ethical hacker and security researcher from
-          <strong>Peshawar, Pakistan</strong>. Founder of Sipar Security.
-          Currently studying at <strong>Islamia College Peshawar</strong>
-          while actively building open-source cybersecurity tools.Published a researcher at 17.
+          Cybersecurity researcher and penetration tester focused on network security,
+          wireless security, vulnerability assessment, and open-source security tool
+          development. Works with Linux environments, particularly Kali Linux, applying
+          structured methodologies for security testing and defensive assessments.<br/><br/>
+          Actively contributes to the cybersecurity community through vulnerability
+          disclosure, open-source development, and academic research. Currently
+          studying at Islamia College Peshawar.
         </p>
+
+        <div class="founder-paper">
+          <div class="paper-label">Published Research · 2026</div>
+          <div class="paper-title">Simulating and Mitigating Rogue Access Point Attacks in Wi-Fi Networks Using Open-Source Tools</div>
+          <div class="paper-journal">Journal of Soft Computing and Artificial Intelligence</div>
+        </div>
+
+        <div class="interests">
+          <span class="interest">Network Security</span>
+          <span class="interest">Penetration Testing</span>
+          <span class="interest">Wireless Security</span>
+          <span class="interest">Vulnerability Assessment</span>
+          <span class="interest">Ethical Hacking</span>
+          <span class="interest">Kali Linux</span>
+          <span class="interest">Python</span>
+          <span class="interest">Open-Source Tools</span>
+          <span class="interest">Security Research</span>
+          <span class="interest">Defensive Security</span>
+        </div>
       </div>
-      <div class="founder-stats">
+
+      <div class="founder-right">
         <div class="fstat">
-          <div class="fstat-val">17<span>yrs</span></div>
-          <div class="fstat-key">Age</div>
+          <div class="fstat-val">17</div>
+          <div class="fstat-key">Years old</div>
         </div>
         <div class="fstat">
-          <div class="fstat-val">2<span>+</span></div>
-          <div class="fstat-key">Tools Released</div>
+          <div class="fstat-val">2</div>
+          <div class="fstat-key">Tools released</div>
         </div>
         <div class="fstat">
-          <div class="fstat-val">1<span>%</span></div>
-          <div class="fstat-key">Research Author Under 18</div>
+          <div class="fstat-val">1</div>
+          <div class="fstat-key">Published paper</div>
         </div>
         <div class="fstat">
-          <div class="fstat-val">PK<span> 🇵🇰</span></div>
+          <div class="fstat-val">PK 🇵🇰</div>
           <div class="fstat-key">Pakistan</div>
         </div>
       </div>
@@ -843,29 +774,30 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="fcol">
-      <div class="fcol-label">Company</div>
-      <div class="footer-logo">SIPAR<em>.</em>SECURITY</div>
-      <div class="footer-tagline">Open-source network security tools built in Pakistan. Real visibility for everyone — no enterprise budget required.</div>
-      <div class="footer-copy">© 2026 Sipar Security · MIT License · Built in Pakistan 🇵🇰</div>
-    </div>
-    <div class="fcol">
-      <div class="fcol-label">Projects</div>
-      <ul class="flinks">
-        <li><a href="https://github.com/siparsecurity/network-monitor" target="_blank">Network Monitor v1.0</a></li>
-        <li><a href="https://github.com/siparsecurity/network-monitor-v2" target="_blank">Network Monitor v2.0</a></li>
-        <li><a href="https://github.com/siparsecurity/network-monitor-v2/releases" target="_blank">All Releases</a></li>
-        <li><a href="https://github.com/siparsecurity" target="_blank">GitHub Organization</a></li>
-      </ul>
-    </div>
-    <div class="fcol">
-      <div class="fcol-label">Contact</div>
-      <ul class="flinks">
-        <li><a href="mailto:siparsecurity@gmail.com">siparsecurity@gmail.com</a></li>
-        <li><a href="https://linkedin.com/company/siparsecurity" target="_blank">LinkedIn</a></li>
-        <li><a href="https://x.com/SiparSecurity" target="_blank">X / Twitter</a></li>
-        <li><a href="https://github.com/siparsecurity" target="_blank">GitHub</a></li>
-      </ul>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">SIPAR SECURITY</div>
+        <p class="footer-tagline">Open-source network security tools built in Pakistan. Free for everyone, no enterprise budget required.</p>
+        <div class="footer-copy">© 2026 Sipar Security · MIT License · Pakistan 🇵🇰</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Projects</div>
+        <ul class="footer-links">
+          <li><a href="https://github.com/siparsecurity/network-monitor" target="_blank">Network Monitor v1.0</a></li>
+          <li><a href="https://github.com/siparsecurity/network-monitor-v2" target="_blank">Network Monitor v2.0</a></li>
+          <li><a href="https://github.com/siparsecurity/network-monitor-v2/releases" target="_blank">All Releases</a></li>
+          <li><a href="https://github.com/siparsecurity" target="_blank">GitHub Organization</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:siparsecurity@gmail.com">siparsecurity@gmail.com</a></li>
+          <li><a href="https://linkedin.com/company/siparsecurity" target="_blank">LinkedIn</a></li>
+          <li><a href="https://x.com/SiparSecurity" target="_blank">X / Twitter</a></li>
+          <li><a href="https://github.com/siparsecurity" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 
@@ -873,9 +805,9 @@
     const els = document.querySelectorAll('.r');
     const obs = new IntersectionObserver(entries => {
       entries.forEach((e, i) => {
-        if (e.isIntersecting) setTimeout(() => e.target.classList.add('show'), i * 80);
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('show'), i * 60);
       });
-    }, { threshold: 0.06 });
+    }, { threshold: 0.05 });
     els.forEach(e => obs.observe(e));
   </script>
 
