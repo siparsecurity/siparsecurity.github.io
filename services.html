@@ -7,782 +7,640 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
-      --black: #0f0f0f;
-      --text: #444444;
-      --text-light: #888888;
-      --border: #e5e5e5;
-      --surface: #f8f8f8;
-      --red: #dc2626;
-      --red-soft: #fef2f2;
-      --red-border: #fecaca;
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --off: #f5f5f3;
+      --text: #555;
+      --light: #999;
+      --border: #e8e8e8;
       --green: #16a34a;
-      --green-soft: #f0fdf4;
-      --green-border: #bbf7d0;
+      --green-bg: #f0fdf4;
+      --green-bd: #bbf7d0;
+      --red: #dc2626;
+      --red-bg: #fef2f2;
+      --red-bd: #fecaca;
+      --amber: #b45309;
       --mono: 'IBM Plex Mono', monospace;
       --sans: 'Inter', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
-      background: var(--bg);
-      color: var(--black);
       font-family: var(--sans);
-      line-height: 1.6;
+      background: var(--white);
+      color: var(--black);
       -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 99;
-      background: #fff;
+    /* TOP NAV */
+    .topnav {
+      position: sticky; top: 0; z-index: 99;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      height: 60px;
-      display: flex;
-      align-items: center;
+      height: 62px;
+      display: flex; align-items: center;
       justify-content: space-between;
+      padding: 0 2.5rem;
     }
-
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--black);
-      text-decoration: none;
+    .topnav-logo {
+      font-family: var(--mono); font-size: 0.82rem;
+      font-weight: 500; color: var(--black);
+      text-decoration: none; letter-spacing: 0.06em;
     }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      list-style: none;
+    .topnav-links { display: flex; gap: 2rem; list-style: none; }
+    .topnav-links a {
+      font-size: 0.84rem; color: var(--text);
+      text-decoration: none; transition: color 0.15s;
     }
-
-    .nav-links a {
-      font-size: 0.85rem;
-      color: var(--text);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .nav-links a:hover { color: var(--black); }
-    .nav-links a.active { color: var(--black); font-weight: 500; }
-
-    .nav-cta {
-      font-size: 0.82rem;
-      font-weight: 500;
-      background: var(--black);
-      color: #fff;
-      padding: 0.5rem 1.1rem;
-      text-decoration: none;
+    .topnav-links a:hover { color: var(--black); }
+    .topnav-links a.active { color: var(--black); font-weight: 600; }
+    .topnav-btn {
+      font-size: 0.82rem; font-weight: 600;
+      background: var(--black); color: #fff;
+      padding: 0.5rem 1.25rem; text-decoration: none;
       transition: opacity 0.15s;
     }
+    .topnav-btn:hover { opacity: 0.8; }
 
-    .nav-cta:hover { opacity: 0.85; }
+    /* PAGE NAV — jump links */
+    .pagenav {
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem;
+      display: flex; gap: 0; overflow-x: auto;
+    }
+    .pagenav a {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--light); text-decoration: none;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.85rem 1.5rem;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .pagenav a:hover { color: var(--black); border-bottom-color: var(--black); }
 
     /* HERO */
     .hero {
-      background: var(--black);
-      color: #fff;
-      padding: 6rem 2rem;
-      text-align: center;
+      background: var(--black); color: #fff;
+      padding: 6rem 2rem 5rem; text-align: center;
     }
-
     .hero-tag {
       display: inline-block;
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--red);
-      background: rgba(220,38,38,0.1);
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--red); background: rgba(220,38,38,0.1);
       border: 1px solid rgba(220,38,38,0.3);
-      padding: 0.3rem 0.8rem;
-      margin-bottom: 2rem;
+      padding: 0.3rem 0.85rem; margin-bottom: 2rem;
       letter-spacing: 0.05em;
     }
-
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      font-weight: 700; line-height: 1.12;
+      letter-spacing: -0.025em; margin-bottom: 1.5rem;
+      max-width: 680px; margin-left: auto; margin-right: auto;
     }
-
     .hero h1 span { color: var(--red); }
-
     .hero p {
-      font-size: 1rem;
-      color: #aaaaaa;
-      max-width: 520px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.8;
-      font-weight: 300;
+      font-size: 1rem; color: #888;
+      line-height: 1.8; font-weight: 300;
+      max-width: 500px; margin: 0 auto 3rem;
     }
-
-    .hero-cta {
-      display: inline-block;
-      background: #fff;
-      color: var(--black);
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 0.85rem 2rem;
-      text-decoration: none;
-      transition: opacity 0.15s;
+    .hero-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      font-size: 0.88rem; font-weight: 600;
+      padding: 0.8rem 1.75rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: all 0.15s;
     }
+    .btn-white { background: #fff; color: var(--black); }
+    .btn-white:hover { opacity: 0.9; }
+    .btn-outline { border: 1.5px solid #444; color: #aaa; background: transparent; }
+    .btn-outline:hover { border-color: #fff; color: #fff; }
 
-    .hero-cta:hover { opacity: 0.9; }
-
-    /* WARNING BANNER */
+    /* WARNING */
     .warning {
-      background: var(--red-soft);
-      border-bottom: 1px solid var(--red-border);
-      padding: 1.25rem 2rem;
-      text-align: center;
+      background: var(--red-bg);
+      border-bottom: 1px solid var(--red-bd);
+      padding: 1.1rem 2rem; text-align: center;
     }
-
     .warning p {
-      font-size: 0.85rem;
-      color: var(--red);
-      font-weight: 500;
-      max-width: 700px;
-      margin: 0 auto;
+      font-size: 0.84rem; color: var(--red);
+      font-weight: 500; max-width: 720px; margin: 0 auto;
     }
 
     /* STATS */
     .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: grid; grid-template-columns: repeat(4,1fr);
       border-bottom: 1px solid var(--border);
     }
-
     .stat {
-      padding: 2.5rem 2rem;
+      padding: 2.5rem 2rem; text-align: center;
       border-right: 1px solid var(--border);
-      text-align: center;
     }
-
     .stat:last-child { border-right: none; }
-
-    .stat-val {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--black);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.3rem;
+    .stat-n {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--black); letter-spacing: -0.02em;
+      line-height: 1; margin-bottom: 0.4rem;
     }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--text-light);
-    }
+    .stat-l { font-size: 0.78rem; color: var(--light); }
 
     /* SECTION */
-    .section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
+    .sec { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; }
+    .sec-sub {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--light); letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 0.6rem;
+    }
+    .sec-title {
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      color: var(--black); margin-bottom: 0.85rem;
+    }
+    .sec-desc {
+      font-size: 0.9rem; color: var(--text);
+      line-height: 1.8; font-weight: 300;
+      max-width: 520px; margin-bottom: 3rem;
     }
 
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--text-light);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
+    /* PROBLEM vs SOLUTION */
+    .pvs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2.5rem; margin-bottom: 0;
     }
-
-    .section-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--black);
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
+    .pvs-box {
+      padding: 2.5rem; border: 1px solid var(--border);
+      border-radius: 6px;
     }
-
-    .section-desc {
-      font-size: 0.9rem;
-      color: var(--text);
-      max-width: 560px;
-      line-height: 1.8;
-      font-weight: 300;
-      margin-bottom: 3rem;
+    .pvs-box.problem { background: var(--red-bg); border-color: var(--red-bd); }
+    .pvs-box.solution { background: var(--green-bg); border-color: var(--green-bd); }
+    .pvs-label {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1.25rem; font-weight: 500;
     }
+    .pvs-box.problem .pvs-label { color: var(--red); }
+    .pvs-box.solution .pvs-label { color: var(--green); }
+    .pvs-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+    .pvs-list li {
+      font-size: 0.85rem; color: var(--text);
+      display: flex; align-items: flex-start;
+      gap: 0.65rem; line-height: 1.55;
+    }
+    .pvs-list li::before { flex-shrink: 0; margin-top: 0.05rem; font-weight: 700; }
+    .problem .pvs-list li::before { content: '×'; color: var(--red); font-size: 1rem; }
+    .solution .pvs-list li::before { content: '✓'; color: var(--green); font-size: 0.85rem; }
 
     /* SERVICES GRID */
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 1px;
+    .sgrid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
     }
-
-    .service-card {
-      background: #fff;
-      padding: 2.5rem;
-      transition: background 0.15s;
-      position: relative;
+    .scard {
+      background: #fff; padding: 2.5rem;
+      transition: background 0.15s; position: relative;
     }
-
-    .service-card:hover { background: var(--surface); }
-
-    .service-card.featured {
-      background: var(--black);
-      color: #fff;
+    .scard:hover { background: var(--off); }
+    .scard.dark { background: var(--black); }
+    .scard.dark:hover { background: #111; }
+    .scard-n { font-family: var(--mono); font-size: 0.6rem; color: #ccc; margin-bottom: 1.25rem; }
+    .scard.dark .scard-n { color: #444; }
+    .scard-t { font-size: 1.05rem; font-weight: 700; color: var(--black); margin-bottom: 0.65rem; }
+    .scard.dark .scard-t { color: #fff; }
+    .scard-d { font-size: 0.83rem; color: var(--text); line-height: 1.75; font-weight: 300; margin-bottom: 1.5rem; }
+    .scard.dark .scard-d { color: #888; }
+    .scard-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.75rem; }
+    .scard-list li {
+      font-size: 0.82rem; color: var(--text);
+      display: flex; align-items: flex-start;
+      gap: 0.6rem; line-height: 1.5;
     }
-
-    .service-card.featured:hover { background: #1a1a1a; }
-
-    .service-num {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: #ccc;
-      margin-bottom: 1.25rem;
+    .scard.dark .scard-list li { color: #aaa; }
+    .scard-list li::before { content: '✓'; color: var(--green); font-size: 0.72rem; font-weight: 700; margin-top: 0.15rem; flex-shrink: 0; }
+    .scard.dark .scard-list li::before { color: #4ade80; }
+    .stag {
+      font-family: var(--mono); font-size: 0.6rem;
+      padding: 0.2rem 0.6rem; border-radius: 3px;
+      display: inline-block; letter-spacing: 0.04em; font-weight: 500;
     }
+    .stag-red { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-bd); }
+    .stag-green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
+    .stag-white { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
 
-    .service-card.featured .service-num { color: #555; }
-
-    .service-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
-    }
-
-    .service-card.featured .service-title { color: #fff; }
-
-    .service-desc {
-      font-size: 0.85rem;
-      color: var(--text);
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
-      font-weight: 300;
-    }
-
-    .service-card.featured .service-desc { color: #aaa; }
-
-    .service-includes {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .service-includes li {
-      font-size: 0.82rem;
-      color: var(--text);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      line-height: 1.5;
-    }
-
-    .service-card.featured .service-includes li { color: #ccc; }
-
-    .service-includes li::before {
-      content: '✓';
-      color: var(--green);
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-top: 0.15rem;
-      flex-shrink: 0;
-    }
-
-    .service-card.featured .service-includes li::before { color: #4ade80; }
-
-    .service-tag {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 2px;
-      display: inline-block;
-      letter-spacing: 0.04em;
-    }
-
-    .tag-recommended {
-      background: var(--red-soft);
-      color: var(--red);
-      border: 1px solid var(--red-border);
-    }
-
-    .tag-popular {
-      background: var(--green-soft);
-      color: var(--green);
-      border: 1px solid var(--green-border);
-    }
-
-    .tag-white {
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    /* WHO IS THIS FOR */
+    /* WHO */
     .who-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
     }
+    .who-card { background: #fff; padding: 2rem; transition: background 0.15s; }
+    .who-card:hover { background: var(--off); }
+    .who-icon { font-size: 1.4rem; margin-bottom: 0.75rem; display: block; }
+    .who-t { font-size: 0.92rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
+    .who-d { font-size: 0.8rem; color: var(--text); line-height: 1.7; font-weight: 300; }
 
-    .who-card {
-      background: #fff;
-      padding: 2rem;
-      transition: background 0.15s;
-    }
-
-    .who-card:hover { background: var(--surface); }
-
-    .who-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .who-title {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--black);
-      margin-bottom: 0.5rem;
-    }
-
-    .who-desc {
-      font-size: 0.8rem;
-      color: var(--text);
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    /* PROBLEM SECTION */
-    .problem-section {
-      background: var(--surface);
+    /* CONTACT SECTION */
+    .contact-section {
+      background: var(--off);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-
-    .problem-inner {
-      max-width: 900px;
-      margin: 0 auto;
+    .contact-inner {
+      max-width: 960px; margin: 0 auto;
       padding: 5rem 2rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
     }
+    .contact-sub { font-family: var(--mono); font-size: 0.68rem; color: var(--light); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .contact-title { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; color: var(--black); margin-bottom: 1rem; line-height: 1.2; }
+    .contact-desc { font-size: 0.88rem; color: var(--text); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
+    .contact-note { font-family: var(--mono); font-size: 0.68rem; color: var(--light); margin-top: 1.25rem; }
 
-    .problem-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
+    .contact-methods { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .cmethod {
+      background: #fff; padding: 1.5rem 1.75rem;
+      display: flex; align-items: center; gap: 1.25rem;
+      text-decoration: none; transition: background 0.15s;
     }
+    .cmethod:hover { background: var(--off); }
+    .cmethod-icon { font-size: 1.25rem; flex-shrink: 0; }
+    .cmethod-label { font-size: 0.72rem; color: var(--light); font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .cmethod-val { font-size: 0.88rem; font-weight: 500; color: var(--black); }
+    .cmethod-arrow { margin-left: auto; color: var(--light); font-size: 1rem; }
 
-    .problem-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--black);
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
+    .contact-btns { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+    .cbtn {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.88rem; font-weight: 600;
+      padding: 0.9rem 1.5rem; text-decoration: none;
+      transition: all 0.15s; border-radius: 4px;
     }
+    .cbtn-black { background: var(--black); color: #fff; }
+    .cbtn-black:hover { opacity: 0.85; }
+    .cbtn-wa { background: #25d366; color: #fff; }
+    .cbtn-wa:hover { opacity: 0.9; }
+    .cbtn-border { border: 1.5px solid var(--border); color: var(--text); background: #fff; }
+    .cbtn-border:hover { border-color: #aaa; color: var(--black); }
 
-    .problem-title span { color: var(--red); }
-
-    .problem-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    /* CTA BAND */
+    .cta-band {
+      background: var(--black); color: #fff;
+      padding: 5rem 2rem; text-align: center;
     }
-
-    .problem-list li {
-      font-size: 0.88rem;
-      color: var(--text);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      line-height: 1.6;
+    .cta-band h2 {
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 1rem; max-width: 540px;
+      margin-left: auto; margin-right: auto;
     }
-
-    .problem-list li::before {
-      content: '×';
-      color: var(--red);
-      font-size: 1rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .solution-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .solution-list li {
-      font-size: 0.88rem;
-      color: var(--text);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      line-height: 1.6;
-    }
-
-    .solution-list li::before {
-      content: '✓';
-      color: var(--green);
-      font-size: 0.85rem;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    .solution-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--black);
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .solution-title span { color: var(--green); }
-
-    /* CTA SECTION */
-    .cta-section {
-      background: var(--black);
-      padding: 6rem 2rem;
-      text-align: center;
-    }
-
-    .cta-section h2 {
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-section p {
-      font-size: 0.9rem;
-      color: #888;
-      max-width: 440px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background: #fff;
-      color: var(--black);
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 0.9rem 2.25rem;
-      text-decoration: none;
-      transition: opacity 0.15s;
-      margin-bottom: 1rem;
-    }
-
-    .cta-btn:hover { opacity: 0.9; }
-
-    .cta-note {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: #555;
-      display: block;
-      margin-top: 1rem;
+    .cta-band p {
+      font-size: 0.9rem; color: #777;
+      line-height: 1.8; font-weight: 300;
+      max-width: 400px; margin: 0 auto 2.5rem;
     }
 
     /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-    }
-
+    footer { border-top: 1px solid var(--border); }
     .footer-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      max-width: 960px; margin: 0 auto;
+      padding: 3rem 2rem;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
     }
-
-    .footer-logo {
-      font-family: var(--mono);
-      font-size: 0.82rem;
-      color: var(--black);
-      font-weight: 500;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-size: 0.82rem;
-      color: var(--text);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
+    .footer-logo { font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--black); margin-bottom: 0.75rem; }
+    .footer-tag { font-size: 0.82rem; color: var(--text); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
+    .footer-copy { font-size: 0.72rem; color: var(--light); }
+    .footer-h { font-size: 0.8rem; font-weight: 700; color: var(--black); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { font-size: 0.82rem; color: var(--text); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--black); }
 
-    .footer-copy {
-      font-size: 0.75rem;
-      color: var(--text-light);
-      width: 100%;
-    }
-
     /* REVEAL */
-    .r {
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    .r.show { opacity: 1; transform: none; }
+    .r { opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease, transform 0.45s ease; }
+    .r.on { opacity: 1; transform: none; }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 0 1.25rem; }
-      .nav-links { display: none; }
-      .hero { padding: 4rem 1.25rem; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 800px) {
+      .topnav { padding: 0 1.25rem; }
+      .topnav-links { display: none; }
+      .pagenav { padding: 0 1.25rem; }
+      .hero { padding: 4rem 1.25rem 3.5rem; }
+      .stats { grid-template-columns: repeat(2,1fr); }
       .stat:nth-child(2) { border-right: none; }
       .stat:nth-child(3) { border-top: 1px solid var(--border); }
       .stat:nth-child(4) { border-right: none; border-top: 1px solid var(--border); }
-      .section { padding: 3rem 1.25rem; }
-      .services-grid { grid-template-columns: 1fr; }
+      .sec { padding: 3.5rem 1.25rem; }
+      .pvs { grid-template-columns: 1fr; }
+      .sgrid { grid-template-columns: 1fr; }
       .who-grid { grid-template-columns: 1fr; }
-      .problem-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .problem-inner { padding: 3rem 1.25rem; }
-      .cta-section { padding: 4rem 1.25rem; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.25rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.25rem; }
+      .cta-band { padding: 3.5rem 1.25rem; }
     }
-
     @media (max-width: 480px) {
       .hero h1 { font-size: 1.8rem; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 280px; justify-content: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="/" class="nav-logo">SIPAR SECURITY</a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/#versions">Versions</a></li>
-      <li><a href="/#capabilities">Capabilities</a></li>
-      <li><a href="/services.html" class="active">Services</a></li>
-    </ul>
-    <a href="mailto:siparsecurity@gmail.com" class="nav-cta">Get in Touch →</a>
-  </nav>
+<!-- TOP NAV -->
+<nav class="topnav">
+  <a href="/" class="topnav-logo">SIPAR SECURITY</a>
+  <ul class="topnav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/#versions">Versions</a></li>
+    <li><a href="/services.html" class="active">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="topnav-btn">Get in Touch →</a>
+</nav>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-tag">⚠ Your network is not as safe as you think</div>
-    <h1>Every unsecured network is an open door.<br/><span>We help you close it.</span></h1>
-    <p>Sipar Security provides professional network security services for home users, small businesses, and organizations — at a price that actually makes sense.</p>
-    <a href="mailto:siparsecurity@gmail.com" class="hero-cta">Request a Free Consultation →</a>
+<!-- PAGE NAV — jump links -->
+<div class="pagenav">
+  <a href="#services">Services</a>
+  <a href="#who">Who We Help</a>
+  <a href="#contact">Contact</a>
+  <a href="/">Our Tool</a>
+  <a href="https://github.com/siparsecurity" target="_blank">GitHub</a>
+</div>
+
+<!-- HERO -->
+<div class="hero r">
+  <div class="hero-tag">⚠ Most networks are compromised without anyone knowing</div>
+  <h1>Your network has gaps.<br/><span>We find them before attackers do.</span></h1>
+  <p>Professional network security services for home users, small businesses, and organizations. No enterprise pricing. No jargon. Just honest security work.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn btn-white">Get a Free Consultation →</a>
+    <a href="#services" class="btn btn-outline">See Our Services</a>
   </div>
+</div>
 
-  <!-- WARNING BANNER -->
-  <div class="warning">
-    <p>⚠ Most small businesses and home networks are compromised without their owners ever knowing. Rogue devices, ARP spoofing, unauthorized access — all invisible without the right tools.</p>
+<!-- WARNING -->
+<div class="warning r">
+  <p>⚠ Rogue devices, ARP spoofing, unauthorized access, and port scanning happen on small networks every day — silently, invisibly, without a single alert. Most people find out only after something goes wrong.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats r">
+  <div class="stat">
+    <div class="stat-n">Free</div>
+    <div class="stat-l">First consultation</div>
   </div>
-
-  <!-- STATS -->
-  <div class="stats r">
-    <div class="stat">
-      <div class="stat-val">3.0</div>
-      <div class="stat-label">Tool version powering our services</div>
-    </div>
-    <div class="stat">
-      <div class="stat-val">3</div>
-      <div class="stat-label">Platforms supported</div>
-    </div>
-    <div class="stat">
-      <div class="stat-val">100%</div>
-      <div class="stat-label">Open source tools</div>
-    </div>
-    <div class="stat">
-      <div class="stat-val">Free</div>
-      <div class="stat-label">First consultation</div>
-    </div>
+  <div class="stat">
+    <div class="stat-n">3</div>
+    <div class="stat-l">Tool versions released</div>
   </div>
-
-  <!-- PROBLEM SECTION -->
-  <div class="problem-section r">
-    <div class="problem-inner">
-      <div class="problem-grid">
-        <div>
-          <div class="problem-title">What is happening on your network <span>right now?</span></div>
-          <ul class="problem-list">
-            <li>Devices you do not recognize are connected to your WiFi</li>
-            <li>Someone on your network is intercepting your traffic via ARP spoofing</li>
-            <li>An attacker is quietly scanning your network for open ports</li>
-            <li>A rogue device joined your network while you were not watching</li>
-            <li>You have no logs. No alerts. No visibility. No idea.</li>
-          </ul>
-        </div>
-        <div>
-          <div class="solution-title">What you get with <span>Sipar Security</span></div>
-          <ul class="solution-list">
-            <li>Complete visibility into every device on your network</li>
-            <li>Real-time detection of ARP spoofing attempts</li>
-            <li>Instant alerts when unknown devices connect</li>
-            <li>Port scan detection before attackers find what they are looking for</li>
-            <li>A written report of every finding with clear recommendations</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <div class="stat">
+    <div class="stat-n">24h</div>
+    <div class="stat-l">Response time</div>
   </div>
+  <div class="stat">
+    <div class="stat-n">PK 🇵🇰</div>
+    <div class="stat-l">Based in Pakistan</div>
+  </div>
+</div>
 
-  <!-- SERVICES -->
-  <div class="section r" id="services">
-    <div class="section-label">What We Offer</div>
-    <div class="section-title">Security services that actually protect you</div>
-    <div class="section-desc">We do not sell you software and leave. We assess your network, find the problems, and tell you exactly how to fix them.</div>
+<!-- PROBLEM vs SOLUTION -->
+<div class="sec r">
+  <div class="sec-sub">The Reality</div>
+  <div class="sec-title">What is happening on your network right now?</div>
+  <div class="sec-desc">Most people have no idea. That is the problem. Here is what we change.</div>
 
-    <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-num">01</div>
-        <div class="service-title">Network Security Audit</div>
-        <div class="service-desc">A complete assessment of your network. We scan every device, identify risks, and deliver a clear written report with findings and recommendations.</div>
-        <ul class="service-includes">
-          <li>Full device discovery — every device on your network</li>
-          <li>ARP spoof detection and analysis</li>
-          <li>Rogue device identification</li>
-          <li>Port scan detection</li>
-          <li>Threat level assessment per device</li>
-          <li>Written report with clear recommendations</li>
-        </ul>
-        <span class="service-tag tag-recommended">Most Requested</span>
-      </div>
-
-      <div class="service-card featured">
-        <div class="service-num">02</div>
-        <div class="service-title">Penetration Testing</div>
-        <div class="service-desc">We attempt to breach your network the way a real attacker would — then tell you exactly what we found and how to fix it before someone else finds it first.</div>
-        <ul class="service-includes">
-          <li>Structured penetration test — reconnaissance to exploitation</li>
-          <li>Web application vulnerability assessment</li>
-          <li>Network exposure analysis</li>
-          <li>Wireless security testing</li>
-          <li>Detailed findings report</li>
-          <li>Remediation guidance for every finding</li>
-        </ul>
-        <span class="service-tag tag-white">Advanced</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-num">03</div>
-        <div class="service-title">Network Monitor Setup</div>
-        <div class="service-desc">We install and configure the Sipar Security Network Monitor on your system — so you have real-time visibility into your network every day, not just once.</div>
-        <ul class="service-includes">
-          <li>Full installation on Linux, Windows, or Android</li>
-          <li>Configuration for your specific network</li>
-          <li>Dashboard walkthrough and training</li>
-          <li>Ongoing support for questions</li>
-        </ul>
-        <span class="service-tag tag-popular">Great for Small Businesses</span>
-      </div>
-
-      <div class="service-card">
-        <div class="service-num">04</div>
-        <div class="service-title">Vulnerability Disclosure Consulting</div>
-        <div class="service-desc">If you have found a vulnerability or suspect your system is exposed — we help you understand it, assess the risk, and report it correctly through proper channels.</div>
-        <ul class="service-includes">
-          <li>Vulnerability assessment and risk rating</li>
-          <li>Responsible disclosure guidance</li>
-          <li>Report writing for bug bounty platforms</li>
-          <li>Follow-up support throughout the process</li>
-        </ul>
-        <span class="service-tag tag-recommended">For Researchers</span>
-      </div>
-
+  <div class="pvs">
+    <div class="pvs-box problem">
+      <div class="pvs-label">Without Sipar Security</div>
+      <ul class="pvs-list">
+        <li>Devices you do not recognize are connected to your WiFi</li>
+        <li>Someone is intercepting your traffic via ARP spoofing</li>
+        <li>An attacker is quietly scanning your ports</li>
+        <li>A rogue device joined while you were not watching</li>
+        <li>No logs. No alerts. No visibility. No idea.</li>
+      </ul>
+    </div>
+    <div class="pvs-box solution">
+      <div class="pvs-label">With Sipar Security</div>
+      <ul class="pvs-list">
+        <li>Complete visibility into every device on your network</li>
+        <li>Real-time detection of ARP spoofing attempts</li>
+        <li>Instant alerts when unknown devices connect</li>
+        <li>Port scan detection before attackers find anything</li>
+        <li>Written report with every finding and how to fix it</li>
+      </ul>
     </div>
   </div>
+</div>
 
-  <!-- WHO IS THIS FOR -->
-  <div class="section r" id="who" style="padding-top:0">
-    <div class="section-label">Who We Work With</div>
-    <div class="section-title">Built for people who cannot afford to ignore security</div>
-    <div class="section-desc">Enterprise companies have entire security teams. Everyone else has us.</div>
+<!-- SERVICES -->
+<div class="sec r" id="services" style="padding-top:0;">
+  <div class="sec-sub">What We Offer</div>
+  <div class="sec-title">Security services that actually protect you</div>
+  <div class="sec-desc">We assess your network, find the problems, and tell you exactly how to fix them. No vague reports. No upsells.</div>
 
-    <div class="who-grid">
-      <div class="who-card">
-        <span class="who-icon">🏠</span>
-        <div class="who-title">Home Users</div>
-        <div class="who-desc">You share your WiFi with family, guests, and neighbors. Do you know exactly who and what is connected right now? We do.</div>
+  <div class="sgrid">
+    <div class="scard">
+      <div class="scard-n">01</div>
+      <div class="scard-t">Network Security Audit</div>
+      <div class="scard-d">A complete assessment of your network. We scan every device, identify risks, and deliver a clear written report with findings and recommendations.</div>
+      <ul class="scard-list">
+        <li>Full device discovery — every device on your network</li>
+        <li>ARP spoof detection and analysis</li>
+        <li>Rogue device identification</li>
+        <li>Port scan detection</li>
+        <li>Threat level assessment per device</li>
+        <li>Written report with clear recommendations</li>
+      </ul>
+      <span class="stag stag-red">Most Requested</span>
+    </div>
+
+    <div class="scard dark">
+      <div class="scard-n">02</div>
+      <div class="scard-t">Penetration Testing</div>
+      <div class="scard-d">We attempt to breach your network the way a real attacker would — then tell you exactly what we found and how to fix it before someone else does.</div>
+      <ul class="scard-list">
+        <li>Structured pentest — reconnaissance to exploitation</li>
+        <li>Web application vulnerability assessment</li>
+        <li>Network exposure analysis</li>
+        <li>Wireless security testing</li>
+        <li>Detailed findings report</li>
+        <li>Remediation guidance for every finding</li>
+      </ul>
+      <span class="stag stag-white">Advanced</span>
+    </div>
+
+    <div class="scard">
+      <div class="scard-n">03</div>
+      <div class="scard-t">Network Monitor Setup</div>
+      <div class="scard-d">We install and configure the Sipar Security Network Monitor on your system — so you have real-time visibility into your network every single day.</div>
+      <ul class="scard-list">
+        <li>Full installation on Linux, Windows, or Android</li>
+        <li>Configuration for your specific network</li>
+        <li>Dashboard walkthrough and training</li>
+        <li>Ongoing support for questions</li>
+      </ul>
+      <span class="stag stag-green">Great for Small Businesses</span>
+    </div>
+
+    <div class="scard">
+      <div class="scard-n">04</div>
+      <div class="scard-t">Vulnerability Disclosure Consulting</div>
+      <div class="scard-d">Found a vulnerability or suspect your system is exposed? We help you understand it, assess the risk, and report it correctly through proper channels.</div>
+      <ul class="scard-list">
+        <li>Vulnerability assessment and risk rating</li>
+        <li>Responsible disclosure guidance</li>
+        <li>Report writing for bug bounty platforms</li>
+        <li>Follow-up support throughout the process</li>
+      </ul>
+      <span class="stag stag-red">For Researchers</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHO -->
+<div class="sec r" id="who" style="padding-top:0;">
+  <div class="sec-sub">Who We Help</div>
+  <div class="sec-title">Built for people who cannot afford to ignore security</div>
+  <div class="sec-desc">Enterprise companies have entire security teams. Everyone else has us.</div>
+
+  <div class="who-grid">
+    <div class="who-card">
+      <span class="who-icon">🏠</span>
+      <div class="who-t">Home Users</div>
+      <div class="who-d">You share your WiFi with family, guests, and neighbors. Do you know exactly who and what is connected right now? We make sure you do.</div>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">🏢</span>
+      <div class="who-t">Small Businesses</div>
+      <div class="who-d">Your business network handles payments, customer data, and internal communications. One breach can cost everything. We help you prevent it.</div>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">🎓</span>
+      <div class="who-t">Schools and Organizations</div>
+      <div class="who-d">Large networks with many users are high-value targets. Unauthorized access and rogue devices are real risks. We find them before attackers do.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section r" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="contact-sub">Contact</div>
+      <div class="contact-title">Let's talk about your network.</div>
+      <div class="contact-desc">Your first consultation is completely free. Tell us about your network and what you are concerned about — we will give you an honest answer about what we can do for you.</div>
+
+      <div class="contact-btns">
+        <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request&body=Hello%20Sipar%20Security%2C%0A%0AI%20am%20interested%20in%20your%20services.%20I%20would%20like%20to%20know%20more%20about%3A%0A%0A-%20%5BNetwork%20Security%20Audit%20%2F%20Penetration%20Testing%20%2F%20Network%20Monitor%20Setup%20%2F%20Other%5D%0A%0AHere%20is%20a%20brief%20description%20of%20my%20network%20and%20what%20I%20need%3A%0A%0A%5BDescribe%20your%20situation%20here%5D%0A%0AThank%20you." class="cbtn cbtn-black">
+          📧 Email Us
+        </a>
+        <a href="https://wa.me/923325765207?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services%20and%20would%20like%20to%20know%20more%20about%20a%20free%20consultation." target="_blank" class="cbtn cbtn-wa">
+          💬 WhatsApp Us
+        </a>
+        <a href="https://linkedin.com/company/siparsecurity" target="_blank" class="cbtn cbtn-border">
+          💼 Message on LinkedIn
+        </a>
       </div>
-      <div class="who-card">
-        <span class="who-icon">🏢</span>
-        <div class="who-title">Small Businesses</div>
-        <div class="who-desc">Your business network handles payments, customer data, and internal communications. One breach can cost everything. We help you prevent it.</div>
-      </div>
-      <div class="who-card">
-        <span class="who-icon">🎓</span>
-        <div class="who-title">Schools and Organizations</div>
-        <div class="who-desc">Large networks with many users are high-value targets. Unauthorized access, rogue devices, and data exposure are real risks. We find them before attackers do.</div>
+      <div class="contact-note">We respond within 24 hours · All consultations are confidential</div>
+    </div>
+
+    <div>
+      <div class="contact-methods">
+        <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request&body=Hello%20Sipar%20Security%2C%0A%0AI%20am%20interested%20in%20your%20services.%20I%20would%20like%20to%20know%20more%20about%3A%0A%0A-%20%5BNetwork%20Security%20Audit%20%2F%20Penetration%20Testing%20%2F%20Network%20Monitor%20Setup%20%2F%20Other%5D%0A%0AHere%20is%20a%20brief%20description%20of%20my%20network%20and%20what%20I%20need%3A%0A%0A%5BDescribe%20your%20situation%20here%5D%0A%0AThank%20you." class="cmethod">
+          <span class="cmethod-icon">📧</span>
+          <div>
+            <div class="cmethod-label">Email</div>
+            <div class="cmethod-val">siparsecurity@gmail.com</div>
+          </div>
+          <span class="cmethod-arrow">→</span>
+        </a>
+        <a href="https://wa.me/923325765207?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services%20and%20would%20like%20to%20know%20more%20about%20a%20free%20consultation." target="_blank" class="cmethod">
+          <span class="cmethod-icon">💬</span>
+          <div>
+            <div class="cmethod-label">WhatsApp</div>
+            <div class="cmethod-val">+92 332 576 5207</div>
+          </div>
+          <span class="cmethod-arrow">→</span>
+        </a>
+        <a href="https://linkedin.com/company/siparsecurity" target="_blank" class="cmethod">
+          <span class="cmethod-icon">💼</span>
+          <div>
+            <div class="cmethod-label">LinkedIn</div>
+            <div class="cmethod-val">Sipar Security</div>
+          </div>
+          <span class="cmethod-arrow">→</span>
+        </a>
+        <a href="https://github.com/siparsecurity" target="_blank" class="cmethod">
+          <span class="cmethod-icon">⭐</span>
+          <div>
+            <div class="cmethod-label">GitHub</div>
+            <div class="cmethod-val">github.com/siparsecurity</div>
+          </div>
+          <span class="cmethod-arrow">→</span>
+        </a>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- CTA -->
-  <div class="cta-section r">
-    <h2>Your first consultation is free. No commitment required.</h2>
-    <p>Tell us about your network and what you are worried about. We will tell you honestly what we can do for you.</p>
-    <a href="mailto:siparsecurity@gmail.com?subject=Security Consultation Request" class="cta-btn">Email Us Now →</a>
-    <span class="cta-note">siparsecurity@gmail.com · We respond within 24 hours</span>
-  </div>
+<!-- CTA -->
+<div class="cta-band r">
+  <h2>Your first consultation is free. No commitment.</h2>
+  <p>Tell us what you are worried about. We will tell you honestly what we can do.</p>
+  <a href="https://wa.me/923325765207?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services%20and%20would%20like%20to%20know%20more%20about%20a%20free%20consultation." target="_blank" class="btn btn-white">💬 WhatsApp Us Now →</a>
+</div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
       <div class="footer-logo">SIPAR SECURITY</div>
+      <p class="footer-tag">Open-source network security tools and professional security services. Built in Pakistan.</p>
+      <div class="footer-copy">© 2026 Sipar Security · Pakistan 🇵🇰</div>
+    </div>
+    <div>
+      <div class="footer-h">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Network Audit</a></li>
+        <li><a href="#services">Penetration Testing</a></li>
+        <li><a href="#services">Monitor Setup</a></li>
+        <li><a href="#services">Vuln. Consulting</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-h">Company</div>
       <ul class="footer-links">
         <li><a href="/">Home</a></li>
+        <li><a href="/#versions">Our Tool</a></li>
+        <li><a href="/#founder">About</a></li>
         <li><a href="https://github.com/siparsecurity" target="_blank">GitHub</a></li>
-        <li><a href="https://linkedin.com/company/siparsecurity" target="_blank">LinkedIn</a></li>
-        <li><a href="mailto:siparsecurity@gmail.com">Contact</a></li>
       </ul>
-      <div class="footer-copy">© 2026 Sipar Security · Pakistan 🇵🇰 · MIT License</div>
     </div>
-  </footer>
+    <div>
+      <div class="footer-h">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:siparsecurity@gmail.com">Email Us</a></li>
+        <li><a href="https://wa.me/923325765207" target="_blank">WhatsApp</a></li>
+        <li><a href="https://linkedin.com/company/siparsecurity" target="_blank">LinkedIn</a></li>
+        <li><a href="https://x.com/SiparSecurity" target="_blank">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    const els = document.querySelectorAll('.r');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) setTimeout(() => e.target.classList.add('show'), i * 60);
-      });
-    }, { threshold: 0.05 });
-    els.forEach(e => obs.observe(e));
-  </script>
+<script>
+  const els = document.querySelectorAll('.r');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => {
+      if(e.isIntersecting) setTimeout(()=>e.target.classList.add('on'), i*60);
+    });
+  }, {threshold:0.05});
+  els.forEach(e=>obs.observe(e));
+</script>
 
 </body>
 </html>
