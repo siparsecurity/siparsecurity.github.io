@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sipar Security — Cybersecurity Tools & Services</title>
+  <title>Services — Sipar Security</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -16,171 +16,304 @@
       --green: #16a34a;
       --green-bg: #f0fdf4;
       --green-bd: #bbf7d0;
-      --amber: #b45309;
-      --amber-bg: #fffbeb;
-      --amber-bd: #fde68a;
       --red: #dc2626;
-      --blue: #2563eb;
-      --blue-bg: #eff6ff;
-      --blue-bd: #bfdbfe;
+      --red-bg: #fef2f2;
+      --red-bd: #fecaca;
+      --amber: #b45309;
       --mono: 'IBM Plex Mono', monospace;
       --sans: 'Inter', sans-serif;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+    }
 
-    /* NAV */
-    nav { position: sticky; top: 0; z-index: 99; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); height: 62px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
-    .nav-logo { font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--black); text-decoration: none; letter-spacing: 0.06em; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-size: 0.84rem; color: var(--text); text-decoration: none; transition: color 0.15s; }
-    .nav-links a:hover { color: var(--black); }
-    .nav-btn { font-size: 0.82rem; font-weight: 600; background: var(--black); color: #fff; padding: 0.5rem 1.25rem; text-decoration: none; transition: opacity 0.15s; }
-    .nav-btn:hover { opacity: 0.8; }
+    /* TOP NAV */
+    .topnav {
+      position: sticky; top: 0; z-index: 99;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      height: 62px;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+    }
+    .topnav-logo {
+      font-family: var(--mono); font-size: 0.82rem;
+      font-weight: 500; color: var(--black);
+      text-decoration: none; letter-spacing: 0.06em;
+    }
+    .topnav-links { display: flex; gap: 2rem; list-style: none; }
+    .topnav-links a {
+      font-size: 0.84rem; color: var(--text);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .topnav-links a:hover { color: var(--black); }
+    .topnav-links a.active { color: var(--black); font-weight: 600; }
+    .topnav-btn {
+      font-size: 0.82rem; font-weight: 600;
+      background: var(--black); color: #fff;
+      padding: 0.5rem 1.25rem; text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .topnav-btn:hover { opacity: 0.8; }
+
+    /* PAGE NAV — jump links */
+    .pagenav {
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem;
+      display: flex; gap: 0; overflow-x: auto;
+    }
+    .pagenav a {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--light); text-decoration: none;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.85rem 1.5rem;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .pagenav a:hover { color: var(--black); border-bottom-color: var(--black); }
 
     /* HERO */
-    .hero { padding: 7rem 2rem 6rem; text-align: center; max-width: 820px; margin: 0 auto; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.7rem; color: var(--green); background: var(--green-bg); border: 1px solid var(--green-bd); padding: 0.3rem 0.85rem; margin-bottom: 2rem; letter-spacing: 0.04em; }
-    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: blink 2s ease infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; color: var(--black); margin-bottom: 1.5rem; }
-    .hero h1 em { font-style: normal; color: var(--green); }
-    .hero p { font-size: 1.05rem; color: var(--text); line-height: 1.8; font-weight: 300; max-width: 520px; margin: 0 auto 2.75rem; }
+    .hero {
+      background: var(--black); color: #fff;
+      padding: 6rem 2rem 5rem; text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--red); background: rgba(220,38,38,0.1);
+      border: 1px solid rgba(220,38,38,0.3);
+      padding: 0.3rem 0.85rem; margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700; line-height: 1.12;
+      letter-spacing: -0.025em; margin-bottom: 1.5rem;
+      max-width: 680px; margin-left: auto; margin-right: auto;
+    }
+    .hero h1 span { color: var(--red); }
+    .hero p {
+      font-size: 1rem; color: #888;
+      line-height: 1.8; font-weight: 300;
+      max-width: 500px; margin: 0 auto 3rem;
+    }
     .hero-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-    .btn { font-size: 0.88rem; font-weight: 500; padding: 0.75rem 1.6rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.15s; }
-    .btn-black { background: var(--black); color: #fff; }
-    .btn-black:hover { opacity: 0.85; }
-    .btn-border { border: 1.5px solid var(--border); color: var(--text); background: #fff; }
-    .btn-border:hover { border-color: #aaa; color: var(--black); }
-    .btn-green { background: var(--green); color: #fff; }
-    .btn-green:hover { opacity: 0.85; }
+    .btn {
+      font-size: 0.88rem; font-weight: 600;
+      padding: 0.8rem 1.75rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: all 0.15s;
+    }
+    .btn-white { background: #fff; color: var(--black); }
+    .btn-white:hover { opacity: 0.9; }
+    .btn-outline { border: 1.5px solid #444; color: #aaa; background: transparent; }
+    .btn-outline:hover { border-color: #fff; color: #fff; }
 
-    /* TICKER */
-    .ticker { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--black); color: #fff; padding: 0.85rem 0; overflow: hidden; }
-    .ticker-inner { display: flex; gap: 4rem; white-space: nowrap; animation: ticker 18s linear infinite; font-family: var(--mono); font-size: 0.72rem; color: #888; letter-spacing: 0.08em; }
-    .ticker-inner span { color: var(--green); }
-    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    /* WARNING */
+    .warning {
+      background: var(--red-bg);
+      border-bottom: 1px solid var(--red-bd);
+      padding: 1.1rem 2rem; text-align: center;
+    }
+    .warning p {
+      font-size: 0.84rem; color: var(--red);
+      font-weight: 500; max-width: 720px; margin: 0 auto;
+    }
 
     /* STATS */
-    .stats { display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid var(--border); }
-    .stat { padding: 2.75rem 2rem; text-align: center; border-right: 1px solid var(--border); }
+    .stats {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat {
+      padding: 2.5rem 2rem; text-align: center;
+      border-right: 1px solid var(--border);
+    }
     .stat:last-child { border-right: none; }
-    .stat-n { font-size: 2.4rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.4rem; }
-    .stat-n em { font-style: normal; color: var(--green); }
+    .stat-n {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--black); letter-spacing: -0.02em;
+      line-height: 1; margin-bottom: 0.4rem;
+    }
     .stat-l { font-size: 0.78rem; color: var(--light); }
 
     /* SECTION */
-    .sec { max-width: 960px; margin: 0 auto; padding: 5.5rem 2rem; }
-    .sec-sub { font-family: var(--mono); font-size: 0.68rem; color: var(--light); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.6rem; }
-    .sec-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.02em; color: var(--black); margin-bottom: 0.85rem; }
-    .sec-desc { font-size: 0.9rem; color: var(--text); line-height: 1.8; font-weight: 300; max-width: 520px; margin-bottom: 3rem; }
+    .sec { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; }
+    .sec-sub {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--light); letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 0.6rem;
+    }
+    .sec-title {
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      color: var(--black); margin-bottom: 0.85rem;
+    }
+    .sec-desc {
+      font-size: 0.9rem; color: var(--text);
+      line-height: 1.8; font-weight: 300;
+      max-width: 520px; margin-bottom: 3rem;
+    }
 
-    /* TOOLS SECTION */
-    .tools-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 1.5rem; }
-    .tool-card { background: #fff; padding: 2rem; transition: background 0.15s; position: relative; }
-    .tool-card:hover { background: var(--off); }
-    .tool-card.active-tool { background: #fafffe; border-left: 3px solid var(--green); }
-    .tool-card.coming-soon { opacity: 0.6; }
-    .tool-card-label { font-family: var(--mono); font-size: 0.62rem; color: var(--light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between; }
-    .tool-card-name { font-size: 1.05rem; font-weight: 700; color: var(--black); margin-bottom: 0.4rem; }
-    .tool-card-desc { font-size: 0.82rem; color: var(--text); line-height: 1.65; font-weight: 300; margin-bottom: 1rem; }
-    .tool-versions { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    .tool-ver { font-family: var(--mono); font-size: 0.6rem; padding: 0.18rem 0.55rem; border-radius: 3px; }
-    .tv-released { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
-    .tv-dev { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
-    .tv-planned { background: var(--off); color: var(--light); border: 1px solid var(--border); }
-    .tool-link { font-family: var(--mono); font-size: 0.7rem; color: var(--green); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
-    .tool-link:hover { text-decoration: underline; }
-    .tool-status-badge { font-family: var(--mono); font-size: 0.6rem; padding: 0.2rem 0.6rem; border-radius: 3px; font-weight: 600; }
-    .tsb-active { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
-    .tsb-dev { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
-    .tsb-planned { background: var(--off); color: var(--light); border: 1px solid var(--border); }
+    /* PROBLEM vs SOLUTION */
+    .pvs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2.5rem; margin-bottom: 0;
+    }
+    .pvs-box {
+      padding: 2.5rem; border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .pvs-box.problem { background: var(--red-bg); border-color: var(--red-bd); }
+    .pvs-box.solution { background: var(--green-bg); border-color: var(--green-bd); }
+    .pvs-label {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1.25rem; font-weight: 500;
+    }
+    .pvs-box.problem .pvs-label { color: var(--red); }
+    .pvs-box.solution .pvs-label { color: var(--green); }
+    .pvs-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+    .pvs-list li {
+      font-size: 0.85rem; color: var(--text);
+      display: flex; align-items: flex-start;
+      gap: 0.65rem; line-height: 1.55;
+    }
+    .pvs-list li::before { flex-shrink: 0; margin-top: 0.05rem; font-weight: 700; }
+    .problem .pvs-list li::before { content: '×'; color: var(--red); font-size: 1rem; }
+    .solution .pvs-list li::before { content: '✓'; color: var(--green); font-size: 0.85rem; }
 
-    /* VERSIONS */
-    .versions { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-    .vrow { display: grid; grid-template-columns: 110px 1fr auto; gap: 0 2.5rem; padding: 2rem 2.5rem; border-bottom: 1px solid var(--border); align-items: start; transition: background 0.15s; }
-    .vrow:last-child { border-bottom: none; }
-    .vrow:hover { background: var(--off); }
-    .vrow.current { background: #fafffe; border-left: 3px solid var(--green); }
-    .v-ver { font-family: var(--mono); font-size: 0.7rem; color: var(--light); padding-top: 0.2rem; }
-    .v-name { font-size: 0.95rem; font-weight: 700; color: var(--black); margin-bottom: 0.3rem; }
-    .v-desc { font-size: 0.82rem; color: var(--text); line-height: 1.65; margin-bottom: 0.85rem; font-weight: 300; }
-    .v-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-    .vtag { font-family: var(--mono); font-size: 0.6rem; padding: 0.18rem 0.55rem; border-radius: 3px; }
-    .vt-g { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
-    .vt-a { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
-    .v-badge { font-family: var(--mono); font-size: 0.62rem; padding: 0.25rem 0.7rem; border-radius: 3px; font-weight: 500; white-space: nowrap; align-self: start; }
-    .vb-g { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
-    .vb-a { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
-    .vb-n { background: var(--off); color: var(--light); border: 1px solid var(--border); }
+    /* SERVICES GRID */
+    .sgrid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
+    }
+    .scard {
+      background: #fff; padding: 2.5rem;
+      transition: background 0.15s; position: relative;
+    }
+    .scard:hover { background: var(--off); }
+    .scard.dark { background: var(--black); }
+    .scard.dark:hover { background: #111; }
+    .scard-n { font-family: var(--mono); font-size: 0.6rem; color: #ccc; margin-bottom: 1.25rem; }
+    .scard.dark .scard-n { color: #444; }
+    .scard-t { font-size: 1.05rem; font-weight: 700; color: var(--black); margin-bottom: 0.65rem; }
+    .scard.dark .scard-t { color: #fff; }
+    .scard-d { font-size: 0.83rem; color: var(--text); line-height: 1.75; font-weight: 300; margin-bottom: 1.5rem; }
+    .scard.dark .scard-d { color: #888; }
+    .scard-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.75rem; }
+    .scard-list li {
+      font-size: 0.82rem; color: var(--text);
+      display: flex; align-items: flex-start;
+      gap: 0.6rem; line-height: 1.5;
+    }
+    .scard.dark .scard-list li { color: #aaa; }
+    .scard-list li::before { content: '✓'; color: var(--green); font-size: 0.72rem; font-weight: 700; margin-top: 0.15rem; flex-shrink: 0; }
+    .scard.dark .scard-list li::before { color: #4ade80; }
+    .stag {
+      font-family: var(--mono); font-size: 0.6rem;
+      padding: 0.2rem 0.6rem; border-radius: 3px;
+      display: inline-block; letter-spacing: 0.04em; font-weight: 500;
+    }
+    .stag-red { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-bd); }
+    .stag-green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
+    .stag-white { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
 
-    /* FEATURES */
-    .fgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-    .fcard { background: #fff; padding: 2rem; transition: background 0.15s; }
-    .fcard:hover { background: var(--off); }
-    .fcard-n { font-family: var(--mono); font-size: 0.6rem; color: #ddd; margin-bottom: 1rem; }
-    .fcard-t { font-size: 0.9rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
-    .fcard-d { font-size: 0.8rem; color: var(--text); line-height: 1.7; font-weight: 300; }
-    .fcard-v { margin-top: 1rem; font-family: var(--mono); font-size: 0.6rem; color: var(--light); }
+    /* WHO */
+    .who-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
+    }
+    .who-card { background: #fff; padding: 2rem; transition: background 0.15s; }
+    .who-card:hover { background: var(--off); }
+    .who-icon { font-size: 1.4rem; margin-bottom: 0.75rem; display: block; }
+    .who-t { font-size: 0.92rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
+    .who-d { font-size: 0.8rem; color: var(--text); line-height: 1.7; font-weight: 300; }
 
-    /* PLATFORM */
-    .platform-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-    .platform-table th { background: var(--black); color: #fff; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; padding: 1rem 1.5rem; text-align: left; font-weight: 500; }
-    .platform-table td { padding: 1rem 1.5rem; font-size: 0.84rem; color: var(--text); border-bottom: 1px solid var(--border); }
-    .platform-table tr:last-child td { border-bottom: none; }
-    .platform-table tr:hover td { background: var(--off); }
-    .yes { color: var(--green); font-weight: 600; }
-    .no { color: var(--red); }
-    .partial { color: var(--amber); font-weight: 500; }
+    /* CONTACT SECTION */
+    .contact-section {
+      background: var(--off);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-inner {
+      max-width: 960px; margin: 0 auto;
+      padding: 5rem 2rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+    .contact-sub { font-family: var(--mono); font-size: 0.68rem; color: var(--light); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .contact-title { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; color: var(--black); margin-bottom: 1rem; line-height: 1.2; }
+    .contact-desc { font-size: 0.88rem; color: var(--text); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
+    .contact-note { font-family: var(--mono); font-size: 0.68rem; color: var(--light); margin-top: 1.25rem; }
 
-    /* FOUNDER */
-    .founder-wrap { background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .founder-inner { max-width: 960px; margin: 0 auto; padding: 5.5rem 2rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
-    .founder-sub { font-family: var(--mono); font-size: 0.68rem; color: var(--light); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem; }
-    .founder-name { font-size: 1.5rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; margin-bottom: 0.25rem; }
-    .founder-role { font-size: 0.82rem; color: var(--light); margin-bottom: 1.75rem; }
-    .founder-bio { font-size: 0.86rem; color: var(--text); line-height: 1.9; font-weight: 300; margin-bottom: 1.75rem; }
-    .founder-paper { background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--black); padding: 1rem 1.25rem; margin-bottom: 1.75rem; }
-    .paper-sub { font-family: var(--mono); font-size: 0.6rem; color: var(--light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
-    .paper-t { font-size: 0.82rem; font-weight: 500; color: var(--black); line-height: 1.5; margin-bottom: 0.25rem; }
-    .paper-j { font-size: 0.75rem; color: var(--light); }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .itag { font-family: var(--mono); font-size: 0.6rem; padding: 0.2rem 0.6rem; background: #fff; border: 1px solid var(--border); color: var(--text); border-radius: 3px; }
-    .fstats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-    .fstat { background: #fff; padding: 1.75rem; }
-    .fstat-n { font-size: 1.8rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; margin-bottom: 0.25rem; }
-    .fstat-l { font-size: 0.75rem; color: var(--light); }
+    .contact-methods { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .cmethod {
+      background: #fff; padding: 1.5rem 1.75rem;
+      display: flex; align-items: center; gap: 1.25rem;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .cmethod:hover { background: var(--off); }
+    .cmethod-icon { font-size: 1.25rem; flex-shrink: 0; }
+    .cmethod-label { font-size: 0.72rem; color: var(--light); font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .cmethod-val { font-size: 0.88rem; font-weight: 500; color: var(--black); }
+    .cmethod-arrow { margin-left: auto; color: var(--light); font-size: 1rem; }
 
-    /* FAQ */
-    .faq-wrap { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-q { padding: 1.25rem 1.5rem; font-size: 0.9rem; font-weight: 600; color: var(--black); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.15s; user-select: none; }
-    .faq-q:hover { background: var(--off); }
-    .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--light); font-weight: 300; transition: transform 0.2s; }
-    .faq-item.open .faq-q::after { transform: rotate(45deg); }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-    .faq-item.open .faq-a { max-height: 300px; }
-    .faq-a-inner { padding: 0 1.5rem 1.25rem; font-size: 0.85rem; color: var(--text); line-height: 1.75; font-weight: 300; }
+    .contact-btns { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+    .cbtn {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.88rem; font-weight: 600;
+      padding: 0.9rem 1.5rem; text-decoration: none;
+      transition: all 0.15s; border-radius: 4px;
+    }
+    .cbtn-black { background: var(--black); color: #fff; }
+    .cbtn-black:hover { opacity: 0.85; }
+    .cbtn-wa { background: #25d366; color: #fff; }
+    .cbtn-wa:hover { opacity: 0.9; }
+    .cbtn-border { border: 1.5px solid var(--border); color: var(--text); background: #fff; }
+    .cbtn-border:hover { border-color: #aaa; color: var(--black); }
 
     /* CTA BAND */
-    .cta-band { background: var(--black); color: #fff; padding: 5rem 2rem; text-align: center; }
-    .cta-band h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 560px; margin-left: auto; margin-right: auto; }
-    .cta-band p { font-size: 0.9rem; color: #777; line-height: 1.8; font-weight: 300; max-width: 420px; margin: 0 auto 2.5rem; }
-    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-    .cta-btn-white { display: inline-block; background: #fff; color: var(--black); font-size: 0.88rem; font-weight: 700; padding: 0.85rem 2rem; text-decoration: none; transition: opacity 0.15s; }
-    .cta-btn-white:hover { opacity: 0.9; }
-    .cta-btn-ghost { display: inline-block; border: 1.5px solid #333; color: #aaa; font-size: 0.88rem; font-weight: 500; padding: 0.85rem 2rem; text-decoration: none; transition: all 0.15s; }
-    .cta-btn-ghost:hover { border-color: #777; color: #fff; }
+    .cta-band {
+      background: var(--black); color: #fff;
+      padding: 5rem 2rem; text-align: center;
+    }
+    .cta-band h2 {
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 1rem; max-width: 540px;
+      margin-left: auto; margin-right: auto;
+    }
+    .cta-band p {
+      font-size: 0.9rem; color: #777;
+      line-height: 1.8; font-weight: 300;
+      max-width: 400px; margin: 0 auto 2.5rem;
+    }
 
     /* FOOTER */
     footer { border-top: 1px solid var(--border); }
-    .footer-inner { max-width: 960px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; }
+    .footer-inner {
+      max-width: 960px; margin: 0 auto;
+      padding: 3rem 2rem;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
     .footer-logo { font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--black); margin-bottom: 0.75rem; }
-    .footer-tag { font-size: 0.82rem; color: var(--text); line-height: 1.7; font-weight: 300; max-width: 240px; margin-bottom: 1.5rem; }
+    .footer-tag { font-size: 0.82rem; color: var(--text); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
     .footer-copy { font-size: 0.72rem; color: var(--light); }
-    .footer-h { font-size: 0.8rem; font-weight: 600; color: var(--black); margin-bottom: 1rem; }
+    .footer-h { font-size: 0.8rem; font-weight: 700; color: var(--black); margin-bottom: 1rem; }
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
     .footer-links a { font-size: 0.82rem; color: var(--text); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--black); }
@@ -191,348 +324,274 @@
 
     /* RESPONSIVE */
     @media (max-width: 800px) {
-      nav { padding: 0 1.25rem; }
-      .nav-links { display: none; }
-      .hero { padding: 5rem 1.25rem 4rem; }
+      .topnav { padding: 0 1.25rem; }
+      .topnav-links { display: none; }
+      .pagenav { padding: 0 1.25rem; }
+      .hero { padding: 4rem 1.25rem 3.5rem; }
       .stats { grid-template-columns: repeat(2,1fr); }
       .stat:nth-child(2) { border-right: none; }
       .stat:nth-child(3) { border-top: 1px solid var(--border); }
       .stat:nth-child(4) { border-right: none; border-top: 1px solid var(--border); }
       .sec { padding: 3.5rem 1.25rem; }
-      .tools-grid { grid-template-columns: 1fr; }
-      .vrow { grid-template-columns: 1fr; gap: 0.5rem; }
-      .fgrid { grid-template-columns: 1fr 1fr; }
-      .founder-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.25rem; }
+      .pvs { grid-template-columns: 1fr; }
+      .sgrid { grid-template-columns: 1fr; }
+      .who-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.25rem; }
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.25rem; }
       .cta-band { padding: 3.5rem 1.25rem; }
-      .cta-btns { flex-direction: column; align-items: center; }
     }
-    @media (max-width: 500px) {
-      .hero h1 { font-size: 2rem; }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.8rem; }
       .hero-btns { flex-direction: column; align-items: center; }
       .btn { width: 100%; max-width: 280px; justify-content: center; }
-      .fgrid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="/" class="nav-logo">SIPAR SECURITY</a>
-  <ul class="nav-links">
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#capabilities">Capabilities</a></li>
-    <li><a href="#founder">About</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="/services.html">Services</a></li>
+<!-- TOP NAV -->
+<nav class="topnav">
+  <a href="/" class="topnav-logo">SIPAR SECURITY</a>
+  <ul class="topnav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/#versions">Versions</a></li>
+    <li><a href="/services.html" class="active">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="https://github.com/siparsecurity" target="_blank" class="nav-btn">GitHub →</a>
+  <a href="#contact" class="topnav-btn">Get in Touch →</a>
 </nav>
+
+<!-- PAGE NAV — jump links -->
+<div class="pagenav">
+  <a href="#services">Services</a>
+  <a href="#who">Who We Help</a>
+  <a href="#contact">Contact</a>
+  <a href="/">Our Tool</a>
+  <a href="https://github.com/siparsecurity" target="_blank">GitHub</a>
+</div>
 
 <!-- HERO -->
 <div class="hero r">
-  <div class="hero-badge">Actively Building · Open Source · Pakistan 🇵🇰</div>
-  <h1>Cybersecurity tools and services <em>built for everyone.</em></h1>
-  <p>Sipar Security develops open-source security tools, provides professional security services, and conducts applied security research — built for real-world use, not enterprise budgets.</p>
+  <div class="hero-tag">⚠ Most networks are compromised without anyone knowing</div>
+  <h1>Your network has gaps.<br/><span>We find them before attackers do.</span></h1>
+  <p>Professional network security services for home users, small businesses, and organizations. No enterprise pricing. No jargon. Just honest security work.</p>
   <div class="hero-btns">
-    <a href="https://github.com/siparsecurity" target="_blank" class="btn btn-black">⭐ View All Tools</a>
-    <a href="/services.html" class="btn btn-border">Our Services →</a>
+    <a href="#contact" class="btn btn-white">Get a Free Consultation →</a>
+    <a href="#services" class="btn btn-outline">See Our Services</a>
   </div>
 </div>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span>NEW DEVICE DETECTED</span> · 192.168.1.201 ·
-    <span>ARP SPOOF — HIGH CONFIDENCE</span> · 192.168.1.1 ·
-    <span>PORT SCAN DETECTED</span> · 192.168.1.45 ·
-    <span>ROGUE DEVICE FLAGGED</span> · 192.168.1.88 ·
-    <span>THREAT LEVEL: CRITICAL</span> · 192.168.1.3 ·
-    <span>SUBDOMAIN FOUND</span> · api.target.com ·
-    <span>ZONE TRANSFER REFUSED</span> · ns1.target.com ·
-    <span>NEW DEVICE DETECTED</span> · 192.168.1.201 ·
-    <span>ARP SPOOF — HIGH CONFIDENCE</span> · 192.168.1.1 ·
-    <span>PORT SCAN DETECTED</span> · 192.168.1.45 ·
-    <span>ROGUE DEVICE FLAGGED</span> · 192.168.1.88 ·
-    <span>THREAT LEVEL: CRITICAL</span> · 192.168.1.3 ·
-    <span>SUBDOMAIN FOUND</span> · api.target.com ·
-    <span>ZONE TRANSFER REFUSED</span> · ns1.target.com ·
-  </div>
+<!-- WARNING -->
+<div class="warning r">
+  <p>⚠ Rogue devices, ARP spoofing, unauthorized access, and port scanning happen on small networks every day — silently, invisibly, without a single alert. Most people find out only after something goes wrong.</p>
 </div>
 
 <!-- STATS -->
 <div class="stats r">
   <div class="stat">
-    <div class="stat-n">1<em>+</em></div>
-    <div class="stat-l">Tools Released</div>
+    <div class="stat-n">Free</div>
+    <div class="stat-l">First consultation</div>
   </div>
   <div class="stat">
-    <div class="stat-n">100<em>%</em></div>
-    <div class="stat-l">Open Source</div>
+    <div class="stat-n">3</div>
+    <div class="stat-l">Tool versions released</div>
   </div>
   <div class="stat">
-    <div class="stat-n">0<em>$</em></div>
-    <div class="stat-l">Cost to Use</div>
+    <div class="stat-n">24h</div>
+    <div class="stat-l">Response time</div>
   </div>
   <div class="stat">
-    <div class="stat-n">PK<em> 🇵🇰</em></div>
-    <div class="stat-l">Built in Pakistan</div>
+    <div class="stat-n">PK 🇵🇰</div>
+    <div class="stat-l">Based in Pakistan</div>
   </div>
 </div>
 
-<!-- TOOLS SECTION -->
-<div class="sec r" id="tools">
-  <div class="sec-sub">Our Tools</div>
-  <div class="sec-title">What we are building</div>
-  <div class="sec-desc">All tools are free, open-source, and available on GitHub. We are actively adding new tools over time.</div>
+<!-- PROBLEM vs SOLUTION -->
+<div class="sec r">
+  <div class="sec-sub">The Reality</div>
+  <div class="sec-title">What is happening on your network right now?</div>
+  <div class="sec-desc">Most people have no idea. That is the problem. Here is what we change.</div>
 
-  <div class="tools-grid">
-
-    <!-- Tool 1 — Network Monitor -->
-    <div class="tool-card active-tool">
-      <div class="tool-card-label">
-        <span>Tool 01 · Network Security</span>
-        <span class="tool-status-badge tsb-active">Active</span>
-      </div>
-      <div class="tool-card-name">Sipar Network Monitor</div>
-      <div class="tool-card-desc">A Python-based network intrusion detection system. Detects every device, tracks online/offline status, flags ARP spoofing, port scans, rogue devices, and scores threats in real time.</div>
-      <div class="tool-versions">
-        <span class="tool-ver tv-released">v1.0 Released</span>
-        <span class="tool-ver tv-released">v2.0 Released</span>
-        <span class="tool-ver tv-released">v3.0 Released</span>
-      </div>
-      <a href="https://github.com/siparsecurity/network-monitor-v3" target="_blank" class="tool-link">View on GitHub →</a>
+  <div class="pvs">
+    <div class="pvs-box problem">
+      <div class="pvs-label">Without Sipar Security</div>
+      <ul class="pvs-list">
+        <li>Devices you do not recognize are connected to your WiFi</li>
+        <li>Someone is intercepting your traffic via ARP spoofing</li>
+        <li>An attacker is quietly scanning your ports</li>
+        <li>A rogue device joined while you were not watching</li>
+        <li>No logs. No alerts. No visibility. No idea.</li>
+      </ul>
     </div>
-
-
-
-
-
-  </div>
-
-  <div style="font-size:0.78rem;color:var(--light);font-family:var(--mono);">
-    Follow us on <a href="https://github.com/siparsecurity" target="_blank" style="color:var(--green);text-decoration:none;">GitHub</a> to stay updated on new releases.
-  </div>
-</div>
-
-<!-- NETWORK MONITOR VERSIONS -->
-<div class="sec r" id="versions" style="padding-top:0;">
-  <div class="sec-sub">Network Monitor — Release History</div>
-  <div class="sec-title">Three versions. Each one better.</div>
-  <div class="sec-desc">Every version is publicly available. Download any version from GitHub.</div>
-
-  <div class="versions">
-    <div class="vrow">
-      <div class="v-ver">v1.0 — 2026</div>
-      <div>
-        <div class="v-name">Version 1.0 — Foundation</div>
-        <div class="v-desc">First public release. ARP scan engine, event server, persistent logging, SOC dashboard, and auto interface detection.</div>
-        <div class="v-tags">
-          <span class="vtag vt-g">ARP Scanning</span>
-          <span class="vtag vt-g">SOC Dashboard</span>
-          <span class="vtag vt-g">Event Server</span>
-          <span class="vtag vt-g">Persistent Logging</span>
-        </div>
-      </div>
-      <div class="v-badge vb-g">Released</div>
-    </div>
-    <div class="vrow">
-      <div class="v-ver">v2.0 — 2026</div>
-      <div>
-        <div class="v-name">Version 2.0 — Device Intelligence</div>
-        <div class="v-desc">Device schema with first/last seen, offline detection after 3 missed scans, ARP spoof cooldown, MAC randomization handling, and upgraded dashboard.</div>
-        <div class="v-tags">
-          <span class="vtag vt-g">Device Schema</span>
-          <span class="vtag vt-g">Offline Detection</span>
-          <span class="vtag vt-g">ARP Spoof Cooldown</span>
-          <span class="vtag vt-g">MAC Randomization Handling</span>
-          <span class="vtag vt-g">/stats API</span>
-        </div>
-      </div>
-      <div class="v-badge vb-g">Released</div>
-    </div>
-    <div class="vrow current">
-      <div class="v-ver">v3.0 — 2026</div>
-      <div>
-        <div class="v-name">Version 3.0 — Attack Detection</div>
-        <div class="v-desc">Full attack detection engine. Confidence-scored ARP spoof, duplicate MAC detection, port scan detection, rogue device flagging, threat levels, risk decay, and cross-platform support.</div>
-        <div class="v-tags">
-          <span class="vtag vt-g">ARP Spoof Confidence Scoring</span>
-          <span class="vtag vt-g">Duplicate MAC Detection</span>
-          <span class="vtag vt-g">Port Scan Detection</span>
-          <span class="vtag vt-g">Rogue Device Detection</span>
-          <span class="vtag vt-g">LOW/MEDIUM/HIGH/CRITICAL</span>
-          <span class="vtag vt-g">Linux · Windows · Android</span>
-        </div>
-      </div>
-      <div class="v-badge vb-g">Latest</div>
+    <div class="pvs-box solution">
+      <div class="pvs-label">With Sipar Security</div>
+      <ul class="pvs-list">
+        <li>Complete visibility into every device on your network</li>
+        <li>Real-time detection of ARP spoofing attempts</li>
+        <li>Instant alerts when unknown devices connect</li>
+        <li>Port scan detection before attackers find anything</li>
+        <li>Written report with every finding and how to fix it</li>
+      </ul>
     </div>
   </div>
 </div>
 
-<!-- CAPABILITIES -->
-<div class="sec r" id="capabilities" style="padding-top:0;">
-  <div class="sec-sub">Capabilities</div>
-  <div class="sec-title">What the Network Monitor detects.</div>
-  <div class="sec-desc">All features available in Version 3.0.</div>
+<!-- SERVICES -->
+<div class="sec r" id="services" style="padding-top:0;">
+  <div class="sec-sub">What We Offer</div>
+  <div class="sec-title">Security services that actually protect you</div>
+  <div class="sec-desc">We assess your network, find the problems, and tell you exactly how to fix them. No vague reports. No upsells.</div>
 
-  <div class="fgrid">
-    <div class="fcard">
-      <div class="fcard-n">001</div>
-      <div class="fcard-t">Device Discovery</div>
-      <div class="fcard-d">ARP-based scanning finds every device — MAC, IP, first seen, last seen, cumulative risk score.</div>
-      <div class="fcard-v">v1.0 +</div>
+  <div class="sgrid">
+    <div class="scard">
+      <div class="scard-n">01</div>
+      <div class="scard-t">Network Security Audit</div>
+      <div class="scard-d">A complete assessment of your network. We scan every device, identify risks, and deliver a clear written report with findings and recommendations.</div>
+      <ul class="scard-list">
+        <li>Full device discovery — every device on your network</li>
+        <li>ARP spoof detection and analysis</li>
+        <li>Rogue device identification</li>
+        <li>Port scan detection</li>
+        <li>Threat level assessment per device</li>
+        <li>Written report with clear recommendations</li>
+      </ul>
+      <span class="stag stag-red">Most Requested</span>
     </div>
-    <div class="fcard">
-      <div class="fcard-n">002</div>
-      <div class="fcard-t">Real-Time Tracking</div>
-      <div class="fcard-d">7-second scan cycles. Online and offline status updates the moment something changes.</div>
-      <div class="fcard-v">v1.0 +</div>
+
+    <div class="scard dark">
+      <div class="scard-n">02</div>
+      <div class="scard-t">Penetration Testing</div>
+      <div class="scard-d">We attempt to breach your network the way a real attacker would — then tell you exactly what we found and how to fix it before someone else does.</div>
+      <ul class="scard-list">
+        <li>Structured pentest — reconnaissance to exploitation</li>
+        <li>Web application vulnerability assessment</li>
+        <li>Network exposure analysis</li>
+        <li>Wireless security testing</li>
+        <li>Detailed findings report</li>
+        <li>Remediation guidance for every finding</li>
+      </ul>
+      <span class="stag stag-white">Advanced</span>
     </div>
-    <div class="fcard">
-      <div class="fcard-n">003</div>
-      <div class="fcard-t">ARP Spoof Detection</div>
-      <div class="fcard-d">Confidence-scored — LOW, MEDIUM, HIGH. Cooldown timer and 60-second MAC randomization window.</div>
-      <div class="fcard-v">v3.0</div>
+
+    <div class="scard">
+      <div class="scard-n">03</div>
+      <div class="scard-t">Network Monitor Setup</div>
+      <div class="scard-d">We install and configure the Sipar Security Network Monitor on your system — so you have real-time visibility into your network every single day.</div>
+      <ul class="scard-list">
+        <li>Full installation on Linux, Windows, or Android</li>
+        <li>Configuration for your specific network</li>
+        <li>Dashboard walkthrough and training</li>
+        <li>Ongoing support for questions</li>
+      </ul>
+      <span class="stag stag-green">Great for Small Businesses</span>
     </div>
-    <div class="fcard">
-      <div class="fcard-n">004</div>
-      <div class="fcard-t">Port Scan Detection</div>
-      <div class="fcard-d">Background thread watches for one IP probing multiple ports rapidly. Five ports in 10 seconds triggers alert.</div>
-      <div class="fcard-v">v3.0</div>
-    </div>
-    <div class="fcard">
-      <div class="fcard-n">005</div>
-      <div class="fcard-t">Duplicate MAC Detection</div>
-      <div class="fcard-d">Same MAC address on two different IPs simultaneously — instantly flagged.</div>
-      <div class="fcard-v">v3.0</div>
-    </div>
-    <div class="fcard">
-      <div class="fcard-n">006</div>
-      <div class="fcard-t">Rogue Device Detection</div>
-      <div class="fcard-d">Trusted baseline on first scan. Any device joining after is flagged as unknown immediately.</div>
-      <div class="fcard-v">v3.0</div>
-    </div>
-    <div class="fcard">
-      <div class="fcard-n">007</div>
-      <div class="fcard-t">Threat Level System</div>
-      <div class="fcard-d">Every device scored LOW, MEDIUM, HIGH, or CRITICAL. Risk decays when device stays clean.</div>
-      <div class="fcard-v">v3.0</div>
-    </div>
-    <div class="fcard">
-      <div class="fcard-n">008</div>
-      <div class="fcard-t">SOC Dashboard</div>
-      <div class="fcard-d">6 stat cards, threat badges, filtered alert panel, risk reset button. Accessible from any browser on same network.</div>
-      <div class="fcard-v">v1.0 +</div>
-    </div>
-    <div class="fcard">
-      <div class="fcard-n">009</div>
-      <div class="fcard-t">Persistent Logging</div>
-      <div class="fcard-d">All events saved to disk as JSONL. Full device state rebuilt on every restart. Zero data loss.</div>
-      <div class="fcard-v">v2.0 +</div>
+
+    <div class="scard">
+      <div class="scard-n">04</div>
+      <div class="scard-t">Vulnerability Disclosure Consulting</div>
+      <div class="scard-d">Found a vulnerability or suspect your system is exposed? We help you understand it, assess the risk, and report it correctly through proper channels.</div>
+      <ul class="scard-list">
+        <li>Vulnerability assessment and risk rating</li>
+        <li>Responsible disclosure guidance</li>
+        <li>Report writing for bug bounty platforms</li>
+        <li>Follow-up support throughout the process</li>
+      </ul>
+      <span class="stag stag-red">For Researchers</span>
     </div>
   </div>
 </div>
 
-<!-- PLATFORM -->
-<div class="sec r" style="padding-top:0;">
-  <div class="sec-sub">Platform Support</div>
-  <div class="sec-title">Runs everywhere.</div>
-  <div class="sec-desc">One command to install. Dashboard accessible from any browser on the same network.</div>
-  <table class="platform-table">
-    <thead>
-      <tr><th>Platform</th><th>Run the Tool</th><th>View Dashboard</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Kali Linux</td><td class="yes">✓ Full support</td><td class="yes">✓</td></tr>
-      <tr><td>Ubuntu / Debian</td><td class="yes">✓ Full support</td><td class="yes">✓</td></tr>
-      <tr><td>Windows 10 / 11</td><td class="partial">✓ Requires Npcap</td><td class="yes">✓</td></tr>
-      <tr><td>Termux — Rooted Android</td><td class="yes">✓ Full support</td><td class="yes">✓</td></tr>
-      <tr><td>Termux — Not Rooted</td><td class="no">✗ Root required</td><td class="yes">✓ Browser only</td></tr>
-      <tr><td>Any phone / tablet browser</td><td class="no">✗</td><td class="yes">✓ Same WiFi, no setup</td></tr>
-    </tbody>
-  </table>
+<!-- WHO -->
+<div class="sec r" id="who" style="padding-top:0;">
+  <div class="sec-sub">Who We Help</div>
+  <div class="sec-title">Built for people who cannot afford to ignore security</div>
+  <div class="sec-desc">Enterprise companies have entire security teams. Everyone else has us.</div>
+
+  <div class="who-grid">
+    <div class="who-card">
+      <span class="who-icon">🏠</span>
+      <div class="who-t">Home Users</div>
+      <div class="who-d">You share your WiFi with family, guests, and neighbors. Do you know exactly who and what is connected right now? We make sure you do.</div>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">🏢</span>
+      <div class="who-t">Small Businesses</div>
+      <div class="who-d">Your business network handles payments, customer data, and internal communications. One breach can cost everything. We help you prevent it.</div>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">🎓</span>
+      <div class="who-t">Schools and Organizations</div>
+      <div class="who-d">Large networks with many users are high-value targets. Unauthorized access and rogue devices are real risks. We find them before attackers do.</div>
+    </div>
+  </div>
 </div>
 
-<!-- FOUNDER -->
-<div class="founder-wrap r" id="founder">
-  <div class="founder-inner">
+<!-- CONTACT -->
+<div class="contact-section r" id="contact">
+  <div class="contact-inner">
     <div>
-      <div class="founder-sub">Founder</div>
-      <div class="founder-name">Sayed Muhammad Subayyal</div>
-      <div class="founder-role">Cybersecurity Researcher · Penetration Tester · Founder, Sipar Security</div>
-      <p class="founder-bio">Cybersecurity researcher and penetration tester focused on network security, wireless security, vulnerability assessment, and open-source security tool development. Works with Linux environments, particularly Kali Linux, applying structured methodologies for security testing and defensive assessments. Actively contributes to the cybersecurity community through vulnerability disclosure, open-source development, and academic research. Currently studying at Islamia College Peshawar.</p>
-      <div class="founder-paper">
-        <div class="paper-sub">Published Research · 2026</div>
-        <div class="paper-t">Simulating and Mitigating Rogue Access Point Attacks in Wi-Fi Networks Using Open-Source Tools</div>
-        <div class="paper-j">Journal of Soft Computing and Artificial Intelligence</div>
+      <div class="contact-sub">Contact</div>
+      <div class="contact-title">Let's talk about your network.</div>
+      <div class="contact-desc">Your first consultation is completely free. Tell us about your network and what you are concerned about — we will give you an honest answer about what we can do for you.</div>
+
+      <div class="contact-btns">
+        <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request&body=Hello%20Sipar%20Security%2C%0A%0AI%20am%20interested%20in%20your%20services.%20I%20would%20like%20to%20know%20more%20about%3A%0A%0A-%20%5BNetwork%20Security%20Audit%20%2F%20Penetration%20Testing%20%2F%20Network%20Monitor%20Setup%20%2F%20Other%5D%0A%0AHere%20is%20a%20brief%20description%20of%20my%20network%20and%20what%20I%20need%3A%0A%0A%5BDescribe%20your%20situation%20here%5D%0A%0AThank%20you." class="cbtn cbtn-black">
+          📧 Email Us
+        </a>
+        <a href="https://wa.me/923189352428?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services%20and%20would%20like%20to%20know%20more%20about%20a%20free%20consultation." target="_blank" class="cbtn cbtn-wa">
+          💬 WhatsApp Us
+        </a>
+        <a href="https://linkedin.com/company/siparsecurity" target="_blank" class="cbtn cbtn-border">
+          💼 Message on LinkedIn
+        </a>
       </div>
-      <div class="tags">
-        <span class="itag">Network Security</span>
-        <span class="itag">Penetration Testing</span>
-        <span class="itag">Wireless Security</span>
-        <span class="itag">Ethical Hacking</span>
-        <span class="itag">Kali Linux</span>
-        <span class="itag">Python</span>
-        <span class="itag">Open-Source Tools</span>
-        <span class="itag">Vulnerability Assessment</span>
-        <span class="itag">Defensive Security</span>
-      </div>
+      <div class="contact-note">We respond within 24 hours · All consultations are confidential</div>
     </div>
+
     <div>
-      <div class="fstats">
-        <div class="fstat"><div class="fstat-n">17</div><div class="fstat-l">Years old</div></div>
-        <div class="fstat"><div class="fstat-n">2+</div><div class="fstat-l">Tools released</div></div>
-        <div class="fstat"><div class="fstat-n">1</div><div class="fstat-l">Published paper</div></div>
-        <div class="fstat"><div class="fstat-n">PK 🇵🇰</div><div class="fstat-l">Pakistan</div></div>
+      <div class="contact-methods">
+        <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request&body=Hello%20Sipar%20Security%2C%0A%0AI%20am%20interested%20in%20your%20services.%20I%20would%20like%20to%20know%20more%20about%3A%0A%0A-%20%5BNetwork%20Security%20Audit%20%2F%20Penetration%20Testing%20%2F%20Network%20Monitor%20Setup%20%2F%20Other%5D%0A%0AHere%20is%20a%20brief%20description%20of%20my%20network%20and%20what%20I%20need%3A%0A%0A%5BDescribe%20your%20situation%20here%5D%0A%0AThank%20you." class="cmethod">
+          <span class="cmethod-icon">📧</span>
+          <div>
+            <div class="cmethod-label">Email</div>
+            <div class="cmethod-val">siparsecurity@gmail.com</div>
+          </div>
+          <span class="cmethod-arrow">→</span>
+        </a>
+        <a href="https://wa.me/923189352428?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services%20and%20would%20like%20to%20know%20more%20about%20a%20free%20consultation." target="_blank" class="cmethod">
+          <span class="cmethod-icon">💬</span>
+          <div>
+            <div class="cmethod-label">WhatsApp</div>
+            <div class="cmethod-val">+92 318 935 2428</div>
+          </div>
+          <span class="cmethod-arrow">→</span>
+        </a>
+        <a href="https://linkedin.com/company/siparsecurity" target="_blank" class="cmethod">
+          <span class="cmethod-icon">💼</span>
+          <div>
+            <div class="cmethod-label">LinkedIn</div>
+            <div class="cmethod-val">Sipar Security</div>
+          </div>
+          <span class="cmethod-arrow">→</span>
+        </a>
+        <a href="https://github.com/siparsecurity" target="_blank" class="cmethod">
+          <span class="cmethod-icon">⭐</span>
+          <div>
+            <div class="cmethod-label">GitHub</div>
+            <div class="cmethod-val">github.com/siparsecurity</div>
+          </div>
+          <span class="cmethod-arrow">→</span>
+        </a>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- FAQ -->
-<div class="sec r" id="faq">
-  <div class="sec-sub">FAQ</div>
-  <div class="sec-title">Common questions</div>
-  <div class="sec-desc">Answers to what people ask most often about our tools and services.</div>
-
-  <div class="faq-wrap">
-    <div class="faq-item">
-      <div class="faq-q">Are your tools really free?</div>
-      <div class="faq-a"><div class="faq-a-inner">Yes — completely free. All tools are open-source and published on GitHub under the MIT License. You can download, use, and modify them at no cost. No hidden fees, no trial periods, no premium versions required to use the core functionality.</div></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Can I use the Network Monitor on my home WiFi?</div>
-      <div class="faq-a"><div class="faq-a-inner">Yes. The Network Monitor is specifically designed for home users, IT administrators, and small businesses. You can run it on Linux (including Kali), Windows 10/11 with Npcap, or Android via Termux if rooted. The dashboard is viewable from any browser on the same network.</div></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Do I need technical knowledge to use these tools?</div>
-      <div class="faq-a"><div class="faq-a-inner">Basic command line knowledge is helpful. The Network Monitor runs with a single command and opens a browser-based dashboard that anyone can read. If you need help setting it up, we offer a Network Monitor Setup service — we install and configure it for you.</div></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What does a network security audit include?</div>
-      <div class="faq-a"><div class="faq-a-inner">A full device inventory, ARP spoof analysis, rogue device detection, port scan detection, and a threat-level assessment for every device on your network. You receive a written report with every finding clearly explained and specific steps to fix each issue.</div></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Is the first consultation really free?</div>
-      <div class="faq-a"><div class="faq-a-inner">Yes. We will listen to what you need, assess your situation honestly, and tell you what we can do — with no obligation to proceed. Contact us via email or WhatsApp and we will get back to you within 24 hours.</div></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How do I report a bug or suggest a feature?</div>
-      <div class="faq-a"><div class="faq-a-inner">Open an issue on the relevant GitHub repository. We actively read and respond to issues. For security vulnerabilities in our own tools, email us directly at siparsecurity@gmail.com.</div></div>
     </div>
   </div>
 </div>
 
 <!-- CTA -->
 <div class="cta-band r">
-  <h2>Ready to secure your network?</h2>
-  <p>Get our tools free on GitHub or talk to us about professional security services. First consultation is free.</p>
-  <div class="cta-btns">
-    <a href="https://github.com/siparsecurity" target="_blank" class="cta-btn-white">⭐ Get the Tools Free</a>
-    <a href="/services.html" class="cta-btn-ghost">Our Services →</a>
-  </div>
+  <h2>Your first consultation is free. No commitment.</h2>
+  <p>Tell us what you are worried about. We will tell you honestly what we can do.</p>
+  <a href="https://wa.me/923189352428?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services%20and%20would%20like%20to%20know%20more%20about%20a%20free%20consultation." target="_blank" class="btn btn-white">💬 WhatsApp Us Now →</a>
 </div>
 
 <!-- FOOTER -->
@@ -540,41 +599,40 @@
   <div class="footer-inner">
     <div>
       <div class="footer-logo">SIPAR SECURITY</div>
-      <p class="footer-tag">Open-source cybersecurity tools and professional security services. Built in Pakistan.</p>
-      <div class="footer-copy">© 2026 Sipar Security · MIT License · Pakistan 🇵🇰</div>
+      <p class="footer-tag">Open-source network security tools and professional security services. Built in Pakistan.</p>
+      <div class="footer-copy">© 2026 Sipar Security · Pakistan 🇵🇰</div>
     </div>
     <div>
-      <div class="footer-h">Tools</div>
+      <div class="footer-h">Services</div>
       <ul class="footer-links">
-        <li><a href="https://github.com/siparsecurity/network-monitor-v3" target="_blank">Network Monitor v3.0</a></li>
-        <li><a href="https://github.com/siparsecurity/network-monitor-v2" target="_blank">Network Monitor v2.0</a></li>
-        <li><a href="https://github.com/siparsecurity/network-monitor" target="_blank">Network Monitor v1.0</a></li>
-        <li><a href="https://github.com/siparsecurity" target="_blank">All Projects</a></li>
+        <li><a href="#services">Network Audit</a></li>
+        <li><a href="#services">Penetration Testing</a></li>
+        <li><a href="#services">Monitor Setup</a></li>
+        <li><a href="#services">Vuln. Consulting</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-h">Company</div>
       <ul class="footer-links">
-        <li><a href="#founder">About</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="https://linkedin.com/company/siparsecurity" target="_blank">LinkedIn</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#versions">Our Tool</a></li>
+        <li><a href="/#founder">About</a></li>
+        <li><a href="https://github.com/siparsecurity" target="_blank">GitHub</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-h">Contact</div>
       <ul class="footer-links">
-        <li><a href="mailto:siparsecurity@gmail.com">siparsecurity@gmail.com</a></li>
+        <li><a href="mailto:siparsecurity@gmail.com">Email Us</a></li>
         <li><a href="https://wa.me/923189352428" target="_blank">WhatsApp</a></li>
+        <li><a href="https://linkedin.com/company/siparsecurity" target="_blank">LinkedIn</a></li>
         <li><a href="https://x.com/SiparSecurity" target="_blank">X / Twitter</a></li>
-        <li><a href="https://github.com/siparsecurity" target="_blank">GitHub</a></li>
       </ul>
     </div>
   </div>
 </footer>
 
 <script>
-  // Reveal
   const els = document.querySelectorAll('.r');
   const obs = new IntersectionObserver(entries => {
     entries.forEach((e,i) => {
@@ -582,16 +640,6 @@
     });
   }, {threshold:0.05});
   els.forEach(e=>obs.observe(e));
-
-  // FAQ
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => {
-      const item = q.parentElement;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if(!isOpen) item.classList.add('open');
-    });
-  });
 </script>
 
 </body>
