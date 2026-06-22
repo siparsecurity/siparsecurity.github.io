@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -583,7 +582,7 @@
       <div class="footer-h">Contact</div>
       <ul class="footer-links">
         <li><a href="mailto:siparsecurity@gmail.com">siparsecurity@gmail.com</a></li>
-        <li><a href="https://wa.me/923189352428" target="_blank">WhatsApp</a></li>
+        <li><a href="https://wa.me/923325765207" target="_blank">WhatsApp</a></li>
         <li><a href="https://x.com/SiparSecurity" target="_blank">X / Twitter</a></li>
         <li><a href="https://github.com/siparsecurity" target="_blank">GitHub</a></li>
       </ul>
