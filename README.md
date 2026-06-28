@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -57,7 +58,7 @@
 
     /* TICKER */
     .ticker { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--black); color: #fff; padding: 0.85rem 0; overflow: hidden; }
-    .ticker-inner { display: flex; gap: 4rem; white-space: nowrap; animation: ticker 18s linear infinite; font-family: var(--mono); font-size: 0.72rem; color: #888; letter-spacing: 0.08em; }
+    .ticker-inner { display: flex; gap: 4rem; white-space: nowrap; animation: ticker 22s linear infinite; font-family: var(--mono); font-size: 0.72rem; color: #888; letter-spacing: 0.08em; }
     .ticker-inner span { color: var(--green); }
     @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
@@ -89,7 +90,7 @@
     .tv-released { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
     .tv-dev { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
     .tv-planned { background: var(--off); color: var(--light); border: 1px solid var(--border); }
-    .tool-link { font-family: var(--mono); font-size: 0.7rem; color: var(--green); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
+    .tool-link { font-family: var(--mono); font-size: 0.7rem; color: var(--green); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; margin-right: 1rem; }
     .tool-link:hover { text-decoration: underline; }
     .tool-status-badge { font-family: var(--mono); font-size: 0.6rem; padding: 0.2rem 0.6rem; border-radius: 3px; font-weight: 600; }
     .tsb-active { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
@@ -250,6 +251,9 @@
     <span>THREAT LEVEL: CRITICAL</span> · 192.168.1.3 ·
     <span>SUBDOMAIN FOUND</span> · api.target.com ·
     <span>ZONE TRANSFER REFUSED</span> · ns1.target.com ·
+    <span>CNAME TAKEOVER — VULNERABLE</span> · blog.target.com →  github.io ·
+    <span>GHOSTCLAIM</span> · FINGERPRINT MATCHED · GitHub Pages ·
+    <span>POTENTIALLY VULNERABLE</span> · shop.target.com → myshopify.com ·
     <span>NEW DEVICE DETECTED</span> · 192.168.1.201 ·
     <span>ARP SPOOF — HIGH CONFIDENCE</span> · 192.168.1.1 ·
     <span>PORT SCAN DETECTED</span> · 192.168.1.45 ·
@@ -257,13 +261,16 @@
     <span>THREAT LEVEL: CRITICAL</span> · 192.168.1.3 ·
     <span>SUBDOMAIN FOUND</span> · api.target.com ·
     <span>ZONE TRANSFER REFUSED</span> · ns1.target.com ·
+    <span>CNAME TAKEOVER — VULNERABLE</span> · blog.target.com → github.io ·
+    <span>GHOSTCLAIM</span> · FINGERPRINT MATCHED · GitHub Pages ·
+    <span>POTENTIALLY VULNERABLE</span> · shop.target.com → myshopify.com ·
   </div>
 </div>
 
 <!-- STATS -->
 <div class="stats r">
   <div class="stat">
-    <div class="stat-n">2<em>+</em></div>
+    <div class="stat-n">3<em>+</em></div>
     <div class="stat-l">Tools Released</div>
   </div>
   <div class="stat">
@@ -284,7 +291,7 @@
 <div class="sec r" id="tools">
   <div class="sec-sub">Our Tools</div>
   <div class="sec-title">What we are building</div>
-  <div class="sec-desc">All tools are free, open-source, and available on GitHub. We are actively adding new tools over time.</div>
+  <div class="sec-desc">All tools are free, open-source, and available on GitHub. Pro versions are available directly for advanced features.</div>
 
   <div class="tools-grid">
 
@@ -316,16 +323,34 @@
         <span class="tool-ver tv-released">v1.0 Free Released</span>
         <span class="tool-ver tv-dev">Pro Available</span>
       </div>
-      <a href="https://github.com/siparsecurity/shadowmap" target="_blank" class="tool-link">View on GitHub →</a>
+      <a href="https://github.com/siparsecurity/shadowmap" target="_blank" class="tool-link">Free →</a>
+      <a href="https://github.com/siparsecurity/shadowmap-pro" target="_blank" class="tool-link">Pro →</a>
     </div>
+
+    <!-- Tool 3 — GhostClaim -->
+    <div class="tool-card active-tool">
+      <div class="tool-card-label">
+        <span>Tool 03 · Offensive Security</span>
+        <span class="tool-status-badge tsb-active">New</span>
+      </div>
+      <div class="tool-card-name">GhostClaim</div>
+      <div class="tool-card-desc">A subdomain takeover detection tool for penetration testers and bug bounty hunters. Enumerates subdomains, follows full CNAME chains, and fingerprints HTTP responses against known vulnerable services.</div>
+      <div class="tool-versions">
+        <span class="tool-ver tv-released">v1.0 Free Released</span>
+        <span class="tool-ver tv-dev">Pro Available</span>
+      </div>
+      <a href="https://github.com/siparsecurity/ghostclaim" target="_blank" class="tool-link">Free →</a>
+      <a href="https://github.com/siparsecurity/ghostclaim-pro" target="_blank" class="tool-link">Pro →</a>
+    </div>
+
   </div>
 
   <div style="border:1px solid var(--green-bd);background:var(--green-bg);border-radius:6px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
     <div>
-      <div style="font-size:0.92rem;font-weight:700;color:var(--black);margin-bottom:0.25rem;">Want more from ShadowMap?</div>
-      <div style="font-size:0.8rem;color:var(--text);font-weight:300;">ShadowMap Pro adds active brute-force, technology fingerprinting, vulnerability detection, and automatic report generation.</div>
+      <div style="font-size:0.92rem;font-weight:700;color:var(--black);margin-bottom:0.25rem;">Want Pro versions?</div>
+      <div style="font-size:0.8rem;color:var(--text);font-weight:300;">ShadowMap Pro and GhostClaim Pro add advanced fingerprinting, stealth modes, vulnerability detection, and professional report generation.</div>
     </div>
-    <a href="/services.html#shadowmap-pro" class="btn btn-black" style="white-space:nowrap;">Get ShadowMap Pro →</a>
+    <a href="/services.html" class="btn btn-black" style="white-space:nowrap;">Get Pro Versions →</a>
   </div>
 
   <div style="font-size:0.78rem;color:var(--light);font-family:var(--mono);">
@@ -494,13 +519,14 @@
         <span class="itag">Python</span>
         <span class="itag">Open-Source Tools</span>
         <span class="itag">Vulnerability Assessment</span>
-        <span class="itag">Defensive Security</span>
+        <span class="itag">Bug Bounty</span>
+        <span class="itag">Subdomain Takeover</span>
       </div>
     </div>
     <div>
       <div class="fstats">
         <div class="fstat"><div class="fstat-n">17</div><div class="fstat-l">Years old</div></div>
-        <div class="fstat"><div class="fstat-n">2+</div><div class="fstat-l">Tools released</div></div>
+        <div class="fstat"><div class="fstat-n">3+</div><div class="fstat-l">Tools released</div></div>
         <div class="fstat"><div class="fstat-n">1</div><div class="fstat-l">Published paper</div></div>
         <div class="fstat"><div class="fstat-n">PK 🇵🇰</div><div class="fstat-l">Pakistan</div></div>
       </div>
@@ -517,23 +543,23 @@
   <div class="faq-wrap">
     <div class="faq-item">
       <div class="faq-q">Are your tools really free?</div>
-      <div class="faq-a"><div class="faq-a-inner">Yes — completely free. All tools are open-source and published on GitHub under the MIT License. You can download, use, and modify them at no cost. No hidden fees, no trial periods, no premium versions required to use the core functionality.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes — completely free. All tools are open-source and published on GitHub under the MIT License. You can download, use, and modify them at no cost. Pro versions with advanced features are available separately for those who need them.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is subdomain takeover and why does GhostClaim matter?</div>
+      <div class="faq-a"><div class="faq-a-inner">Subdomain takeover happens when a subdomain points to an external service (like GitHub Pages or Heroku) that has been deleted or abandoned. An attacker can claim that service and take control of the subdomain. GhostClaim automates the detection of this vulnerability across all subdomains of a target domain.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Can I use the Network Monitor on my home WiFi?</div>
       <div class="faq-a"><div class="faq-a-inner">Yes. The Network Monitor is specifically designed for home users, IT administrators, and small businesses. You can run it on Linux (including Kali), Windows 10/11 with Npcap, or Android via Termux if rooted. The dashboard is viewable from any browser on the same network.</div></div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Do I need technical knowledge to use these tools?</div>
-      <div class="faq-a"><div class="faq-a-inner">Basic command line knowledge is helpful. The Network Monitor runs with a single command and opens a browser-based dashboard that anyone can read. If you need help setting it up, we offer a Network Monitor Setup service — we install and configure it for you.</div></div>
+      <div class="faq-q">What is the difference between Free and Pro versions?</div>
+      <div class="faq-a"><div class="faq-a-inner">Free versions cover the core functionality and are fully open source. Pro versions add advanced features — for ShadowMap Pro: active brute-force, technology fingerprinting, vulnerability hints, stealth modes, and HTML/PDF reports. For GhostClaim Pro: 30+ service fingerprints (vs 10 in free), stealth modes, JSON export, and HTML/PDF report generation.</div></div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What does a network security audit include?</div>
-      <div class="faq-a"><div class="faq-a-inner">A full device inventory, ARP spoof analysis, rogue device detection, port scan detection, and a threat-level assessment for every device on your network. You receive a written report with every finding clearly explained and specific steps to fix each issue.</div></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Is the first consultation really free?</div>
-      <div class="faq-a"><div class="faq-a-inner">Yes. We will listen to what you need, assess your situation honestly, and tell you what we can do — with no obligation to proceed. Contact us via email or WhatsApp and we will get back to you within 24 hours.</div></div>
+      <div class="faq-q">How do I get a Pro version?</div>
+      <div class="faq-a"><div class="faq-a-inner">Contact us directly via WhatsApp (+923189352428) or email (siparsecurity@gmail.com). We send you the files directly — no payment platform, no license key, no internet activation required.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">How do I report a bug or suggest a feature?</div>
@@ -544,7 +570,7 @@
 
 <!-- CTA -->
 <div class="cta-band r">
-  <h2>Ready to secure your network?</h2>
+  <h2>Ready to get started?</h2>
   <p>Get our tools free on GitHub or talk to us about professional security services. First consultation is free.</p>
   <div class="cta-btns">
     <a href="https://github.com/siparsecurity" target="_blank" class="cta-btn-white">⭐ Get the Tools Free</a>
@@ -565,8 +591,9 @@
       <ul class="footer-links">
         <li><a href="https://github.com/siparsecurity/network-monitor-v3" target="_blank">Network Monitor v3.0</a></li>
         <li><a href="https://github.com/siparsecurity/shadowmap" target="_blank">ShadowMap Free</a></li>
-        <li><a href="/services.html#shadowmap-pro">ShadowMap Pro</a></li>
-        <li><a href="https://github.com/siparsecurity" target="_blank">All Projects</a></li>
+        <li><a href="https://github.com/siparsecurity/shadowmap-pro" target="_blank">ShadowMap Pro</a></li>
+        <li><a href="https://github.com/siparsecurity/ghostclaim" target="_blank">GhostClaim Free</a></li>
+        <li><a href="https://github.com/siparsecurity/ghostclaim-pro" target="_blank">GhostClaim Pro</a></li>
       </ul>
     </div>
     <div>
@@ -582,7 +609,7 @@
       <div class="footer-h">Contact</div>
       <ul class="footer-links">
         <li><a href="mailto:siparsecurity@gmail.com">siparsecurity@gmail.com</a></li>
-        <li><a href="https://wa.me/923325765207" target="_blank">WhatsApp</a></li>
+        <li><a href="https://wa.me/923189352428" target="_blank">WhatsApp</a></li>
         <li><a href="https://x.com/SiparSecurity" target="_blank">X / Twitter</a></li>
         <li><a href="https://github.com/siparsecurity" target="_blank">GitHub</a></li>
       </ul>
@@ -591,7 +618,6 @@
 </footer>
 
 <script>
-  // Reveal
   const els = document.querySelectorAll('.r');
   const obs = new IntersectionObserver(entries => {
     entries.forEach((e,i) => {
@@ -600,7 +626,6 @@
   }, {threshold:0.05});
   els.forEach(e=>obs.observe(e));
 
-  // FAQ
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
       const item = q.parentElement;
