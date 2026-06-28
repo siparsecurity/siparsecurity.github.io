@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -25,97 +25,30 @@
       --mono: 'IBM Plex Mono', monospace;
       --sans: 'Inter', sans-serif;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      background: var(--white);
-      color: var(--black);
-      -webkit-font-smoothing: antialiased;
-    }
+    body { font-family: var(--sans); background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; }
 
-    /* TOP NAV */
-    .topnav {
-      position: sticky; top: 0; z-index: 99;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      height: 62px;
-      display: flex; align-items: center;
-      justify-content: space-between;
-      padding: 0 2.5rem;
-    }
-    .topnav-logo {
-      font-family: var(--mono); font-size: 0.82rem;
-      font-weight: 500; color: var(--black);
-      text-decoration: none; letter-spacing: 0.06em;
-    }
+    .topnav { position: sticky; top: 0; z-index: 99; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); height: 62px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; }
+    .topnav-logo { font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--black); text-decoration: none; letter-spacing: 0.06em; }
     .topnav-links { display: flex; gap: 2rem; list-style: none; }
-    .topnav-links a {
-      font-size: 0.84rem; color: var(--text);
-      text-decoration: none; transition: color 0.15s;
-    }
+    .topnav-links a { font-size: 0.84rem; color: var(--text); text-decoration: none; transition: color 0.15s; }
     .topnav-links a:hover { color: var(--black); }
     .topnav-links a.active { color: var(--black); font-weight: 600; }
-    .topnav-btn {
-      font-size: 0.82rem; font-weight: 600;
-      background: var(--black); color: #fff;
-      padding: 0.5rem 1.25rem; text-decoration: none;
-      transition: opacity 0.15s;
-    }
+    .topnav-btn { font-size: 0.82rem; font-weight: 600; background: var(--black); color: #fff; padding: 0.5rem 1.25rem; text-decoration: none; transition: opacity 0.15s; }
     .topnav-btn:hover { opacity: 0.8; }
 
-    /* PAGE NAV — jump links */
-    .pagenav {
-      background: var(--off);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2.5rem;
-      display: flex; gap: 0; overflow-x: auto;
-    }
-    .pagenav a {
-      font-family: var(--mono); font-size: 0.7rem;
-      color: var(--light); text-decoration: none;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.85rem 1.5rem;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      transition: all 0.15s;
-    }
+    .pagenav { background: var(--off); border-bottom: 1px solid var(--border); padding: 0 2.5rem; display: flex; gap: 0; overflow-x: auto; }
+    .pagenav a { font-family: var(--mono); font-size: 0.7rem; color: var(--light); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 1.5rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.15s; }
     .pagenav a:hover { color: var(--black); border-bottom-color: var(--black); }
 
-    /* HERO */
-    .hero {
-      background: var(--black); color: #fff;
-      padding: 6rem 2rem 5rem; text-align: center;
-    }
-    .hero-tag {
-      display: inline-block;
-      font-family: var(--mono); font-size: 0.7rem;
-      color: var(--red); background: rgba(220,38,38,0.1);
-      border: 1px solid rgba(220,38,38,0.3);
-      padding: 0.3rem 0.85rem; margin-bottom: 2rem;
-      letter-spacing: 0.05em;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700; line-height: 1.12;
-      letter-spacing: -0.025em; margin-bottom: 1.5rem;
-      max-width: 680px; margin-left: auto; margin-right: auto;
-    }
+    .hero { background: var(--black); color: #fff; padding: 6rem 2rem 5rem; text-align: center; }
+    .hero-tag { display: inline-block; font-family: var(--mono); font-size: 0.7rem; color: var(--red); background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.3); padding: 0.3rem 0.85rem; margin-bottom: 2rem; letter-spacing: 0.05em; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.025em; margin-bottom: 1.5rem; max-width: 680px; margin-left: auto; margin-right: auto; }
     .hero h1 span { color: var(--red); }
-    .hero p {
-      font-size: 1rem; color: #888;
-      line-height: 1.8; font-weight: 300;
-      max-width: 500px; margin: 0 auto 3rem;
-    }
+    .hero p { font-size: 1rem; color: #888; line-height: 1.8; font-weight: 300; max-width: 500px; margin: 0 auto 3rem; }
     .hero-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      font-size: 0.88rem; font-weight: 600;
-      padding: 0.8rem 1.75rem; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      transition: all 0.15s;
-    }
+    .btn { font-size: 0.88rem; font-weight: 600; padding: 0.8rem 1.75rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.15s; }
     .btn-white { background: #fff; color: var(--black); }
     .btn-white:hover { opacity: 0.9; }
     .btn-outline { border: 1.5px solid #444; color: #aaa; background: transparent; }
@@ -125,90 +58,35 @@
     .btn-green { background: var(--green); color: #fff; }
     .btn-green:hover { opacity: 0.85; }
 
-    /* WARNING */
-    .warning {
-      background: var(--red-bg);
-      border-bottom: 1px solid var(--red-bd);
-      padding: 1.1rem 2rem; text-align: center;
-    }
-    .warning p {
-      font-size: 0.84rem; color: var(--red);
-      font-weight: 500; max-width: 720px; margin: 0 auto;
-    }
+    .warning { background: var(--red-bg); border-bottom: 1px solid var(--red-bd); padding: 1.1rem 2rem; text-align: center; }
+    .warning p { font-size: 0.84rem; color: var(--red); font-weight: 500; max-width: 720px; margin: 0 auto; }
 
-    /* STATS */
-    .stats {
-      display: grid; grid-template-columns: repeat(4,1fr);
-      border-bottom: 1px solid var(--border);
-    }
-    .stat {
-      padding: 2.5rem 2rem; text-align: center;
-      border-right: 1px solid var(--border);
-    }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid var(--border); }
+    .stat { padding: 2.5rem 2rem; text-align: center; border-right: 1px solid var(--border); }
     .stat:last-child { border-right: none; }
-    .stat-n {
-      font-size: 2.2rem; font-weight: 700;
-      color: var(--black); letter-spacing: -0.02em;
-      line-height: 1; margin-bottom: 0.4rem;
-    }
+    .stat-n { font-size: 2.2rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.4rem; }
     .stat-l { font-size: 0.78rem; color: var(--light); }
 
-    /* SECTION */
     .sec { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; }
-    .sec-sub {
-      font-family: var(--mono); font-size: 0.68rem;
-      color: var(--light); letter-spacing: 0.14em;
-      text-transform: uppercase; margin-bottom: 0.6rem;
-    }
-    .sec-title {
-      font-size: clamp(1.4rem, 3vw, 1.9rem);
-      font-weight: 700; letter-spacing: -0.02em;
-      color: var(--black); margin-bottom: 0.85rem;
-    }
-    .sec-desc {
-      font-size: 0.9rem; color: var(--text);
-      line-height: 1.8; font-weight: 300;
-      max-width: 520px; margin-bottom: 3rem;
-    }
+    .sec-sub { font-family: var(--mono); font-size: 0.68rem; color: var(--light); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .sec-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 700; letter-spacing: -0.02em; color: var(--black); margin-bottom: 0.85rem; }
+    .sec-desc { font-size: 0.9rem; color: var(--text); line-height: 1.8; font-weight: 300; max-width: 520px; margin-bottom: 3rem; }
 
-    /* PROBLEM vs SOLUTION */
-    .pvs {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 2.5rem; margin-bottom: 0;
-    }
-    .pvs-box {
-      padding: 2.5rem; border: 1px solid var(--border);
-      border-radius: 6px;
-    }
+    .pvs { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 0; }
+    .pvs-box { padding: 2.5rem; border: 1px solid var(--border); border-radius: 6px; }
     .pvs-box.problem { background: var(--red-bg); border-color: var(--red-bd); }
     .pvs-box.solution { background: var(--green-bg); border-color: var(--green-bd); }
-    .pvs-label {
-      font-family: var(--mono); font-size: 0.65rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      margin-bottom: 1.25rem; font-weight: 500;
-    }
+    .pvs-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.25rem; font-weight: 500; }
     .pvs-box.problem .pvs-label { color: var(--red); }
     .pvs-box.solution .pvs-label { color: var(--green); }
     .pvs-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
-    .pvs-list li {
-      font-size: 0.85rem; color: var(--text);
-      display: flex; align-items: flex-start;
-      gap: 0.65rem; line-height: 1.55;
-    }
+    .pvs-list li { font-size: 0.85rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.65rem; line-height: 1.55; }
     .pvs-list li::before { flex-shrink: 0; margin-top: 0.05rem; font-weight: 700; }
     .problem .pvs-list li::before { content: '×'; color: var(--red); font-size: 1rem; }
     .solution .pvs-list li::before { content: '✓'; color: var(--green); font-size: 0.85rem; }
 
-    /* SERVICES GRID */
-    .sgrid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
-    }
-    .scard {
-      background: #fff; padding: 2.5rem;
-      transition: background 0.15s; position: relative;
-    }
+    .sgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .scard { background: #fff; padding: 2.5rem; transition: background 0.15s; position: relative; }
     .scard:hover { background: var(--off); }
     .scard.dark { background: var(--black); }
     .scard.dark:hover { background: #111; }
@@ -219,37 +97,19 @@
     .scard-d { font-size: 0.83rem; color: var(--text); line-height: 1.75; font-weight: 300; margin-bottom: 1.5rem; }
     .scard.dark .scard-d { color: #888; }
     .scard-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.75rem; }
-    .scard-list li {
-      font-size: 0.82rem; color: var(--text);
-      display: flex; align-items: flex-start;
-      gap: 0.6rem; line-height: 1.5;
-    }
+    .scard-list li { font-size: 0.82rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.6rem; line-height: 1.5; }
     .scard.dark .scard-list li { color: #aaa; }
     .scard-list li::before { content: '✓'; color: var(--green); font-size: 0.72rem; font-weight: 700; margin-top: 0.15rem; flex-shrink: 0; }
     .scard.dark .scard-list li::before { color: #4ade80; }
-    .stag {
-      font-family: var(--mono); font-size: 0.6rem;
-      padding: 0.2rem 0.6rem; border-radius: 3px;
-      display: inline-block; letter-spacing: 0.04em; font-weight: 500;
-    }
+    .stag { font-family: var(--mono); font-size: 0.6rem; padding: 0.2rem 0.6rem; border-radius: 3px; display: inline-block; letter-spacing: 0.04em; font-weight: 500; }
     .stag-red { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-bd); }
     .stag-green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
     .stag-white { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
 
-    /* SHADOWMAP — FREE VS PRO */
-    .swmap-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
-    }
+    .swmap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 1rem; }
     .swcard { background: #fff; padding: 2.5rem; }
     .swcard.pro { background: var(--black); }
-    .swcard-badge {
-      font-family: var(--mono); font-size: 0.62rem;
-      padding: 0.2rem 0.65rem; border-radius: 3px;
-      display: inline-block; letter-spacing: 0.06em; font-weight: 600;
-      margin-bottom: 1.25rem;
-    }
+    .swcard-badge { font-family: var(--mono); font-size: 0.62rem; padding: 0.2rem 0.65rem; border-radius: 3px; display: inline-block; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 1.25rem; }
     .swcard-badge.free { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
     .swcard-badge.pro { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
     .swcard-t { font-size: 1.3rem; font-weight: 800; color: var(--black); margin-bottom: 0.5rem; }
@@ -257,63 +117,33 @@
     .swcard-sub { font-size: 0.82rem; color: var(--text); font-weight: 300; margin-bottom: 1.75rem; }
     .swcard.pro .swcard-sub { color: #999; }
     .swcard-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
-    .swcard-list li {
-      font-size: 0.84rem; color: var(--text);
-      display: flex; align-items: flex-start;
-      gap: 0.65rem; line-height: 1.55;
-    }
+    .swcard-list li { font-size: 0.84rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.65rem; line-height: 1.55; }
     .swcard.pro .swcard-list li { color: #ccc; }
     .swcard-list li::before { content: '✓'; color: var(--green); font-size: 0.78rem; font-weight: 700; margin-top: 0.15rem; flex-shrink: 0; }
     .swcard.pro .swcard-list li::before { color: #4ade80; }
 
-    /* WHO */
-    .who-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
-    }
+    .who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
     .who-card { background: #fff; padding: 2rem; transition: background 0.15s; }
     .who-card:hover { background: var(--off); }
     .who-icon { font-size: 1.4rem; margin-bottom: 0.75rem; display: block; }
     .who-t { font-size: 0.92rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
     .who-d { font-size: 0.8rem; color: var(--text); line-height: 1.7; font-weight: 300; }
 
-    /* CONTACT SECTION */
-    .contact-section {
-      background: var(--off);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .contact-inner {
-      max-width: 960px; margin: 0 auto;
-      padding: 5rem 2rem;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: start;
-    }
+    .contact-section { background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .contact-inner { max-width: 960px; margin: 0 auto; padding: 5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
     .contact-sub { font-family: var(--mono); font-size: 0.68rem; color: var(--light); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.75rem; }
     .contact-title { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; color: var(--black); margin-bottom: 1rem; line-height: 1.2; }
     .contact-desc { font-size: 0.88rem; color: var(--text); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
     .contact-note { font-family: var(--mono); font-size: 0.68rem; color: var(--light); margin-top: 1.25rem; }
-
     .contact-methods { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-    .cmethod {
-      background: #fff; padding: 1.5rem 1.75rem;
-      display: flex; align-items: center; gap: 1.25rem;
-      text-decoration: none; transition: background 0.15s;
-    }
+    .cmethod { background: #fff; padding: 1.5rem 1.75rem; display: flex; align-items: center; gap: 1.25rem; text-decoration: none; transition: background 0.15s; }
     .cmethod:hover { background: var(--off); }
     .cmethod-icon { font-size: 1.25rem; flex-shrink: 0; }
     .cmethod-label { font-size: 0.72rem; color: var(--light); font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
     .cmethod-val { font-size: 0.88rem; font-weight: 500; color: var(--black); }
     .cmethod-arrow { margin-left: auto; color: var(--light); font-size: 1rem; }
-
     .contact-btns { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
-    .cbtn {
-      display: flex; align-items: center; gap: 0.75rem;
-      font-size: 0.88rem; font-weight: 600;
-      padding: 0.9rem 1.5rem; text-decoration: none;
-      transition: all 0.15s; border-radius: 4px;
-    }
+    .cbtn { display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; font-weight: 600; padding: 0.9rem 1.5rem; text-decoration: none; transition: all 0.15s; border-radius: 4px; }
     .cbtn-black { background: var(--black); color: #fff; }
     .cbtn-black:hover { opacity: 0.85; }
     .cbtn-wa { background: #25d366; color: #fff; }
@@ -321,31 +151,12 @@
     .cbtn-border { border: 1.5px solid var(--border); color: var(--text); background: #fff; }
     .cbtn-border:hover { border-color: #aaa; color: var(--black); }
 
-    /* CTA BAND */
-    .cta-band {
-      background: var(--black); color: #fff;
-      padding: 5rem 2rem; text-align: center;
-    }
-    .cta-band h2 {
-      font-size: clamp(1.6rem, 4vw, 2.3rem);
-      font-weight: 700; letter-spacing: -0.02em;
-      margin-bottom: 1rem; max-width: 540px;
-      margin-left: auto; margin-right: auto;
-    }
-    .cta-band p {
-      font-size: 0.9rem; color: #777;
-      line-height: 1.8; font-weight: 300;
-      max-width: 400px; margin: 0 auto 2.5rem;
-    }
+    .cta-band { background: var(--black); color: #fff; padding: 5rem 2rem; text-align: center; }
+    .cta-band h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .cta-band p { font-size: 0.9rem; color: #777; line-height: 1.8; font-weight: 300; max-width: 400px; margin: 0 auto 2.5rem; }
 
-    /* FOOTER */
     footer { border-top: 1px solid var(--border); }
-    .footer-inner {
-      max-width: 960px; margin: 0 auto;
-      padding: 3rem 2rem;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 2.5rem;
-    }
+    .footer-inner { max-width: 960px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; }
     .footer-logo { font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--black); margin-bottom: 0.75rem; }
     .footer-tag { font-size: 0.82rem; color: var(--text); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
     .footer-copy { font-size: 0.72rem; color: var(--light); }
@@ -354,11 +165,9 @@
     .footer-links a { font-size: 0.82rem; color: var(--text); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--black); }
 
-    /* REVEAL */
     .r { opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease, transform 0.45s ease; }
     .r.on { opacity: 1; transform: none; }
 
-    /* RESPONSIVE */
     @media (max-width: 800px) {
       .topnav { padding: 0 1.25rem; }
       .topnav-links { display: none; }
@@ -386,7 +195,6 @@
 </head>
 <body>
 
-<!-- TOP NAV -->
 <nav class="topnav">
   <a href="/" class="topnav-logo">SIPAR SECURITY</a>
   <ul class="topnav-links">
@@ -398,39 +206,37 @@
   <a href="#contact" class="topnav-btn">Get in Touch →</a>
 </nav>
 
-<!-- PAGE NAV — jump links -->
 <div class="pagenav">
   <a href="#services">Security Services</a>
   <a href="#shadowmap-pro">ShadowMap Pro</a>
+  <a href="#ghostclaim-pro">GhostClaim Pro</a>
   <a href="#who">Who We Help</a>
   <a href="#contact">Contact</a>
   <a href="https://github.com/siparsecurity" target="_blank">GitHub</a>
 </div>
 
-<!-- HERO -->
 <div class="hero r">
   <div class="hero-tag">⚠ Most networks are compromised without anyone knowing</div>
   <h1>Your network has gaps.<br/><span>We find them before attackers do.</span></h1>
   <p>Professional security services and offensive security tools — for home users, small businesses, and bug bounty hunters. No enterprise pricing. No jargon.</p>
   <div class="hero-btns">
     <a href="#contact" class="btn btn-white">Get a Free Consultation →</a>
-    <a href="#shadowmap-pro" class="btn btn-outline">Get ShadowMap Pro →</a>
+    <a href="#shadowmap-pro" class="btn btn-outline">ShadowMap Pro →</a>
+    <a href="#ghostclaim-pro" class="btn btn-outline">GhostClaim Pro →</a>
   </div>
 </div>
 
-<!-- WARNING -->
 <div class="warning r">
   <p>⚠ Rogue devices, ARP spoofing, unauthorized access, and port scanning happen on small networks every day — silently, invisibly, without a single alert. Most people find out only after something goes wrong.</p>
 </div>
 
-<!-- STATS -->
 <div class="stats r">
   <div class="stat">
     <div class="stat-n">Free</div>
     <div class="stat-l">First consultation</div>
   </div>
   <div class="stat">
-    <div class="stat-n">2</div>
+    <div class="stat-n">3</div>
     <div class="stat-l">Tools released</div>
   </div>
   <div class="stat">
@@ -443,12 +249,10 @@
   </div>
 </div>
 
-<!-- PROBLEM vs SOLUTION -->
 <div class="sec r">
   <div class="sec-sub">The Reality</div>
   <div class="sec-title">What is happening on your network right now?</div>
   <div class="sec-desc">Most people have no idea. That is the problem. Here is what we change.</div>
-
   <div class="pvs">
     <div class="pvs-box problem">
       <div class="pvs-label">Without Sipar Security</div>
@@ -473,12 +277,10 @@
   </div>
 </div>
 
-<!-- SECURITY SERVICES -->
 <div class="sec r" id="services" style="padding-top:0;">
   <div class="sec-sub">What We Offer</div>
   <div class="sec-title">Security services that actually protect you</div>
   <div class="sec-desc">We assess your network, find the problems, and tell you exactly how to fix them. No vague reports. No upsells.</div>
-
   <div class="sgrid">
     <div class="scard">
       <div class="scard-n">01</div>
@@ -494,7 +296,6 @@
       </ul>
       <span class="stag stag-red">Most Requested</span>
     </div>
-
     <div class="scard dark">
       <div class="scard-n">02</div>
       <div class="scard-t">Penetration Testing</div>
@@ -509,7 +310,6 @@
       </ul>
       <span class="stag stag-white">Advanced</span>
     </div>
-
     <div class="scard">
       <div class="scard-n">03</div>
       <div class="scard-t">Network Monitor Setup</div>
@@ -522,7 +322,6 @@
       </ul>
       <span class="stag stag-green">Great for Small Businesses</span>
     </div>
-
     <div class="scard">
       <div class="scard-n">04</div>
       <div class="scard-t">Vulnerability Disclosure Consulting</div>
@@ -538,12 +337,11 @@
   </div>
 </div>
 
-<!-- SHADOWMAP — FREE VS PRO -->
+<!-- SHADOWMAP FREE VS PRO -->
 <div class="sec r" id="shadowmap-pro" style="padding-top:0;">
   <div class="sec-sub">Offensive Security Tool</div>
   <div class="sec-title">ShadowMap — Free vs Pro</div>
   <div class="sec-desc">A web reconnaissance framework built for bug bounty hunters and penetration testers. Start free, upgrade when you need more.</div>
-
   <div class="swmap-grid">
     <div class="swcard">
       <span class="swcard-badge free">FREE · OPEN SOURCE</span>
@@ -558,7 +356,6 @@
       </ul>
       <a href="https://github.com/siparsecurity/shadowmap" target="_blank" class="btn btn-black">⭐ Get it Free on GitHub</a>
     </div>
-
     <div class="swcard pro">
       <span class="swcard-badge pro">PRO · DIRECT PURCHASE</span>
       <div class="swcard-t">ShadowMap Pro</div>
@@ -570,23 +367,62 @@
         <li>Misconfiguration & vulnerability hint detection</li>
         <li>Stealth scanning modes — off / low / medium / high</li>
         <li>Automatic professional HTML report generation</li>
+        <li>PDF report generation</li>
         <li>JSON export for integration with other tools</li>
       </ul>
-      <a href="https://wa.me/923325765207?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20purchasing%20ShadowMap%20Pro.%20Please%20send%20me%20payment%20details." target="_blank" class="btn btn-green">💬 Get ShadowMap Pro →</a>
+      <a href="https://wa.me/923189352428?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20purchasing%20ShadowMap%20Pro.%20Please%20send%20me%20details." target="_blank" class="btn btn-green">💬 Get ShadowMap Pro →</a>
     </div>
   </div>
-
-  <div style="margin-top:1.5rem;font-size:0.78rem;color:var(--light);font-family:var(--mono);">
-    ShadowMap Pro is sold directly — message us on WhatsApp or email to receive payment details and your copy.
+  <div style="font-size:0.78rem;color:var(--light);font-family:var(--mono);">
+    ShadowMap Pro is sold directly — message us on WhatsApp or email to receive your copy.
   </div>
 </div>
 
-<!-- WHO -->
+<!-- GHOSTCLAIM FREE VS PRO -->
+<div class="sec r" id="ghostclaim-pro" style="padding-top:0;">
+  <div class="sec-sub">Offensive Security Tool</div>
+  <div class="sec-title">GhostClaim — Free vs Pro</div>
+  <div class="sec-desc">A subdomain takeover detection tool for penetration testers and bug bounty hunters. Find dangling CNAMEs before attackers do.</div>
+  <div class="swmap-grid">
+    <div class="swcard">
+      <span class="swcard-badge free">FREE · OPEN SOURCE</span>
+      <div class="swcard-t">GhostClaim Free</div>
+      <div class="swcard-sub">Core subdomain takeover detection, completely free.</div>
+      <ul class="swcard-list">
+        <li>Passive subdomain enumeration via crt.sh and HackerTarget</li>
+        <li>Active brute-force with SecLists or custom wordlist</li>
+        <li>Full CNAME chain following</li>
+        <li>Fingerprint matching against 10 known vulnerable services</li>
+        <li>Color-coded verdict table: VULNERABLE / POTENTIALLY VULNERABLE / SAFE</li>
+        <li>Free forever, fully open source</li>
+      </ul>
+      <a href="https://github.com/siparsecurity/ghostclaim" target="_blank" class="btn btn-black">⭐ Get it Free on GitHub</a>
+    </div>
+    <div class="swcard pro">
+      <span class="swcard-badge pro">PRO · DIRECT PURCHASE</span>
+      <div class="swcard-t">GhostClaim Pro</div>
+      <div class="swcard-sub">The full takeover detection suite for serious bug bounty work.</div>
+      <ul class="swcard-list">
+        <li>Everything in Free, plus:</li>
+        <li>30+ service fingerprints (vs 10 in free)</li>
+        <li>Stealth modes for WAF evasion — low / medium / high</li>
+        <li>JSON export for integration with other tools</li>
+        <li>Automatic professional HTML report generation</li>
+        <li>PDF report generation</li>
+        <li>Full CNAME chain displayed in reports</li>
+      </ul>
+      <a href="https://wa.me/923189352428?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20purchasing%20GhostClaim%20Pro.%20Please%20send%20me%20details." target="_blank" class="btn btn-green">💬 Get GhostClaim Pro →</a>
+    </div>
+  </div>
+  <div style="font-size:0.78rem;color:var(--light);font-family:var(--mono);">
+    GhostClaim Pro is sold directly — message us on WhatsApp or email to receive your copy.
+  </div>
+</div>
+
 <div class="sec r" id="who" style="padding-top:0;">
   <div class="sec-sub">Who We Help</div>
   <div class="sec-title">Built for people who cannot afford to ignore security</div>
   <div class="sec-desc">Enterprise companies have entire security teams. Everyone else has us.</div>
-
   <div class="who-grid">
     <div class="who-card">
       <span class="who-icon">🏠</span>
@@ -601,65 +437,44 @@
     <div class="who-card">
       <span class="who-icon">🐛</span>
       <div class="who-t">Bug Bounty Hunters</div>
-      <div class="who-d">Reconnaissance eats hours before you find a single bug. ShadowMap automates it — so you spend your time testing, not mapping.</div>
+      <div class="who-d">Reconnaissance and takeover detection eat hours before you find a single bug. ShadowMap and GhostClaim automate it — so you spend your time testing, not mapping.</div>
     </div>
   </div>
 </div>
 
-<!-- CONTACT -->
 <div class="contact-section r" id="contact">
   <div class="contact-inner">
     <div>
       <div class="contact-sub">Contact</div>
       <div class="contact-title">Let's talk.</div>
-      <div class="contact-desc">Free network security consultation, or ready to get ShadowMap Pro — reach out and we will respond within 24 hours.</div>
-
+      <div class="contact-desc">Free network security consultation, or ready to get ShadowMap Pro or GhostClaim Pro — reach out and we will respond within 24 hours.</div>
       <div class="contact-btns">
-        <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request&body=Hello%20Sipar%20Security%2C%0A%0AI%20am%20interested%20in%20your%20services.%20I%20would%20like%20to%20know%20more%20about%3A%0A%0A-%20%5BNetwork%20Security%20Audit%20%2F%20Penetration%20Testing%20%2F%20Network%20Monitor%20Setup%20%2F%20ShadowMap%20Pro%20%2F%20Other%5D%0A%0AHere%20is%20a%20brief%20description%20of%20what%20I%20need%3A%0A%0A%5BDescribe%20your%20situation%20here%5D%0A%0AThank%20you." class="cbtn cbtn-black">
-          📧 Email Us
-        </a>
-        <a href="https://wa.me/923325765207?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services%20and%20would%20like%20to%20know%20more%20about%20a%20free%20consultation." target="_blank" class="cbtn cbtn-wa">
-          💬 WhatsApp Us
-        </a>
-        <a href="https://linkedin.com/company/siparsecurity" target="_blank" class="cbtn cbtn-border">
-          💼 Message on LinkedIn
-        </a>
+        <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request" class="cbtn cbtn-black">📧 Email Us</a>
+        <a href="https://wa.me/923189352428?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services." target="_blank" class="cbtn cbtn-wa">💬 WhatsApp Us</a>
+        <a href="https://linkedin.com/company/siparsecurity" target="_blank" class="cbtn cbtn-border">💼 Message on LinkedIn</a>
       </div>
       <div class="contact-note">We respond within 24 hours · All consultations are confidential</div>
     </div>
-
     <div>
       <div class="contact-methods">
-        <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request&body=Hello%20Sipar%20Security%2C%0A%0AI%20am%20interested%20in%20your%20services.%20I%20would%20like%20to%20know%20more%20about%3A%0A%0A-%20%5BNetwork%20Security%20Audit%20%2F%20Penetration%20Testing%20%2F%20Network%20Monitor%20Setup%20%2F%20ShadowMap%20Pro%20%2F%20Other%5D%0A%0AHere%20is%20a%20brief%20description%20of%20what%20I%20need%3A%0A%0A%5BDescribe%20your%20situation%20here%5D%0A%0AThank%20you." class="cmethod">
+        <a href="mailto:siparsecurity@gmail.com" class="cmethod">
           <span class="cmethod-icon">📧</span>
-          <div>
-            <div class="cmethod-label">Email</div>
-            <div class="cmethod-val">siparsecurity@gmail.com</div>
-          </div>
+          <div><div class="cmethod-label">Email</div><div class="cmethod-val">siparsecurity@gmail.com</div></div>
           <span class="cmethod-arrow">→</span>
         </a>
-        <a href="https://wa.me/923325765207?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services%20and%20would%20like%20to%20know%20more%20about%20a%20free%20consultation." target="_blank" class="cmethod">
+        <a href="https://wa.me/923189352428" target="_blank" class="cmethod">
           <span class="cmethod-icon">💬</span>
-          <div>
-            <div class="cmethod-label">WhatsApp</div>
-            <div class="cmethod-val">+9233257665207</div>
-          </div>
+          <div><div class="cmethod-label">WhatsApp</div><div class="cmethod-val">+923189352428</div></div>
           <span class="cmethod-arrow">→</span>
         </a>
         <a href="https://linkedin.com/company/siparsecurity" target="_blank" class="cmethod">
           <span class="cmethod-icon">💼</span>
-          <div>
-            <div class="cmethod-label">LinkedIn</div>
-            <div class="cmethod-val">Sipar Security</div>
-          </div>
+          <div><div class="cmethod-label">LinkedIn</div><div class="cmethod-val">Sipar Security</div></div>
           <span class="cmethod-arrow">→</span>
         </a>
         <a href="https://github.com/siparsecurity" target="_blank" class="cmethod">
           <span class="cmethod-icon">⭐</span>
-          <div>
-            <div class="cmethod-label">GitHub</div>
-            <div class="cmethod-val">github.com/siparsecurity</div>
-          </div>
+          <div><div class="cmethod-label">GitHub</div><div class="cmethod-val">github.com/siparsecurity</div></div>
           <span class="cmethod-arrow">→</span>
         </a>
       </div>
@@ -667,14 +482,12 @@
   </div>
 </div>
 
-<!-- CTA -->
 <div class="cta-band r">
   <h2>Your first consultation is free. No commitment.</h2>
   <p>Tell us what you are worried about. We will tell you honestly what we can do.</p>
-  <a href="https://wa.me/923325765207?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services%20and%20would%20like%20to%20know%20more%20about%20a%20free%20consultation." target="_blank" class="btn btn-white">💬 WhatsApp Us Now →</a>
+  <a href="https://wa.me/923189352428?text=Hello%20Sipar%20Security%2C%20I%20am%20interested%20in%20your%20security%20services." target="_blank" class="btn btn-white">💬 WhatsApp Us Now →</a>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
@@ -689,6 +502,7 @@
         <li><a href="#services">Penetration Testing</a></li>
         <li><a href="#services">Monitor Setup</a></li>
         <li><a href="#shadowmap-pro">ShadowMap Pro</a></li>
+        <li><a href="#ghostclaim-pro">GhostClaim Pro</a></li>
       </ul>
     </div>
     <div>
@@ -704,7 +518,7 @@
       <div class="footer-h">Contact</div>
       <ul class="footer-links">
         <li><a href="mailto:siparsecurity@gmail.com">Email Us</a></li>
-        <li><a href="https://wa.me/923325765207" target="_blank">WhatsApp</a></li>
+        <li><a href="https://wa.me/923189352428" target="_blank">WhatsApp</a></li>
         <li><a href="https://linkedin.com/company/siparsecurity" target="_blank">LinkedIn</a></li>
         <li><a href="https://x.com/SiparSecurity" target="_blank">X / Twitter</a></li>
       </ul>
@@ -724,3 +538,9 @@
 
 </body>
 </html>
+
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
