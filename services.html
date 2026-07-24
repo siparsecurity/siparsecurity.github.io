@@ -121,6 +121,14 @@
     .swcard-list li::before { content: '✓'; color: var(--green); font-size: 0.78rem; font-weight: 700; margin-top: 0.15rem; flex-shrink: 0; }
     .swcard.pro .swcard-list li::before { color: #4ade80; }
 
+    .shadowmap-solo { border: 1px solid var(--green-bd); background: var(--green-bg); border-radius: 6px; padding: 2.5rem; margin-bottom: 1rem; }
+    .shadowmap-solo .swcard-badge { margin-bottom: 1.25rem; }
+    .shadowmap-solo-t { font-size: 1.3rem; font-weight: 800; color: var(--black); margin-bottom: 0.5rem; }
+    .shadowmap-solo-sub { font-size: 0.85rem; color: var(--text); font-weight: 300; margin-bottom: 1.75rem; max-width: 560px; }
+    .shadowmap-solo-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; columns: 2; column-gap: 2rem; }
+    .shadowmap-solo-list li { font-size: 0.84rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.65rem; line-height: 1.55; break-inside: avoid; }
+    .shadowmap-solo-list li::before { content: '✓'; color: var(--green); font-size: 0.78rem; font-weight: 700; margin-top: 0.15rem; flex-shrink: 0; }
+
     .who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
     .who-card { background: #fff; padding: 2rem; transition: background 0.15s; }
     .who-card:hover { background: var(--off); }
@@ -179,6 +187,7 @@
       .sgrid { grid-template-columns: 1fr; }
       .swmap-grid { grid-template-columns: 1fr; }
       .who-grid { grid-template-columns: 1fr; }
+      .shadowmap-solo-list { columns: 1; }
       .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.25rem; }
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.25rem; }
       .cta-band { padding: 3.5rem 1.25rem; }
@@ -205,7 +214,7 @@
 
 <div class="pagenav">
   <a href="#services">Security Services</a>
-  <a href="#shadowmap-pro">ShadowMap Pro</a>
+  <a href="#shadowmap">ShadowMap</a>
   <a href="#ghostclaim-pro">GhostClaim Pro</a>
   <a href="#who">Who We Help</a>
   <a href="#contact">Contact</a>
@@ -218,7 +227,7 @@
   <p>Professional security services and offensive security tools — for home users, small businesses, and bug bounty hunters. No enterprise pricing. No jargon.</p>
   <div class="hero-btns">
     <a href="#contact" class="btn btn-white">Get a Free Consultation →</a>
-    <a href="#shadowmap-pro" class="btn btn-outline">ShadowMap Pro →</a>
+    <a href="#shadowmap" class="btn btn-outline">ShadowMap →</a>
     <a href="#ghostclaim-pro" class="btn btn-outline">GhostClaim Pro →</a>
   </div>
 </div>
@@ -334,43 +343,25 @@
   </div>
 </div>
 
-<div class="sec r" id="shadowmap-pro" style="padding-top:0;">
+<div class="sec r" id="shadowmap" style="padding-top:0;">
   <div class="sec-sub">Offensive Security Tool</div>
-  <div class="sec-title">ShadowMap — Free vs Pro</div>
-  <div class="sec-desc">A web reconnaissance framework built for bug bounty hunters and penetration testers. Start free, upgrade when you need more.</div>
-  <div class="swmap-grid">
-    <div class="swcard">
-      <span class="swcard-badge free">FREE · OPEN SOURCE</span>
-      <div class="swcard-t">ShadowMap Free</div>
-      <div class="swcard-sub">Everything you need to get started with recon.</div>
-      <ul class="swcard-list">
-        <li>Passive subdomain enumeration (certificate transparency)</li>
-        <li>DNS recon and zone transfer testing</li>
-        <li>Port scanning — top 20 common ports</li>
-        <li>Clean terminal output</li>
-        <li>Free forever, fully open source</li>
-      </ul>
-      <a href="https://github.com/siparsecurity/shadowmap" target="_blank" class="btn btn-black">⭐ Get it Free on GitHub</a>
-    </div>
-    <div class="swcard pro">
-      <span class="swcard-badge pro">PRO · DIRECT PURCHASE</span>
-      <div class="swcard-t">ShadowMap Pro</div>
-      <div class="swcard-sub">The full reconnaissance suite for serious recon work.</div>
-      <ul class="swcard-list">
-        <li>Everything in Free, plus:</li>
-        <li>Active subdomain brute-force with full SecLists wordlist</li>
-        <li>Technology fingerprinting — detect CMS, frameworks, servers</li>
-        <li>Misconfiguration & vulnerability hint detection</li>
-        <li>Stealth scanning modes — off / low / medium / high</li>
-        <li>Automatic professional HTML report generation</li>
-        <li>PDF report generation</li>
-        <li>JSON export for integration with other tools</li>
-      </ul>
-      <a href="mailto:siparsecurity@gmail.com?subject=ShadowMap%20Pro%20Purchase%20Request" class="btn btn-green">📧 Email to Buy ShadowMap Pro →</a>
-    </div>
-  </div>
-  <div style="font-size:0.78rem;color:var(--light);font-family:var(--mono);">
-    ShadowMap Pro is sold directly — email us to receive your copy.
+  <div class="sec-title">ShadowMap — now fully open source</div>
+  <div class="sec-desc">A web reconnaissance framework built for bug bounty hunters and penetration testers. What used to be split into Free and Pro is now one complete, free release — with improved detection accuracy and fewer false positives.</div>
+  <div class="shadowmap-solo">
+    <span class="swcard-badge free">FREE · OPEN SOURCE · ALL FEATURES</span>
+    <div class="shadowmap-solo-t">ShadowMap</div>
+    <div class="shadowmap-solo-sub">Everything that was previously Pro-only is now included at no cost.</div>
+    <ul class="shadowmap-solo-list">
+      <li>Passive subdomain enumeration (certificate transparency)</li>
+      <li>Active subdomain brute-force with SecLists wordlist</li>
+      <li>DNS recon and zone transfer testing</li>
+      <li>Technology fingerprinting — detect CMS, frameworks, servers</li>
+      <li>Misconfiguration & vulnerability hint detection</li>
+      <li>Port scanning</li>
+      <li>Stealth scanning modes</li>
+      <li>HTML, PDF, and JSON report generation</li>
+    </ul>
+    <a href="https://github.com/siparsecurity/shadowmap" target="_blank" class="btn btn-black">⭐ Get it Free on GitHub</a>
   </div>
 </div>
 
@@ -442,7 +433,7 @@
     <div>
       <div class="contact-sub">Contact</div>
       <div class="contact-title">Let's talk.</div>
-      <div class="contact-desc">Free network security consultation, or ready to get ShadowMap Pro or GhostClaim Pro — reach out and we will respond within 24 hours.</div>
+      <div class="contact-desc">Free network security consultation, or ready to get GhostClaim Pro — reach out and we will respond within 24 hours.</div>
       <div class="contact-btns">
         <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request" class="cbtn cbtn-black">📧 Email Us</a>
         <a href="https://linkedin.com/company/siparsecurity" target="_blank" class="cbtn cbtn-border">💼 Message on LinkedIn</a>
@@ -490,7 +481,7 @@
         <li><a href="#services">Network Audit</a></li>
         <li><a href="#services">Penetration Testing</a></li>
         <li><a href="#services">Monitor Setup</a></li>
-        <li><a href="#shadowmap-pro">ShadowMap Pro</a></li>
+        <li><a href="#shadowmap">ShadowMap</a></li>
         <li><a href="#ghostclaim-pro">GhostClaim Pro</a></li>
       </ul>
     </div>
