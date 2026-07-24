@@ -227,13 +227,12 @@
     <div class="tool-card active-tool">
       <div class="tool-card-label"><span>Tool 02 · Offensive Security</span><span class="tool-status-badge tsb-active">Active</span></div>
       <div class="tool-card-name">ShadowMap</div>
-      <div class="tool-card-desc">A web reconnaissance framework built for bug bounty hunters and penetration testers. Automates subdomain enumeration, DNS recon, and port scanning into a single command.</div>
+      <div class="tool-card-desc">A web reconnaissance framework built for bug bounty hunters and penetration testers. Automates subdomain enumeration, DNS recon, technology fingerprinting, and port scanning into a single command — now fully open source with improved detection accuracy.</div>
       <div class="tool-versions">
-        <span class="tool-ver tv-released">v1.0 Free Released</span>
-        <span class="tool-ver tv-dev">Pro Available</span>
+        <span class="tool-ver tv-released">v1.0 Released</span>
+        <span class="tool-ver tv-released">Fully Open Source</span>
       </div>
-      <a href="https://github.com/siparsecurity/shadowmap" target="_blank" class="tool-link">Free →</a>
-      <a href="https://github.com/siparsecurity/shadowmap-pro" target="_blank" class="tool-link">Pro →</a>
+      <a href="https://github.com/siparsecurity/shadowmap" target="_blank" class="tool-link">View on GitHub →</a>
     </div>
 
     <div class="tool-card active-tool">
@@ -251,10 +250,10 @@
 
   <div style="border:1px solid var(--green-bd);background:var(--green-bg);border-radius:6px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
     <div>
-      <div style="font-size:0.92rem;font-weight:700;color:var(--black);margin-bottom:0.25rem;">Want Pro versions?</div>
-      <div style="font-size:0.8rem;color:var(--text);font-weight:300;">ShadowMap Pro and GhostClaim Pro add advanced fingerprinting, stealth modes, vulnerability detection, and professional report generation.</div>
+      <div style="font-size:0.92rem;font-weight:700;color:var(--black);margin-bottom:0.25rem;">Want the Pro version?</div>
+      <div style="font-size:0.8rem;color:var(--text);font-weight:300;">GhostClaim Pro adds 30+ service fingerprints, stealth modes, JSON export, and professional report generation.</div>
     </div>
-    <a href="/services.html" class="btn btn-black" style="white-space:nowrap;">Get Pro Versions →</a>
+    <a href="/services.html" class="btn btn-black" style="white-space:nowrap;">Get Pro →</a>
   </div>
 
   <div style="font-size:0.78rem;color:var(--light);font-family:var(--mono);">
@@ -371,7 +370,7 @@
   <div class="faq-wrap">
     <div class="faq-item">
       <div class="faq-q">Are your tools really free?</div>
-      <div class="faq-a"><div class="faq-a-inner">Yes — completely free. All tools are open-source and published on GitHub under the MIT License. You can download, use, and modify them at no cost. Pro versions with advanced features are available separately for those who need them.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes — completely free. All tools are open-source and published on GitHub under the MIT License. You can download, use, and modify them at no cost. A Pro version with advanced features is available separately for GhostClaim.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What is subdomain takeover and why does GhostClaim matter?</div>
@@ -382,8 +381,12 @@
       <div class="faq-a"><div class="faq-a-inner">Yes. The Network Monitor is specifically designed for home users, IT administrators, and small businesses. You can run it on Linux (including Kali), Windows 10/11 with Npcap, or Android via Termux if rooted. The dashboard is viewable from any browser on the same network.</div></div>
     </div>
     <div class="faq-item">
+      <div class="faq-q">Is ShadowMap fully free now?</div>
+      <div class="faq-a"><div class="faq-a-inner">Yes. ShadowMap was previously split into Free and Pro editions. It's now a single fully open-source release with all features included — subdomain enumeration, DNS recon, technology fingerprinting, and port scanning — along with improved detection accuracy and fewer false positives.</div></div>
+    </div>
+    <div class="faq-item">
       <div class="faq-q">What is the difference between Free and Pro versions?</div>
-      <div class="faq-a"><div class="faq-a-inner">Free versions cover the core functionality and are fully open source. Pro versions add advanced features — for ShadowMap Pro: active brute-force, technology fingerprinting, vulnerability hints, stealth modes, and HTML/PDF reports. For GhostClaim Pro: 30+ service fingerprints (vs 10 in free), stealth modes, JSON export, and HTML/PDF report generation.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">ShadowMap is now fully open source with no Pro split. For GhostClaim, the Free version covers core detection with 10 service fingerprints, while GhostClaim Pro adds 30+ service fingerprints, stealth modes, JSON export, and HTML/PDF report generation.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">How do I get a Pro version?</div>
@@ -416,8 +419,7 @@
       <div class="footer-h">Tools</div>
       <ul class="footer-links">
         <li><a href="https://github.com/siparsecurity/network-monitor-v3" target="_blank">Network Monitor v3.0</a></li>
-        <li><a href="https://github.com/siparsecurity/shadowmap" target="_blank">ShadowMap Free</a></li>
-        <li><a href="https://github.com/siparsecurity/shadowmap-pro" target="_blank">ShadowMap Pro</a></li>
+        <li><a href="https://github.com/siparsecurity/shadowmap" target="_blank">ShadowMap (Open Source)</a></li>
         <li><a href="https://github.com/siparsecurity/ghostclaim" target="_blank">GhostClaim Free</a></li>
         <li><a href="https://github.com/siparsecurity/ghostclaim-pro" target="_blank">GhostClaim Pro</a></li>
       </ul>
@@ -453,8 +455,3 @@
 
 </body>
 </html>
-
-
-
-
-Claude is AI and can make mistakes. Please double-check responses.
