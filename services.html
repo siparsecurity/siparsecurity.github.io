@@ -105,6 +105,20 @@
     .stag-green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
     .stag-white { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
 
+    .rgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .rcard { background: #fff; padding: 2.25rem; display: flex; flex-direction: column; }
+    .rcard-tool { font-family: var(--mono); font-size: 0.6rem; color: var(--light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.9rem; }
+    .rcard-t { font-size: 1.02rem; font-weight: 700; color: var(--black); margin-bottom: 0.6rem; }
+    .rcard-d { font-size: 0.82rem; color: var(--text); line-height: 1.7; font-weight: 300; margin-bottom: 1.25rem; }
+    .rcard-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: auto; }
+    .rcard-list li { font-size: 0.8rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.55rem; line-height: 1.5; }
+    .rcard-list li::before { content: '✓'; color: var(--green); font-size: 0.7rem; font-weight: 700; margin-top: 0.15rem; flex-shrink: 0; }
+    .rcard-meta { display: flex; justify-content: space-between; align-items: flex-end; margin: 1.5rem 0 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+    .rcard-price { font-size: 1.25rem; font-weight: 800; color: var(--black); line-height: 1.1; }
+    .rcard-price span { font-size: 0.68rem; color: var(--light); font-weight: 400; display: block; margin-top: 0.25rem; }
+    .rcard-turnaround { font-family: var(--mono); font-size: 0.66rem; color: var(--light); text-align: right; }
+    .rcard .btn { width: 100%; justify-content: center; }
+
     .swmap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 1rem; }
     .swcard { background: #fff; padding: 2.5rem; }
     .swcard.pro { background: var(--black); }
@@ -185,6 +199,7 @@
       .sec { padding: 3.5rem 1.25rem; }
       .pvs { grid-template-columns: 1fr; }
       .sgrid { grid-template-columns: 1fr; }
+      .rgrid { grid-template-columns: 1fr; }
       .swmap-grid { grid-template-columns: 1fr; }
       .who-grid { grid-template-columns: 1fr; }
       .shadowmap-solo-list { columns: 1; }
@@ -213,6 +228,7 @@
 </nav>
 
 <div class="pagenav">
+  <a href="#reports">Fixed Price Reports</a>
   <a href="#services">Security Services</a>
   <a href="#shadowmap">ShadowMap</a>
   <a href="#ghostclaim-pro">GhostClaim Pro</a>
@@ -226,9 +242,9 @@
   <h1>Your network has gaps.<br/><span>We find them before attackers do.</span></h1>
   <p>Professional security services and offensive security tools — for home users, small businesses, and bug bounty hunters. No enterprise pricing. No jargon.</p>
   <div class="hero-btns">
-    <a href="#contact" class="btn btn-white">Get a Free Consultation →</a>
-    <a href="#shadowmap" class="btn btn-outline">ShadowMap →</a>
-    <a href="#ghostclaim-pro" class="btn btn-outline">GhostClaim Pro →</a>
+    <a href="#reports" class="btn btn-white">See Fixed Price Reports →</a>
+    <a href="#services" class="btn btn-outline">Custom Services →</a>
+    <a href="https://wa.me/923325765207" class="btn btn-outline">💬 WhatsApp Us →</a>
   </div>
 </div>
 
@@ -252,6 +268,59 @@
   <div class="stat">
     <div class="stat-n">PK 🇵🇰</div>
     <div class="stat-l">Based in Pakistan</div>
+  </div>
+</div>
+
+<div class="sec r" id="reports" style="padding-top:0;">
+  <div class="sec-sub">Fast, Fixed Price</div>
+  <div class="sec-title">Get a report in 24 to 48 hours. No consultation needed.</div>
+  <div class="sec-desc">Built on our own tools, so the price stays low and the turnaround stays fast. Pick a product, message us, get your report.</div>
+  <div class="rgrid">
+    <div class="rcard">
+      <div class="rcard-tool">Powered by GhostClaim</div>
+      <div class="rcard-t">Subdomain Takeover Scan</div>
+      <div class="rcard-d">Full subdomain enumeration and CNAME chain tracing, fingerprinted against known vulnerable services.</div>
+      <ul class="rcard-list">
+        <li>One domain per order</li>
+        <li>Verdict per subdomain: vulnerable, potentially vulnerable, safe</li>
+        <li>PDF report with remediation steps</li>
+      </ul>
+      <div class="rcard-meta">
+        <div class="rcard-price">PKR 7,000<span>$25 international</span></div>
+        <div class="rcard-turnaround">48h turnaround</div>
+      </div>
+      <a href="https://wa.me/923325765207?text=Hi%20Sipar%20Security%2C%20I%20want%20to%20order%20a%20Subdomain%20Takeover%20Scan%20report.%20My%20domain%20is%3A%20" class="btn btn-green">💬 Order on WhatsApp →</a>
+    </div>
+    <div class="rcard">
+      <div class="rcard-tool">Powered by ShadowMap</div>
+      <div class="rcard-t">Bug Bounty Recon Report</div>
+      <div class="rcard-d">Subdomain enumeration, DNS recon, tech fingerprinting, and port scan, delivered as a report you can start hunting from.</div>
+      <ul class="rcard-list">
+        <li>One target per order</li>
+        <li>HTML report plus a short summary of promising attack surface</li>
+        <li>Fastest of the three products</li>
+      </ul>
+      <div class="rcard-meta">
+        <div class="rcard-price">PKR 4,000<span>$15 international</span></div>
+        <div class="rcard-turnaround">24 to 48h</div>
+      </div>
+      <a href="https://wa.me/923325765207?text=Hi%20Sipar%20Security%2C%20I%20want%20to%20order%20a%20Bug%20Bounty%20Recon%20Report.%20My%20target%20is%3A%20" class="btn btn-green">💬 Order on WhatsApp →</a>
+    </div>
+    <div class="rcard">
+      <div class="rcard-tool">Powered by Network Monitor</div>
+      <div class="rcard-t">Home / Small Business Network Audit</div>
+      <div class="rcard-d">We run the Network Monitor against your network to find rogue devices, ARP spoofing, and open ports, then write up the fixes.</div>
+      <ul class="rcard-list">
+        <li>Remote setup or in person, Peshawar area</li>
+        <li>Threat level per device</li>
+        <li>Written report with clear next steps</li>
+      </ul>
+      <div class="rcard-meta">
+        <div class="rcard-price">PKR 15,000<span>$50 international</span></div>
+        <div class="rcard-turnaround">Scheduled, few days</div>
+      </div>
+      <a href="https://wa.me/923325765207?text=Hi%20Sipar%20Security%2C%20I%20want%20to%20book%20a%20Network%20Audit.%20Here%20is%20a%20bit%20about%20my%20network%3A%20" class="btn btn-green">💬 Order on WhatsApp →</a>
+    </div>
   </div>
 </div>
 
@@ -397,11 +466,11 @@
         <li>PDF report generation</li>
         <li>Full CNAME chain displayed in reports</li>
       </ul>
-      <a href="mailto:siparsecurity@gmail.com?subject=GhostClaim%20Pro%20Purchase%20Request" class="btn btn-green">📧 Email to Buy GhostClaim Pro →</a>
+      <a href="https://wa.me/923325765207?text=Hi%20Sipar%20Security%2C%20I%20want%20to%20buy%20GhostClaim%20Pro." class="btn btn-green">💬 WhatsApp to Buy GhostClaim Pro →</a>
     </div>
   </div>
   <div style="font-size:0.78rem;color:var(--light);font-family:var(--mono);">
-    GhostClaim Pro is sold directly — email us to receive your copy.
+    GhostClaim Pro is sold directly — message us on WhatsApp or email to receive your copy.
   </div>
 </div>
 
@@ -433,15 +502,21 @@
     <div>
       <div class="contact-sub">Contact</div>
       <div class="contact-title">Let's talk.</div>
-      <div class="contact-desc">Free network security consultation, or ready to get GhostClaim Pro — reach out and we will respond within 24 hours.</div>
+      <div class="contact-desc">Free network security consultation, ready to order a fixed price report, or want GhostClaim Pro — reach out and we will respond within 24 hours.</div>
       <div class="contact-btns">
-        <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request" class="cbtn cbtn-black">📧 Email Us</a>
+        <a href="https://wa.me/923325765207" target="_blank" class="cbtn cbtn-black">💬 WhatsApp Us</a>
+        <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request" class="cbtn cbtn-border">📧 Email Us</a>
         <a href="https://linkedin.com/company/siparsecurity" target="_blank" class="cbtn cbtn-border">💼 Message on LinkedIn</a>
       </div>
       <div class="contact-note">We respond within 24 hours · All consultations are confidential</div>
     </div>
     <div>
       <div class="contact-methods">
+        <a href="https://wa.me/923325765207" target="_blank" class="cmethod">
+          <span class="cmethod-icon">💬</span>
+          <div><div class="cmethod-label">WhatsApp</div><div class="cmethod-val">+92 332 576 5207</div></div>
+          <span class="cmethod-arrow">→</span>
+        </a>
         <a href="mailto:siparsecurity@gmail.com" class="cmethod">
           <span class="cmethod-icon">📧</span>
           <div><div class="cmethod-label">Email</div><div class="cmethod-val">siparsecurity@gmail.com</div></div>
@@ -465,7 +540,7 @@
 <div class="cta-band r">
   <h2>Your first consultation is free. No commitment.</h2>
   <p>Tell us what you are worried about. We will tell you honestly what we can do.</p>
-  <a href="mailto:siparsecurity@gmail.com?subject=Security%20Consultation%20Request" class="btn btn-white">📧 Email Us Now →</a>
+  <a href="https://wa.me/923325765207" class="btn btn-white">💬 WhatsApp Us Now →</a>
 </div>
 
 <footer>
@@ -478,6 +553,7 @@
     <div>
       <div class="footer-h">Services</div>
       <ul class="footer-links">
+        <li><a href="#reports">Fixed Price Reports</a></li>
         <li><a href="#services">Network Audit</a></li>
         <li><a href="#services">Penetration Testing</a></li>
         <li><a href="#services">Monitor Setup</a></li>
@@ -497,6 +573,7 @@
     <div>
       <div class="footer-h">Contact</div>
       <ul class="footer-links">
+        <li><a href="https://wa.me/923325765207" target="_blank">WhatsApp</a></li>
         <li><a href="mailto:siparsecurity@gmail.com">Email Us</a></li>
         <li><a href="https://linkedin.com/company/siparsecurity" target="_blank">LinkedIn</a></li>
         <li><a href="https://x.com/SiparSecurity" target="_blank">X / Twitter</a></li>
