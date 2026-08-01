@@ -126,7 +126,7 @@
     .cta-btn-ghost { display: inline-block; border: 1.5px solid #333; color: #aaa; font-size: 0.88rem; font-weight: 500; padding: 0.85rem 2rem; text-decoration: none; transition: all 0.15s; }
     .cta-btn-ghost:hover { border-color: #777; color: #fff; }
     footer { border-top: 1px solid var(--border); }
-    .footer-inner { max-width: 960px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; }
+    .footer-inner { max-width: 960px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; }
     .footer-logo { font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--black); margin-bottom: 0.75rem; }
     .footer-tag { font-size: 0.82rem; color: var(--text); line-height: 1.7; font-weight: 300; max-width: 240px; margin-bottom: 1.5rem; }
     .footer-copy { font-size: 0.72rem; color: var(--light); }
@@ -170,7 +170,8 @@
   <p>Sipar Security develops open-source security tools, provides professional security services, and conducts applied security research — built for real-world use, not enterprise budgets.</p>
   <div class="hero-btns">
     <a href="https://github.com/siparsecurity" target="_blank" class="btn btn-black">⭐ View All Tools</a>
-    <a href="/services.html" class="btn btn-border">Our Services →</a>
+    <a href="/services.html#reports" class="btn btn-border">Fixed Price Reports →</a>
+    <a href="https://wa.me/923325765207" target="_blank" class="btn btn-border">💬 WhatsApp Us →</a>
   </div>
 </div>
 
@@ -401,10 +402,11 @@
 
 <div class="cta-band r">
   <h2>Ready to get started?</h2>
-  <p>Get our tools free on GitHub or check out our professional security services.</p>
+  <p>Get our tools free on GitHub, order a fixed price report, or message us directly.</p>
   <div class="cta-btns">
     <a href="https://github.com/siparsecurity" target="_blank" class="cta-btn-white">⭐ Get the Tools Free</a>
-    <a href="/services.html" class="cta-btn-ghost">Our Services →</a>
+    <a href="/services.html#reports" class="cta-btn-ghost">Fixed Price Reports →</a>
+    <a href="https://wa.me/923325765207" target="_blank" class="cta-btn-ghost">💬 WhatsApp Us →</a>
   </div>
 </div>
 
@@ -431,6 +433,15 @@
         <li><a href="/services.html">Services</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="https://github.com/siparsecurity" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-h">Contact</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/923325765207" target="_blank">WhatsApp</a></li>
+        <li><a href="mailto:siparsecurity@gmail.com">Email Us</a></li>
+        <li><a href="https://linkedin.com/company/siparsecurity" target="_blank">LinkedIn</a></li>
+        <li><a href="https://x.com/SiparSecurity" target="_blank">X / Twitter</a></li>
       </ul>
     </div>
   </div>
