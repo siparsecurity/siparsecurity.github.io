@@ -224,7 +224,6 @@
       </div>
       <a href="https://github.com/siparsecurity/network-monitor-v3" target="_blank" class="tool-link">View on GitHub →</a>
     </div>
-
     <div class="tool-card active-tool">
       <div class="tool-card-label"><span>Tool 02 · Offensive Security</span><span class="tool-status-badge tsb-active">Active</span></div>
       <div class="tool-card-name">ShadowMap</div>
@@ -235,7 +234,6 @@
       </div>
       <a href="https://github.com/siparsecurity/shadowmap" target="_blank" class="tool-link">View on GitHub →</a>
     </div>
-
     <div class="tool-card active-tool">
       <div class="tool-card-label"><span>Tool 03 · Offensive Security</span><span class="tool-status-badge tsb-active">New</span></div>
       <div class="tool-card-name">GhostClaim</div>
