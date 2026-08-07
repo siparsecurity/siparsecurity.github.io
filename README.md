@@ -63,6 +63,7 @@
     .tool-link:hover { text-decoration: underline; }
     .tool-status-badge { font-family: var(--mono); font-size: 0.6rem; padding: 0.2rem 0.6rem; border-radius: 3px; font-weight: 600; }
     .tsb-active { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
+    .tsb-dev { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
     .versions { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
     .vrow { display: grid; grid-template-columns: 110px 1fr auto; gap: 0 2.5rem; padding: 2rem 2.5rem; border-bottom: 1px solid var(--border); align-items: start; transition: background 0.15s; }
     .vrow:last-child { border-bottom: none; }
@@ -201,7 +202,7 @@
 </div>
 
 <div class="stats r">
-  <div class="stat"><div class="stat-n">3<em>+</em></div><div class="stat-l">Tools Released</div></div>
+  <div class="stat"><div class="stat-n">5<em>+</em></div><div class="stat-l">Tools Released</div></div>
   <div class="stat"><div class="stat-n">100<em>%</em></div><div class="stat-l">Open Source</div></div>
   <div class="stat"><div class="stat-n">0<em>$</em></div><div class="stat-l">Cost to Use</div></div>
   <div class="stat"><div class="stat-n">PK<em> 🇵🇰</em></div><div class="stat-l">Built in Pakistan</div></div>
@@ -244,6 +245,24 @@
       </div>
       <a href="https://github.com/siparsecurity/ghostclaim" target="_blank" class="tool-link">Free →</a>
       <a href="https://github.com/siparsecurity/ghostclaim-pro" target="_blank" class="tool-link">Pro →</a>
+    </div>
+    <div class="tool-card active-tool">
+      <div class="tool-card-label"><span>Tool 04 · Attack Surface Visualization</span><span class="tool-status-badge tsb-dev">Pre-Alpha</span></div>
+      <div class="tool-card-name">Sipar Visualizer</div>
+      <div class="tool-card-desc">Ingests output from Amass, httpx, nmap, and ShadowMap and renders an interactive attack surface graph as a single self-contained HTML file. No server, no setup, just open it in a browser.</div>
+      <div class="tool-versions">
+        <span class="tool-ver tv-dev">Pre-Alpha</span>
+      </div>
+      <a href="https://github.com/siparsecurity/sipar-visualizer" target="_blank" class="tool-link">View on GitHub →</a>
+    </div>
+    <div class="tool-card active-tool">
+      <div class="tool-card-label"><span>Tool 05 · API Discovery</span><span class="tool-status-badge tsb-dev">v0.1</span></div>
+      <div class="tool-card-name">EchoRoute</div>
+      <div class="tool-card-desc">A source map based endpoint recovery tool. Crawls a target, extracts and resolves JavaScript source maps, and surfaces hidden API endpoints, including sensitive routes that would otherwise stay buried in bundled code.</div>
+      <div class="tool-versions">
+        <span class="tool-ver tv-dev">v0.1</span>
+      </div>
+      <a href="https://github.com/siparsecurity/echoroute" target="_blank" class="tool-link">View on GitHub →</a>
     </div>
   </div>
 
@@ -354,7 +373,7 @@
     <div>
       <div class="fstats">
         <div class="fstat"><div class="fstat-n">17</div><div class="fstat-l">Years old</div></div>
-        <div class="fstat"><div class="fstat-n">3+</div><div class="fstat-l">Tools released</div></div>
+        <div class="fstat"><div class="fstat-n">5+</div><div class="fstat-l">Tools released</div></div>
         <div class="fstat"><div class="fstat-n">1</div><div class="fstat-l">Published paper</div></div>
         <div class="fstat"><div class="fstat-n">PK 🇵🇰</div><div class="fstat-l">Pakistan</div></div>
       </div>
@@ -382,6 +401,14 @@
     <div class="faq-item">
       <div class="faq-q">Is ShadowMap fully free now?</div>
       <div class="faq-a"><div class="faq-a-inner">Yes. ShadowMap was previously split into Free and Pro editions. It's now a single fully open-source release with all features included — subdomain enumeration, DNS recon, technology fingerprinting, and port scanning — along with improved detection accuracy and fewer false positives.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does Sipar Visualizer do?</div>
+      <div class="faq-a"><div class="faq-a-inner">Sipar Visualizer takes the raw output from Amass, httpx, nmap, and ShadowMap and turns it into a single interactive attack surface graph, delivered as one self-contained HTML file. No install, no server, just open it in a browser. It is currently pre-alpha.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does EchoRoute do?</div>
+      <div class="faq-a"><div class="faq-a-inner">EchoRoute discovers hidden API endpoints by decoding JavaScript source maps. It crawls a target, extracts and resolves source maps, and surfaces routes that were never meant to be publicly visible, flagging sensitive ones like account deletion endpoints automatically. It is currently version 0.1.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What is the difference between Free and Pro versions?</div>
@@ -422,6 +449,8 @@
         <li><a href="https://github.com/siparsecurity/shadowmap" target="_blank">ShadowMap (Open Source)</a></li>
         <li><a href="https://github.com/siparsecurity/ghostclaim" target="_blank">GhostClaim Free</a></li>
         <li><a href="https://github.com/siparsecurity/ghostclaim-pro" target="_blank">GhostClaim Pro</a></li>
+        <li><a href="https://github.com/siparsecurity/sipar-visualizer" target="_blank">Sipar Visualizer</a></li>
+        <li><a href="https://github.com/siparsecurity/echoroute" target="_blank">EchoRoute</a></li>
       </ul>
     </div>
     <div>
