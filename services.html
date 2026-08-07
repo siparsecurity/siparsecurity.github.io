@@ -125,6 +125,7 @@
     .swcard-badge { font-family: var(--mono); font-size: 0.62rem; padding: 0.2rem 0.65rem; border-radius: 3px; display: inline-block; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 1.25rem; }
     .swcard-badge.free { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
     .swcard-badge.pro { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
+    .swcard-badge.alpha { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-bd); }
     .swcard-t { font-size: 1.3rem; font-weight: 800; color: var(--black); margin-bottom: 0.5rem; }
     .swcard.pro .swcard-t { color: #fff; }
     .swcard-sub { font-size: 0.82rem; color: var(--text); font-weight: 300; margin-bottom: 1.75rem; }
@@ -136,6 +137,7 @@
     .swcard.pro .swcard-list li::before { color: #4ade80; }
 
     .shadowmap-solo { border: 1px solid var(--green-bd); background: var(--green-bg); border-radius: 6px; padding: 2.5rem; margin-bottom: 1rem; }
+    .shadowmap-solo.alpha { border: 1px solid var(--amber-bd); background: var(--amber-bg); }
     .shadowmap-solo .swcard-badge { margin-bottom: 1.25rem; }
     .shadowmap-solo-t { font-size: 1.3rem; font-weight: 800; color: var(--black); margin-bottom: 0.5rem; }
     .shadowmap-solo-sub { font-size: 0.85rem; color: var(--text); font-weight: 300; margin-bottom: 1.75rem; max-width: 560px; }
@@ -232,6 +234,8 @@
   <a href="#services">Security Services</a>
   <a href="#shadowmap">ShadowMap</a>
   <a href="#ghostclaim-pro">GhostClaim Pro</a>
+  <a href="#visualizer">Sipar Visualizer</a>
+  <a href="#echoroute">EchoRoute</a>
   <a href="#who">Who We Help</a>
   <a href="#contact">Contact</a>
   <a href="https://github.com/siparsecurity" target="_blank">GitHub</a>
@@ -258,7 +262,7 @@
     <div class="stat-l">First consultation</div>
   </div>
   <div class="stat">
-    <div class="stat-n">3</div>
+    <div class="stat-n">5</div>
     <div class="stat-l">Tools released</div>
   </div>
   <div class="stat">
@@ -471,6 +475,42 @@
   </div>
 </div>
 
+<div class="sec r" id="visualizer" style="padding-top:0;">
+  <div class="sec-sub">Attack Surface Visualization</div>
+  <div class="sec-title">Sipar Visualizer — see your recon, not just read it</div>
+  <div class="sec-desc">Takes the output from Amass, httpx, nmap, and ShadowMap and turns it into a single interactive attack surface graph. Ships as one self-contained HTML file, no server, no install.</div>
+  <div class="shadowmap-solo alpha">
+    <span class="swcard-badge alpha">PRE-ALPHA · FREE · OPEN SOURCE</span>
+    <div class="shadowmap-solo-t">Sipar Visualizer</div>
+    <div class="shadowmap-solo-sub">Built for researchers who are tired of scrolling through raw recon output to find what matters.</div>
+    <ul class="shadowmap-solo-list">
+      <li>Ingests Amass, httpx, nmap, and ShadowMap output</li>
+      <li>Interactive attack surface graph</li>
+      <li>Single self-contained HTML file, opens in any browser</li>
+      <li>No backend, no setup required</li>
+    </ul>
+    <a href="https://github.com/siparsecurity/sipar-visualizer" target="_blank" class="btn btn-black">⭐ Get it Free on GitHub</a>
+  </div>
+</div>
+
+<div class="sec r" id="echoroute" style="padding-top:0;">
+  <div class="sec-sub">API Discovery</div>
+  <div class="sec-title">EchoRoute — hidden endpoints, found through source maps</div>
+  <div class="sec-desc">Discovers hidden API endpoints by decoding JavaScript source maps. Crawls a target, extracts and resolves source maps, and surfaces routes that were never meant to be publicly visible.</div>
+  <div class="shadowmap-solo alpha">
+    <span class="swcard-badge alpha">v0.1 · FREE · OPEN SOURCE</span>
+    <div class="shadowmap-solo-t">EchoRoute</div>
+    <div class="shadowmap-solo-sub">Full pipeline runs end to end: crawl, extract, resolve, normalize, output.</div>
+    <ul class="shadowmap-solo-list">
+      <li>Source map based endpoint recovery</li>
+      <li>Automatic risk flagging for sensitive routes</li>
+      <li>False positive filtering for framework and library artifacts</li>
+      <li>Tested against real authorized targets</li>
+    </ul>
+    <a href="https://github.com/siparsecurity/echoroute" target="_blank" class="btn btn-black">⭐ Get it Free on GitHub</a>
+  </div>
+</div>
+
 <div class="sec r" id="who" style="padding-top:0;">
   <div class="sec-sub">Who We Help</div>
   <div class="sec-title">Built for people who cannot afford to ignore security</div>
@@ -489,7 +529,7 @@
     <div class="who-card">
       <span class="who-icon">🐛</span>
       <div class="who-t">Bug Bounty Hunters</div>
-      <div class="who-d">Reconnaissance and takeover detection eat hours before you find a single bug. ShadowMap and GhostClaim automate it — so you spend your time testing, not mapping.</div>
+      <div class="who-d">Reconnaissance, takeover detection, and endpoint discovery eat hours before you find a single bug. ShadowMap, GhostClaim, Sipar Visualizer, and EchoRoute automate it — so you spend your time testing, not mapping.</div>
     </div>
   </div>
 </div>
@@ -556,6 +596,8 @@
         <li><a href="#services">Monitor Setup</a></li>
         <li><a href="#shadowmap">ShadowMap</a></li>
         <li><a href="#ghostclaim-pro">GhostClaim Pro</a></li>
+        <li><a href="#visualizer">Sipar Visualizer</a></li>
+        <li><a href="#echoroute">EchoRoute</a></li>
       </ul>
     </div>
     <div>
