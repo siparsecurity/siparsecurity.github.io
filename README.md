@@ -203,7 +203,7 @@
 </div>
 
 <div class="stats r">
-  <div class="stat"><div class="stat-n">6<em>+</em></div><div class="stat-l">Tools Released</div></div>
+  <div class="stat"><div class="stat-n">7<em>+</em></div><div class="stat-l">Tools Released</div></div>
   <div class="stat"><div class="stat-n">100<em>%</em></div><div class="stat-l">Open Source</div></div>
   <div class="stat"><div class="stat-n">0<em>$</em></div><div class="stat-l">Cost to Use</div></div>
   <div class="stat"><div class="stat-n">PK<em> 🇵🇰</em></div><div class="stat-l">Built in Pakistan</div></div>
@@ -273,6 +273,19 @@
         <span class="tool-ver tv-released">v3.1 Released</span>
       </div>
       <a href="https://github.com/siparsecurity/openguard" target="_blank" class="tool-link">View on GitHub →</a>
+    </div>
+    <div class="tool-card active-tool">
+      <div class="tool-card-label"><span>Tool 07 · API Security</span><span class="tool-status-badge tsb-dev">In Development</span></div>
+      <div class="tool-card-name">GQLRecon</div>
+      <div class="tool-card-desc">A GraphQL security fuzzer for bug bounty hunters and penetration testers. Maps a target's full schema via introspection, tests for batching and alias based rate limit bypass, fuzzes query depth for resource exhaustion, and checks field level authorization for broken access control.</div>
+      <div class="tool-versions">
+        <span class="tool-ver tv-released">Stage 1: Schema Discovery</span>
+        <span class="tool-ver tv-released">Stage 2: Batching &amp; Alias Abuse</span>
+        <span class="tool-ver tv-released">Stage 3: Depth Fuzzing</span>
+        <span class="tool-ver tv-released">Stage 4: Field Auth Testing</span>
+        <span class="tool-ver tv-dev">Stage 5: Risk Scoring &amp; Reports</span>
+      </div>
+      <a href="https://github.com/siparsecurity/gqlrecon" target="_blank" class="tool-link">View on GitHub →</a>
     </div>
   </div>
 
@@ -383,7 +396,7 @@
     <div>
       <div class="fstats">
         <div class="fstat"><div class="fstat-n">17</div><div class="fstat-l">Years old</div></div>
-        <div class="fstat"><div class="fstat-n">6+</div><div class="fstat-l">Tools released</div></div>
+        <div class="fstat"><div class="fstat-n">7+</div><div class="fstat-l">Tools released</div></div>
         <div class="fstat"><div class="fstat-n">1</div><div class="fstat-l">Published paper</div></div>
         <div class="fstat"><div class="fstat-n">PK 🇵🇰</div><div class="fstat-l">Pakistan</div></div>
       </div>
@@ -466,6 +479,7 @@
         <li><a href="https://github.com/siparsecurity/sipar-visualizer" target="_blank">Sipar Visualizer</a></li>
         <li><a href="https://github.com/siparsecurity/echoroute" target="_blank">EchoRoute</a></li>
         <li><a href="https://github.com/siparsecurity/openguard" target="_blank">OpenGuard</a></li>
+        <li><a href="https://github.com/siparsecurity/gqlrecon" target="_blank">GQLRecon</a></li>
       </ul>
     </div>
     <div>
